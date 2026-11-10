@@ -1,9 +1,9 @@
-# Agenthon 2026 Track 1 (Coding) — Team MindAlchemist
+# Agenthon 2026 Track 1 (Quant-Finance Coding Agents) — Team MindAlchemist
 
-This repository reproduces Team MindAlchemist's Final submission to Track 1 (Coding) of
+This repository reproduces Team MindAlchemist's Final submission to Track 1 (Quant-Finance Coding Agents) of
 [Agenthon 2026: Verifiable AI for Quantitative Finance](https://www.agenthon.net/), part of the
-NeurIPS 2026 Competition Track. The submission placed 3rd on the hidden test set, with a score
-tied for first.
+NeurIPS 2026 Competition Track. The submission placed 3rd on the hidden test set, with the same
+score as the 1st- and 2nd-place teams.
 
 The agent is a coding agent for quantitative finance. All reasoning and code come from NVIDIA
 Nemotron 3 Super (`nvidia/nemotron-3-super-120b-a12b`). It reads a task and its data, writes and runs
@@ -143,8 +143,7 @@ We followed this README on a fresh x86-64 cloud VM (Ubuntu 24.04, 4 vCPUs):
   file under `/opt` that this repository ships, in both Python environments and in its configuration.
 - We ran the submitted image on all 86 public practice units with `scripts/run_unit.sh` and the model
   `nvidia/nemotron-3-super-120b-a12b` served by Nebius Token Factory; every run exited normally and wrote its
-  deliverables. Results under both competition limits (25 requests and 4,000 output tokens per request, through
-  `scripts/request_cap_proxy.py`) will be added here.
+  deliverables.
 
 ## Notes on reproducibility
 
