@@ -1,0 +1,16 @@
+Agenthon 2026 Track 1 (Coding) — Team MindAlchemist
+Copyright 2026 Xiangyu Gong and Maosheng Guo
+
+This repository contains the participant-authored code of the team's Final submission and is
+licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party components are not part of this repository and keep their own licenses. They are
+installed in the base image this code runs on, or are downloaded by the user:
+
+- mini-swe-agent 2.4.6 (MIT License), the agent framework the driver builds on
+- LiteLLM and the other Python packages listed in env/pip-freeze-agent.txt and
+  env/pip-freeze-compute.txt, under their respective licenses
+- NVIDIA Nemotron 3 Super (nvidia/nemotron-3-super-120b-a12b), accessed through an API and
+  not included here, under NVIDIA's model license
+- The Agenthon 2026 / QF-Bench task units, which are not included here; see the official
+  repository for their license (CC BY-NC 4.0)
