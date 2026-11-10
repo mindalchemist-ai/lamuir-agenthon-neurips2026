@@ -1,0 +1,685 @@
+{
+ "pandas.Series.shift": {
+  "fn": "pandas.Series.shift",
+  "family": "pd_lag_window",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`pandas.Series.shift` — Shift index by desired number of periods with an optional time `freq`.\nSignature: `shift(periods: 'int | Sequence[int]' = 1, freq=None, axis: 'Axis' = 0, fill_value: 'Hashable' = <no_default>, suffix: 'str | None' = None) -> 'Self | DataFrame'`\nParameters:\n→ periods : int or Sequence\n      Number of periods to shift. Can be positive or negative.\n      If an iterable of ints, the data will be shifted once by each int.\n      This is equivalent to shifting by one value at a time and\n      concatenating all resulting frames. The resulting columns will have\n      the shift suffixed to their column names. For multiple periods,\n      axis must not be 1.\n  freq : DateOffset, tseries.offsets, timedelta, or str, optional\n      Offset to use from the tseries module or time rule (e.g. 'EOM').\n      If `freq` is specified then the index values are shifted but the\n      data is not realigned. That is, use `freq` if you would like to\n      extend the index when shifting and preserve the original data.\n      If `freq` is specified as \"infer\" then it will be inferred from\n      the freq or inferred_freq attributes of the index. If neither of\n      those attributes exist, a ValueError is thrown.\n  axis : {0 or 'index', 1 or 'columns', None}, default None\n      Shift direction. For `Series` this parameter is unused and defaults to 0.\n  fill_value : object, optional\n      The scalar value to use for newly introduced missing values.\n      the default depends on the dtype of `self`.\n      For Boolean and numeric NumPy data types, ``np.nan`` is used.\n      For datetime, timedelta, or period data, etc. :attr:`NaT` is used.\n      For extension dtypes, ``self.dtype.na_value`` is used.\n  suffix : str, optional\n      If str and periods is an iterable, this is added after the column\n      name and before the shift value for each shifted column name.\n      For `Series` this parameter is unused and defaults to `None`.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "periods",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "freq",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "fill_value",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "<no_default>",
+    "default": null
+   },
+   {
+    "name": "suffix",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [
+   "periods"
+  ],
+  "checklist": [
+   {
+    "rule": "lag_order",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Order of slicing and lagging: there are two orders, and they give a different first row.",
+     "(1) Lag the full series, then cut the window (`full.shift(1)`, `full.diff()` or `full.pct_change()` first, then `.loc[...]`, `.iloc[...]` or a boolean mask): the first row of the window takes its previous value from the row just before the window in the full data.",
+     "(2) Cut the window, then lag (`window.shift(1)`, `window.diff()`, `window.pct_change()`): the first row has no previous row inside the window, so its result is `NaN`; a later `dropna()` removes that row, `fillna(0)` turns it into a zero, and a comparison with it is `False` (a crossover on that row is never detected).",
+     "Use (1) when the row before the window exists in the data and <task_instructions> define the lagged value or the change on the full series (for example the change from the previous trading day, or a regression of a change on its previous value); use (2) only when <task_instructions> say the window starts without a previous value."
+    ],
+    "claims": [
+     "slice then shift: the first row of the window is NaN; shift the full series then slice: it holds the previous value",
+     "slice then diff or pct_change: the first row of the window is NaN; on the full series then slice it has a value",
+     "the same holds for a .loc label slice and a boolean mask",
+     "dropna after a lag on a slice removes the first window row; a comparison with the NaN is False",
+     "fill_value fills the rows shift introduces (0 hides the missing previous value)"
+    ]
+   },
+   {
+    "rule": "mask_position",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Position, not date: after a boolean mask the lag is taken by position, so the previous row is the previous row the mask kept, not the previous row of the full data. If the previous value in <task_instructions> means the previous observation of the full data, lag before masking."
+    ],
+    "claims": [
+     "after a boolean mask, shift takes the previous kept row, not the previous row of the full data"
+    ]
+   },
+   {
+    "rule": "periods",
+    "kind": "param",
+    "params": [
+     "periods"
+    ],
+    "segments": [
+     "`periods`: an integer, with two signs. A positive value $k$ uses the row $k$ rows earlier (the first $k$ rows become `NaN`); a negative value uses a later row (the last rows become `NaN`). The default is `1`, the row just before."
+    ],
+    "claims": [
+     "periods=k>0: the first k rows are NaN and row i holds row i-k; periods<0: the last rows are NaN; the default is 1"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "slice_then_lag"
+   },
+   "describe": "a shift, diff or pct_change call inside a for / while loop or a function body whose receiver is a row window cut in that body above the call: a positional or label slice with a lower bound (s[a:b], .iloc[a:b], .loc[a:b]) or a range mask (>, >=, <, <=, between), inline or through a name bound to it (column picks and .copy() in between are followed); equality, isin and notna masks, slices from the start and numpy np.diff are left alone"
+  },
+  "steps": "cell"
+ },
+ "pandas.Series.diff": {
+  "fn": "pandas.Series.diff",
+  "family": "pd_lag_window",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`pandas.Series.diff` — First discrete difference of Series elements.\nSignature: `diff(periods: 'int' = 1) -> 'Series'`\nParameters:\n→ periods : int, default 1\n      Periods to shift for calculating difference, accepts negative\n      values.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "periods",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   }
+  ],
+  "risky": [
+   "periods"
+  ],
+  "checklist": [
+   {
+    "rule": "lag_order",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Order of slicing and lagging: there are two orders, and they give a different first row.",
+     "(1) Lag the full series, then cut the window (`full.shift(1)`, `full.diff()` or `full.pct_change()` first, then `.loc[...]`, `.iloc[...]` or a boolean mask): the first row of the window takes its previous value from the row just before the window in the full data.",
+     "(2) Cut the window, then lag (`window.shift(1)`, `window.diff()`, `window.pct_change()`): the first row has no previous row inside the window, so its result is `NaN`; a later `dropna()` removes that row, `fillna(0)` turns it into a zero, and a comparison with it is `False` (a crossover on that row is never detected).",
+     "Use (1) when the row before the window exists in the data and <task_instructions> define the lagged value or the change on the full series (for example the change from the previous trading day, or a regression of a change on its previous value); use (2) only when <task_instructions> say the window starts without a previous value."
+    ],
+    "claims": [
+     "slice then shift: the first row of the window is NaN; shift the full series then slice: it holds the previous value",
+     "slice then diff or pct_change: the first row of the window is NaN; on the full series then slice it has a value",
+     "the same holds for a .loc label slice and a boolean mask",
+     "dropna after a lag on a slice removes the first window row; a comparison with the NaN is False",
+     "fill_value fills the rows shift introduces (0 hides the missing previous value)"
+    ]
+   },
+   {
+    "rule": "mask_position",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Position, not date: after a boolean mask the lag is taken by position, so the previous row is the previous row the mask kept, not the previous row of the full data. If the previous value in <task_instructions> means the previous observation of the full data, lag before masking."
+    ],
+    "claims": [
+     "after a boolean mask, shift takes the previous kept row, not the previous row of the full data"
+    ]
+   },
+   {
+    "rule": "periods",
+    "kind": "param",
+    "params": [
+     "periods"
+    ],
+    "segments": [
+     "`periods`: an integer, with two signs. A positive value $k$ uses the row $k$ rows earlier (the first $k$ rows become `NaN`); a negative value uses a later row (the last rows become `NaN`). The default is `1`, the row just before."
+    ],
+    "claims": [
+     "periods=k>0: the first k rows are NaN and row i holds row i-k; periods<0: the last rows are NaN; the default is 1"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "slice_then_lag"
+   },
+   "describe": "a shift, diff or pct_change call inside a for / while loop or a function body whose receiver is a row window cut in that body above the call: a positional or label slice with a lower bound (s[a:b], .iloc[a:b], .loc[a:b]) or a range mask (>, >=, <, <=, between), inline or through a name bound to it (column picks and .copy() in between are followed); equality, isin and notna masks, slices from the start and numpy np.diff are left alone"
+  },
+  "steps": "cell"
+ },
+ "pandas.Series.pct_change": {
+  "fn": "pandas.Series.pct_change",
+  "family": "pd_lag_window",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`pandas.Series.pct_change` — Fractional change between the current and a prior element.\nSignature: `pct_change(periods: 'int' = 1, fill_method: 'None' = None, freq=None, **kwargs) -> 'Self'`\nParameters:\n→ periods : int, default 1\n      Periods to shift for forming percent change.\n  fill_method : None\n      Must be None. This argument will be removed in a future version of pandas.\n  freq : DateOffset, timedelta, or str, optional\n      Increment to use from time series API (e.g. 'ME' or BDay()).\n  **kwargs\n      Additional keyword arguments are passed into\n      `DataFrame.shift` or `Series.shift`.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "periods",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "fill_method",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "freq",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "kwargs",
+    "kind": "VAR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   }
+  ],
+  "risky": [
+   "periods"
+  ],
+  "checklist": [
+   {
+    "rule": "lag_order",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Order of slicing and lagging: there are two orders, and they give a different first row.",
+     "(1) Lag the full series, then cut the window (`full.shift(1)`, `full.diff()` or `full.pct_change()` first, then `.loc[...]`, `.iloc[...]` or a boolean mask): the first row of the window takes its previous value from the row just before the window in the full data.",
+     "(2) Cut the window, then lag (`window.shift(1)`, `window.diff()`, `window.pct_change()`): the first row has no previous row inside the window, so its result is `NaN`; a later `dropna()` removes that row, `fillna(0)` turns it into a zero, and a comparison with it is `False` (a crossover on that row is never detected).",
+     "Use (1) when the row before the window exists in the data and <task_instructions> define the lagged value or the change on the full series (for example the change from the previous trading day, or a regression of a change on its previous value); use (2) only when <task_instructions> say the window starts without a previous value."
+    ],
+    "claims": [
+     "slice then shift: the first row of the window is NaN; shift the full series then slice: it holds the previous value",
+     "slice then diff or pct_change: the first row of the window is NaN; on the full series then slice it has a value",
+     "the same holds for a .loc label slice and a boolean mask",
+     "dropna after a lag on a slice removes the first window row; a comparison with the NaN is False",
+     "fill_value fills the rows shift introduces (0 hides the missing previous value)"
+    ]
+   },
+   {
+    "rule": "mask_position",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Position, not date: after a boolean mask the lag is taken by position, so the previous row is the previous row the mask kept, not the previous row of the full data. If the previous value in <task_instructions> means the previous observation of the full data, lag before masking."
+    ],
+    "claims": [
+     "after a boolean mask, shift takes the previous kept row, not the previous row of the full data"
+    ]
+   },
+   {
+    "rule": "periods",
+    "kind": "param",
+    "params": [
+     "periods"
+    ],
+    "segments": [
+     "`periods`: an integer, with two signs. A positive value $k$ uses the row $k$ rows earlier (the first $k$ rows become `NaN`); a negative value uses a later row (the last rows become `NaN`). The default is `1`, the row just before."
+    ],
+    "claims": [
+     "periods=k>0: the first k rows are NaN and row i holds row i-k; periods<0: the last rows are NaN; the default is 1"
+    ]
+   },
+   {
+    "rule": "fill_method",
+    "kind": "param",
+    "params": [
+     "fill_method"
+    ],
+    "segments": [
+     "`fill_method`: one option in this pandas version, `None` (any other value raises an error): missing values are not filled before the change. Call `.ffill()` first only if <task_instructions> say to carry the last value forward."
+    ],
+    "claims": [
+     "pct_change accepts only fill_method=None in this pandas version; missing values are not filled"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "slice_then_lag"
+   },
+   "describe": "a shift, diff or pct_change call inside a for / while loop or a function body whose receiver is a row window cut in that body above the call: a positional or label slice with a lower bound (s[a:b], .iloc[a:b], .loc[a:b]) or a range mask (>, >=, <, <=, between), inline or through a name bound to it (column picks and .copy() in between are followed); equality, isin and notna masks, slices from the start and numpy np.diff are left alone"
+  },
+  "steps": "cell"
+ },
+ "pandas.DataFrame.shift": {
+  "fn": "pandas.DataFrame.shift",
+  "family": "pd_lag_window",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`pandas.DataFrame.shift` — Shift index by desired number of periods with an optional time `freq`.\nSignature: `shift(periods: 'int | Sequence[int]' = 1, freq: 'Frequency | None' = None, axis: 'Axis' = 0, fill_value: 'Hashable' = <no_default>, suffix: 'str | None' = None) -> 'DataFrame'`\nParameters:\n→ periods : int or Sequence\n      Number of periods to shift. Can be positive or negative.\n      If an iterable of ints, the data will be shifted once by each int.\n      This is equivalent to shifting by one value at a time and\n      concatenating all resulting frames. The resulting columns will have\n      the shift suffixed to their column names. For multiple periods,\n      axis must not be 1.\n  freq : DateOffset, tseries.offsets, timedelta, or str, optional\n      Offset to use from the tseries module or time rule (e.g. 'EOM').\n      If `freq` is specified then the index values are shifted but the\n      data is not realigned. That is, use `freq` if you would like to\n      extend the index when shifting and preserve the original data.\n      If `freq` is specified as \"infer\" then it will be inferred from\n      the freq or inferred_freq attributes of the index. If neither of\n      those attributes exist, a ValueError is thrown.\n  axis : {0 or 'index', 1 or 'columns', None}, default None\n      Shift direction. For `Series` this parameter is unused and defaults to 0.\n  fill_value : object, optional\n      The scalar value to use for newly introduced missing values.\n      the default depends on the dtype of `self`.\n      For Boolean and numeric NumPy data types, ``np.nan`` is used.\n      For datetime, timedelta, or period data, etc. :attr:`NaT` is used.\n      For extension dtypes, ``self.dtype.na_value`` is used.\n  suffix : str, optional\n      If str and periods is an iterable, this is added after the column\n      name and before the shift value for each shifted column name.\n      For `Series` this parameter is unused and defaults to `None`.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "periods",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "freq",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "fill_value",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "<no_default>",
+    "default": null
+   },
+   {
+    "name": "suffix",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [
+   "periods"
+  ],
+  "checklist": [
+   {
+    "rule": "lag_order",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Order of slicing and lagging: there are two orders, and they give a different first row.",
+     "(1) Lag the full series, then cut the window (`full.shift(1)`, `full.diff()` or `full.pct_change()` first, then `.loc[...]`, `.iloc[...]` or a boolean mask): the first row of the window takes its previous value from the row just before the window in the full data.",
+     "(2) Cut the window, then lag (`window.shift(1)`, `window.diff()`, `window.pct_change()`): the first row has no previous row inside the window, so its result is `NaN`; a later `dropna()` removes that row, `fillna(0)` turns it into a zero, and a comparison with it is `False` (a crossover on that row is never detected).",
+     "Use (1) when the row before the window exists in the data and <task_instructions> define the lagged value or the change on the full series (for example the change from the previous trading day, or a regression of a change on its previous value); use (2) only when <task_instructions> say the window starts without a previous value."
+    ],
+    "claims": [
+     "slice then shift: the first row of the window is NaN; shift the full series then slice: it holds the previous value",
+     "slice then diff or pct_change: the first row of the window is NaN; on the full series then slice it has a value",
+     "the same holds for a .loc label slice and a boolean mask",
+     "dropna after a lag on a slice removes the first window row; a comparison with the NaN is False",
+     "fill_value fills the rows shift introduces (0 hides the missing previous value)"
+    ]
+   },
+   {
+    "rule": "mask_position",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Position, not date: after a boolean mask the lag is taken by position, so the previous row is the previous row the mask kept, not the previous row of the full data. If the previous value in <task_instructions> means the previous observation of the full data, lag before masking."
+    ],
+    "claims": [
+     "after a boolean mask, shift takes the previous kept row, not the previous row of the full data"
+    ]
+   },
+   {
+    "rule": "periods",
+    "kind": "param",
+    "params": [
+     "periods"
+    ],
+    "segments": [
+     "`periods`: an integer, with two signs. A positive value $k$ uses the row $k$ rows earlier (the first $k$ rows become `NaN`); a negative value uses a later row (the last rows become `NaN`). The default is `1`, the row just before."
+    ],
+    "claims": [
+     "periods=k>0: the first k rows are NaN and row i holds row i-k; periods<0: the last rows are NaN; the default is 1"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "slice_then_lag"
+   },
+   "describe": "a shift, diff or pct_change call inside a for / while loop or a function body whose receiver is a row window cut in that body above the call: a positional or label slice with a lower bound (s[a:b], .iloc[a:b], .loc[a:b]) or a range mask (>, >=, <, <=, between), inline or through a name bound to it (column picks and .copy() in between are followed); equality, isin and notna masks, slices from the start and numpy np.diff are left alone"
+  },
+  "steps": "cell"
+ },
+ "pandas.DataFrame.diff": {
+  "fn": "pandas.DataFrame.diff",
+  "family": "pd_lag_window",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`pandas.DataFrame.diff` — First discrete difference of element.\nSignature: `diff(periods: 'int' = 1, axis: 'Axis' = 0) -> 'DataFrame'`\nParameters:\n→ periods : int, default 1\n      Periods to shift for calculating difference, accepts negative\n      values.\n  axis : {0 or 'index', 1 or 'columns'}, default 0\n      Take difference over rows (0) or columns (1).",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "periods",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   }
+  ],
+  "risky": [
+   "periods"
+  ],
+  "checklist": [
+   {
+    "rule": "lag_order",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Order of slicing and lagging: there are two orders, and they give a different first row.",
+     "(1) Lag the full series, then cut the window (`full.shift(1)`, `full.diff()` or `full.pct_change()` first, then `.loc[...]`, `.iloc[...]` or a boolean mask): the first row of the window takes its previous value from the row just before the window in the full data.",
+     "(2) Cut the window, then lag (`window.shift(1)`, `window.diff()`, `window.pct_change()`): the first row has no previous row inside the window, so its result is `NaN`; a later `dropna()` removes that row, `fillna(0)` turns it into a zero, and a comparison with it is `False` (a crossover on that row is never detected).",
+     "Use (1) when the row before the window exists in the data and <task_instructions> define the lagged value or the change on the full series (for example the change from the previous trading day, or a regression of a change on its previous value); use (2) only when <task_instructions> say the window starts without a previous value."
+    ],
+    "claims": [
+     "slice then shift: the first row of the window is NaN; shift the full series then slice: it holds the previous value",
+     "slice then diff or pct_change: the first row of the window is NaN; on the full series then slice it has a value",
+     "the same holds for a .loc label slice and a boolean mask",
+     "dropna after a lag on a slice removes the first window row; a comparison with the NaN is False",
+     "fill_value fills the rows shift introduces (0 hides the missing previous value)"
+    ]
+   },
+   {
+    "rule": "mask_position",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Position, not date: after a boolean mask the lag is taken by position, so the previous row is the previous row the mask kept, not the previous row of the full data. If the previous value in <task_instructions> means the previous observation of the full data, lag before masking."
+    ],
+    "claims": [
+     "after a boolean mask, shift takes the previous kept row, not the previous row of the full data"
+    ]
+   },
+   {
+    "rule": "periods",
+    "kind": "param",
+    "params": [
+     "periods"
+    ],
+    "segments": [
+     "`periods`: an integer, with two signs. A positive value $k$ uses the row $k$ rows earlier (the first $k$ rows become `NaN`); a negative value uses a later row (the last rows become `NaN`). The default is `1`, the row just before."
+    ],
+    "claims": [
+     "periods=k>0: the first k rows are NaN and row i holds row i-k; periods<0: the last rows are NaN; the default is 1"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "slice_then_lag"
+   },
+   "describe": "a shift, diff or pct_change call inside a for / while loop or a function body whose receiver is a row window cut in that body above the call: a positional or label slice with a lower bound (s[a:b], .iloc[a:b], .loc[a:b]) or a range mask (>, >=, <, <=, between), inline or through a name bound to it (column picks and .copy() in between are followed); equality, isin and notna masks, slices from the start and numpy np.diff are left alone"
+  },
+  "steps": "cell"
+ },
+ "pandas.DataFrame.pct_change": {
+  "fn": "pandas.DataFrame.pct_change",
+  "family": "pd_lag_window",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`pandas.DataFrame.pct_change` — Fractional change between the current and a prior element.\nSignature: `pct_change(periods: 'int' = 1, fill_method: 'None' = None, freq=None, **kwargs) -> 'Self'`\nParameters:\n→ periods : int, default 1\n      Periods to shift for forming percent change.\n  fill_method : None\n      Must be None. This argument will be removed in a future version of pandas.\n  freq : DateOffset, timedelta, or str, optional\n      Increment to use from time series API (e.g. 'ME' or BDay()).\n  **kwargs\n      Additional keyword arguments are passed into\n      `DataFrame.shift` or `Series.shift`.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "periods",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "fill_method",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "freq",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "kwargs",
+    "kind": "VAR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   }
+  ],
+  "risky": [
+   "periods"
+  ],
+  "checklist": [
+   {
+    "rule": "lag_order",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Order of slicing and lagging: there are two orders, and they give a different first row.",
+     "(1) Lag the full series, then cut the window (`full.shift(1)`, `full.diff()` or `full.pct_change()` first, then `.loc[...]`, `.iloc[...]` or a boolean mask): the first row of the window takes its previous value from the row just before the window in the full data.",
+     "(2) Cut the window, then lag (`window.shift(1)`, `window.diff()`, `window.pct_change()`): the first row has no previous row inside the window, so its result is `NaN`; a later `dropna()` removes that row, `fillna(0)` turns it into a zero, and a comparison with it is `False` (a crossover on that row is never detected).",
+     "Use (1) when the row before the window exists in the data and <task_instructions> define the lagged value or the change on the full series (for example the change from the previous trading day, or a regression of a change on its previous value); use (2) only when <task_instructions> say the window starts without a previous value."
+    ],
+    "claims": [
+     "slice then shift: the first row of the window is NaN; shift the full series then slice: it holds the previous value",
+     "slice then diff or pct_change: the first row of the window is NaN; on the full series then slice it has a value",
+     "the same holds for a .loc label slice and a boolean mask",
+     "dropna after a lag on a slice removes the first window row; a comparison with the NaN is False",
+     "fill_value fills the rows shift introduces (0 hides the missing previous value)"
+    ]
+   },
+   {
+    "rule": "mask_position",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Position, not date: after a boolean mask the lag is taken by position, so the previous row is the previous row the mask kept, not the previous row of the full data. If the previous value in <task_instructions> means the previous observation of the full data, lag before masking."
+    ],
+    "claims": [
+     "after a boolean mask, shift takes the previous kept row, not the previous row of the full data"
+    ]
+   },
+   {
+    "rule": "periods",
+    "kind": "param",
+    "params": [
+     "periods"
+    ],
+    "segments": [
+     "`periods`: an integer, with two signs. A positive value $k$ uses the row $k$ rows earlier (the first $k$ rows become `NaN`); a negative value uses a later row (the last rows become `NaN`). The default is `1`, the row just before."
+    ],
+    "claims": [
+     "periods=k>0: the first k rows are NaN and row i holds row i-k; periods<0: the last rows are NaN; the default is 1"
+    ]
+   },
+   {
+    "rule": "fill_method",
+    "kind": "param",
+    "params": [
+     "fill_method"
+    ],
+    "segments": [
+     "`fill_method`: one option in this pandas version, `None` (any other value raises an error): missing values are not filled before the change. Call `.ffill()` first only if <task_instructions> say to carry the last value forward."
+    ],
+    "claims": [
+     "pct_change accepts only fill_method=None in this pandas version; missing values are not filled"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "slice_then_lag"
+   },
+   "describe": "a shift, diff or pct_change call inside a for / while loop or a function body whose receiver is a row window cut in that body above the call: a positional or label slice with a lower bound (s[a:b], .iloc[a:b], .loc[a:b]) or a range mask (>, >=, <, <=, between), inline or through a name bound to it (column picks and .copy() in between are followed); equality, isin and notna masks, slices from the start and numpy np.diff are left alone"
+  },
+  "steps": "cell"
+ },
+ "builtins.dict.get": {
+  "fn": "builtins.dict.get",
+  "family": "dict_get_default",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`builtins.dict.get` — Return the value for key if key is in the dictionary, else default.\nSignature: `get(key, default=None, /)`",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_ONLY",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "key",
+    "kind": "POSITIONAL_ONLY",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "default",
+    "kind": "POSITIONAL_ONLY",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [],
+  "checklist": [
+   {
+    "rule": "get_default",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Missing key: there are two outcomes. If the key is in the dictionary, `.get` returns its value; if not, it returns the default (`None` when none is given) and raises no error.",
+     "In a product, a quotient or a discounted sum, a default of `0` turns a missing tenor, date or currency into a zero factor and a default of `1` into a unit factor: the price or rate is then wrong without any error.",
+     "Index with `curve[key]` (it raises `KeyError` when the key is missing), or test `key in curve` and handle the missing case as <task_instructions> say (for example by interpolation)."
+    ],
+    "claims": [
+     "dict.get returns the default for a missing key without an error; indexing raises KeyError",
+     "dict.get without a default returns None",
+     "a default of 0 or 1 in a discounted sum changes the result without an error",
+     "key in dict tells a missing key apart"
+    ]
+   },
+   {
+    "rule": "key_type",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "Key types: a string key and a number key are different keys (`'1.0' != 1.0`, and `'1' != '1.0'`), so a dictionary filled with `str(...)` keys does not find a float key. `1` and `1.0` are the same key.",
+     "A float computed by arithmetic can miss a stored key (`0.1 + 0.2` does not find the key `0.3`): build the keys and the lookups the same way, for example `round(x, 6)` on both sides, or look up the values taken from the same column the dictionary was built from."
+    ],
+    "claims": [
+     "a string key and a number key are different keys; 1 and 1.0 are the same key",
+     "a float from arithmetic can miss a stored key; rounding both sides finds it"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "get_default_arith"
+   },
+   "describe": "a .get(key, 0) or .get(key, 1) call (0.0 and 1.0 included) on a curve, rate or price dictionary (va_doc K2C_WORDS on the receiver and key, K2C_NOT excluded) whose result, in the same cell, enters a product, quotient or power or a discount-like call (exp, power, log, df / pv helpers), directly or through a name it is bound to"
+  },
+  "steps": "cell"
+ }
+}

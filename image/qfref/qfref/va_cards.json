@@ -1,0 +1,3716 @@
+{
+ "numpy.std": {
+  "fn": "numpy.std",
+  "family": "np_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`numpy.std` — Compute the standard deviation along the specified axis.\nSignature: `std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=<no value>, *, where=<no value>, mean=<no value>, correction=<no value>)`\nParameters:\n  a : array_like\n      Calculate the standard deviation of these values.\n  axis : None or int or tuple of ints, optional\n      Axis or axes along which the standard deviation is computed. The\n      default is to compute the standard deviation of the flattened array.\n      If this is a tuple of ints, a standard deviation is performed over\n      multiple axes, instead of a single axis or all the axes as before.\n  dtype : dtype, optional\n      Type to use in computing the standard deviation. For arrays of\n      integer type the default is float64, for arrays of float types it is\n      the same as the array type.\n  out : ndarray, optional\n      Alternative output array in which to place the result. It must have\n      the same shape as the expected output but the type (of the calculated\n      values) will be cast if necessary.\n      See :ref:`ufuncs-output-type` for more details.\n→ ddof : {int, float}, optional\n      Means Delta Degrees of Freedom.  The divisor used in calculations\n      is ``N - ddof``, where ``N`` represents the number of elements.\n      By default `ddof` is zero. See Notes for details about use of `ddof`.\n  keepdims : bool, optional\n      If this is set to True, the axes which are reduced are left\n      in the result as dimensions with size one. With this option,\n      the result will broadcast correctly against the input array.\n\n      If the default value is passed, then `keepdims` will not be\n      passed through to the `std` method of sub-classes of\n      `ndarray`, however any non-default value will be.  If the\n      sub-class' method does not implement `keepdims` any\n      exceptions will be raised.\n  where : array_like of bool, optional\n      Elements to include in the standard deviation.\n      See `~numpy.ufunc.reduce` for details.\n  mean : array_like, optional\n      Provide the mean to prevent its recalculation. The mean should have\n      a shape as if it was calculated with ``keepdims=True``.\n      The axis for the calculation of the mean should be the same as used in\n      the call to this std function.\n  correction : {int, float}, optional\n      Array API compatible name for the ``ddof`` parameter. Only one of them\n      can be provided at the same time.\nNotes (about ddof):\n      There are several common variants of the array standard deviation\n      calculation. Assuming the input `a` is a one-dimensional NumPy array\n      and ``mean`` is either provided as an argument or computed as\n      ``a.mean()``, NumPy computes the standard deviation of an array as::\n          N = len(a)\n          d2 = abs(a - mean)**2  # abs is for complex `a`\n          var = d2.sum() / (N - ddof)  # note use of `ddof`\n          std = var**0.5\n      Different values of the argument `ddof` are useful in different\n      contexts. NumPy's default ``ddof=0`` corresponds with the expression:\n      .. math::\n          \\sqrt{\\frac{\\sum_i{|a_i - \\bar{a}|^2 }}{N}}\n      which is sometimes called the \"population standard deviation\" in the field\n      of statistics because it applies the definition of standard deviation to\n      `a` as if `a` were a complete population of possible observations.\n      Many other libraries define the standard deviation of an array\n      differently, e.g.:\n      .. math::\n          \\sqrt{\\frac{\\sum_i{|a_i - \\bar{a}|^2 }}{N - 1}}\n      In statistics, the resulting quantity is sometimes called the \"sample\n      standard deviation\" because if `a` is a random sample from a larger\n      population, this calculation provides the square root of an unbiased\n      estimate of the variance of the population. The use of :math:`N-1` in the\n      denominator is often called \"Bessel's correction\" because it corrects for\n      bias (toward lower values) in the variance estimate introduced when the\n      sample mean of `a` is used in place of the true mean of the population.\n      The resulting estimate of the standard deviation is still biased, but less\n      than it would have been without the correction. For this quantity, use\n      ``ddof=1``.",
+  "references_always": [],
+  "references_by_param": {
+   "where": [
+    "  `numpy.ufunc.reduce` — referenced by `where`:",
+    "      where : array_like of bool, optional",
+    "      A boolean array which is broadcasted to match the dimensions",
+    "      of `array`, and selects elements to include in the reduction. Note",
+    "      that for ufuncs like ``minimum`` that do not have an identity",
+    "      defined, one has to pass in also ``initial``."
+   ]
+  },
+  "params": [
+   {
+    "name": "a",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "dtype",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "out",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "keepdims",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "where",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "mean",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "correction",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `np.std` uses `ddof=0` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of numpy.std"
+    ]
+   },
+   {
+    "rule": "axis",
+    "kind": "axis",
+    "params": [
+     "axis"
+    ],
+    "segments": [
+     "`axis`: check the dimension of the input `a` (the array passed as the first argument; in your line it is `{shown}`).",
+     "There are three options for `axis`: `None` (the default: the whole array is flattened into one number), `0` (one value per column), `1` (one value per row). If `a` is 2-D, set `axis=0` for one value per column, or `axis=1` if the task instructions ask for one value per row. If `a` is 1-D, `axis` does not apply."
+    ],
+    "claims": [
+     "np axis=None flattens; 0 one value per column; 1 one value per row"
+    ]
+   },
+   {
+    "rule": "nan",
+    "kind": "calls",
+    "params": [],
+    "segments": [
+     "NaN: `np.std` returns `nan` if any value is NaN; `np.nanstd` skips NaN values. If <task_instructions> say how to treat missing values, follow them. If they do not, check where the NaN in your input would come from: if the input data have no missing values, a NaN in this array was made by your own code (for example an unfilled slot); find that step instead of skipping it."
+    ],
+    "claims": [
+     "np.std returns nan with a NaN; np.nanstd skips it"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0",
+      "missing": true
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ],
+    "mixed_ddof": true
+   },
+   "describe": "a call that does not set ddof, or sets ddof=0, when <task_instructions> ask for a sample estimate and do not ask for a population one; or any call in a cell whose variances and covariances use different ddof (np.var with np.cov, np.std with a pandas .cov)"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "np.std",
+  "ddof_default": "uses `ddof=0` by default"
+ },
+ "numpy.var": {
+  "fn": "numpy.var",
+  "family": "np_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`numpy.var` — Compute the variance along the specified axis.\nSignature: `var(a, axis=None, dtype=None, out=None, ddof=0, keepdims=<no value>, *, where=<no value>, mean=<no value>, correction=<no value>)`\nParameters:\n  a : array_like\n      Array containing numbers whose variance is desired.  If `a` is not an\n      array, a conversion is attempted.\n  axis : None or int or tuple of ints, optional\n      Axis or axes along which the variance is computed.  The default is to\n      compute the variance of the flattened array.\n      If this is a tuple of ints, a variance is performed over multiple axes,\n      instead of a single axis or all the axes as before.\n  dtype : data-type, optional\n      Type to use in computing the variance.  For arrays of integer type\n      the default is `float64`; for arrays of float types it is the same as\n      the array type.\n  out : ndarray, optional\n      Alternate output array in which to place the result.  It must have\n      the same shape as the expected output, but the type is cast if\n      necessary.\n→ ddof : {int, float}, optional\n      \"Delta Degrees of Freedom\": the divisor used in the calculation is\n      ``N - ddof``, where ``N`` represents the number of elements. By\n      default `ddof` is zero. See notes for details about use of `ddof`.\n  keepdims : bool, optional\n      If this is set to True, the axes which are reduced are left\n      in the result as dimensions with size one. With this option,\n      the result will broadcast correctly against the input array.\n\n      If the default value is passed, then `keepdims` will not be\n      passed through to the `var` method of sub-classes of\n      `ndarray`, however any non-default value will be.  If the\n      sub-class' method does not implement `keepdims` any\n      exceptions will be raised.\n  where : array_like of bool, optional\n      Elements to include in the variance. See `~numpy.ufunc.reduce` for\n      details.\n  mean : array like, optional\n      Provide the mean to prevent its recalculation. The mean should have\n      a shape as if it was calculated with ``keepdims=True``.\n      The axis for the calculation of the mean should be the same as used in\n      the call to this var function.\n  correction : {int, float}, optional\n      Array API compatible name for the ``ddof`` parameter. Only one of them\n      can be provided at the same time.\nNotes (about ddof):\n      There are several common variants of the array variance calculation.\n      Assuming the input `a` is a one-dimensional NumPy array and ``mean`` is\n      either provided as an argument or computed as ``a.mean()``, NumPy\n      computes the variance of an array as::\n          N = len(a)\n          d2 = abs(a - mean)**2  # abs is for complex `a`\n          var = d2.sum() / (N - ddof)  # note use of `ddof`\n      Different values of the argument `ddof` are useful in different\n      contexts. NumPy's default ``ddof=0`` corresponds with the expression:\n      .. math::\n          \\frac{\\sum_i{|a_i - \\bar{a}|^2 }}{N}\n      which is sometimes called the \"population variance\" in the field of\n      statistics because it applies the definition of variance to `a` as if `a`\n      were a complete population of possible observations.\n      Many other libraries define the variance of an array differently, e.g.:\n      .. math::\n          \\frac{\\sum_i{|a_i - \\bar{a}|^2}}{N - 1}\n      In statistics, the resulting quantity is sometimes called the \"sample\n      variance\" because if `a` is a random sample from a larger population,\n      this calculation provides an unbiased estimate of the variance of the\n      population.  The use of :math:`N-1` in the denominator is often called\n      \"Bessel's correction\" because it corrects for bias (toward lower values)\n      in the variance estimate introduced when the sample mean of `a` is used\n      in place of the true mean of the population. For this quantity, use\n      ``ddof=1``.",
+  "references_always": [],
+  "references_by_param": {
+   "where": [
+    "  `numpy.ufunc.reduce` — referenced by `where`:",
+    "      where : array_like of bool, optional",
+    "      A boolean array which is broadcasted to match the dimensions",
+    "      of `array`, and selects elements to include in the reduction. Note",
+    "      that for ufuncs like ``minimum`` that do not have an identity",
+    "      defined, one has to pass in also ``initial``."
+   ]
+  },
+  "params": [
+   {
+    "name": "a",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "dtype",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "out",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "keepdims",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "where",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "mean",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "correction",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `np.var` uses `ddof=0` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of numpy.var"
+    ]
+   },
+   {
+    "rule": "axis",
+    "kind": "axis",
+    "params": [
+     "axis"
+    ],
+    "segments": [
+     "`axis`: check the dimension of the input `a` (the array passed as the first argument; in your line it is `{shown}`).",
+     "There are three options for `axis`: `None` (the default: the whole array is flattened into one number), `0` (one value per column), `1` (one value per row). If `a` is 2-D, set `axis=0` for one value per column, or `axis=1` if the task instructions ask for one value per row. If `a` is 1-D, `axis` does not apply."
+    ],
+    "claims": [
+     "np axis=None flattens; 0 one value per column; 1 one value per row"
+    ]
+   },
+   {
+    "rule": "nan",
+    "kind": "calls",
+    "params": [],
+    "segments": [
+     "NaN: `np.var` returns `nan` if any value is NaN; `np.nanvar` skips NaN values. If <task_instructions> say how to treat missing values, follow them. If they do not, check where the NaN in your input would come from: if the input data have no missing values, a NaN in this array was made by your own code (for example an unfilled slot); find that step instead of skipping it."
+    ],
+    "claims": [
+     "np.std returns nan with a NaN; np.nanstd skips it"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0",
+      "missing": true
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ],
+    "mixed_ddof": true
+   },
+   "describe": "a call that does not set ddof, or sets ddof=0, when <task_instructions> ask for a sample estimate and do not ask for a population one; or any call in a cell whose variances and covariances use different ddof (np.var with np.cov, np.std with a pandas .cov)"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "np.var",
+  "ddof_default": "uses `ddof=0` by default"
+ },
+ "numpy.nanstd": {
+  "fn": "numpy.nanstd",
+  "family": "np_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`numpy.nanstd` — Compute the standard deviation along the specified axis, while ignoring NaNs.\nSignature: `nanstd(a, axis=None, dtype=None, out=None, ddof=0, keepdims=<no value>, *, where=<no value>, mean=<no value>, correction=<no value>)`\nParameters:\n  a : array_like\n      Calculate the standard deviation of the non-NaN values.\n  axis : {int, tuple of int, None}, optional\n      Axis or axes along which the standard deviation is computed. The default is\n      to compute the standard deviation of the flattened array.\n  dtype : dtype, optional\n      Type to use in computing the standard deviation. For arrays of\n      integer type the default is float64, for arrays of float types it\n      is the same as the array type.\n  out : ndarray, optional\n      Alternative output array in which to place the result. It must have\n      the same shape as the expected output but the type (of the\n      calculated values) will be cast if necessary.\n→ ddof : {int, float}, optional\n      Means Delta Degrees of Freedom.  The divisor used in calculations\n      is ``N - ddof``, where ``N`` represents the number of non-NaN\n      elements.  By default `ddof` is zero.\n  keepdims : bool, optional\n      If this is set to True, the axes which are reduced are left\n      in the result as dimensions with size one. With this option,\n      the result will broadcast correctly against the original `a`.\n\n      If this value is anything but the default it is passed through\n      as-is to the relevant functions of the sub-classes.  If these\n      functions do not have a `keepdims` kwarg, a RuntimeError will\n      be raised.\n  where : array_like of bool, optional\n      Elements to include in the standard deviation.\n      See `~numpy.ufunc.reduce` for details.\n  mean : array_like, optional\n      Provide the mean to prevent its recalculation. The mean should have\n      a shape as if it was calculated with ``keepdims=True``.\n      The axis for the calculation of the mean should be the same as used in\n      the call to this std function.\n  correction : {int, float}, optional\n      Array API compatible name for the ``ddof`` parameter. Only one of them\n      can be provided at the same time.\nNotes (about ddof):\n      The average squared deviation is normally calculated as\n      ``x.sum() / N``, where ``N = len(x)``.  If, however, `ddof` is\n      specified, the divisor ``N - ddof`` is used instead. In standard\n      statistical practice, ``ddof=1`` provides an unbiased estimator of the\n      variance of the infinite population. ``ddof=0`` provides a maximum\n      likelihood estimate of the variance for normally distributed variables.\n      The standard deviation computed in this function is the square root of\n      the estimated variance, so even with ``ddof=1``, it will not be an\n      unbiased estimate of the standard deviation per se.",
+  "references_always": [],
+  "references_by_param": {
+   "where": [
+    "  `numpy.ufunc.reduce` — referenced by `where`:",
+    "      where : array_like of bool, optional",
+    "      A boolean array which is broadcasted to match the dimensions",
+    "      of `array`, and selects elements to include in the reduction. Note",
+    "      that for ufuncs like ``minimum`` that do not have an identity",
+    "      defined, one has to pass in also ``initial``."
+   ]
+  },
+  "params": [
+   {
+    "name": "a",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "dtype",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "out",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "keepdims",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "where",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "mean",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "correction",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `np.nanstd` uses `ddof=0` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of numpy.nanstd"
+    ]
+   },
+   {
+    "rule": "axis",
+    "kind": "axis",
+    "params": [
+     "axis"
+    ],
+    "segments": [
+     "`axis`: check the dimension of the input `a` (the array passed as the first argument; in your line it is `{shown}`).",
+     "There are three options for `axis`: `None` (the default: the whole array is flattened into one number), `0` (one value per column), `1` (one value per row). If `a` is 2-D, set `axis=0` for one value per column, or `axis=1` if the task instructions ask for one value per row. If `a` is 1-D, `axis` does not apply."
+    ],
+    "claims": [
+     "np axis=None flattens; 0 one value per column; 1 one value per row"
+    ]
+   },
+   {
+    "rule": "nan",
+    "kind": "calls",
+    "params": [],
+    "segments": [
+     "NaN: `np.std` returns `nan` if any value is NaN; `np.nanstd` skips NaN values. If <task_instructions> say how to treat missing values, follow them. If they do not, check where the NaN in your input would come from: if the input data have no missing values, a NaN in this array was made by your own code (for example an unfilled slot); find that step instead of skipping it."
+    ],
+    "claims": [
+     "np.std returns nan with a NaN; np.nanstd skips it"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0",
+      "missing": true
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ],
+    "mixed_ddof": true
+   },
+   "describe": "a call that does not set ddof, or sets ddof=0, when <task_instructions> ask for a sample estimate and do not ask for a population one; or any call in a cell whose variances and covariances use different ddof (np.var with np.cov, np.std with a pandas .cov)"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "np.nanstd",
+  "ddof_default": "uses `ddof=0` by default"
+ },
+ "numpy.nanvar": {
+  "fn": "numpy.nanvar",
+  "family": "np_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`numpy.nanvar` — Compute the variance along the specified axis, while ignoring NaNs.\nSignature: `nanvar(a, axis=None, dtype=None, out=None, ddof=0, keepdims=<no value>, *, where=<no value>, mean=<no value>, correction=<no value>)`\nParameters:\n  a : array_like\n      Array containing numbers whose variance is desired.  If `a` is not an\n      array, a conversion is attempted.\n  axis : {int, tuple of int, None}, optional\n      Axis or axes along which the variance is computed.  The default is to compute\n      the variance of the flattened array.\n  dtype : data-type, optional\n      Type to use in computing the variance.  For arrays of integer type\n      the default is `float64`; for arrays of float types it is the same as\n      the array type.\n  out : ndarray, optional\n      Alternate output array in which to place the result.  It must have\n      the same shape as the expected output, but the type is cast if\n      necessary.\n→ ddof : {int, float}, optional\n      \"Delta Degrees of Freedom\": the divisor used in the calculation is\n      ``N - ddof``, where ``N`` represents the number of non-NaN\n      elements. By default `ddof` is zero.\n  keepdims : bool, optional\n      If this is set to True, the axes which are reduced are left\n      in the result as dimensions with size one. With this option,\n      the result will broadcast correctly against the original `a`.\n  where : array_like of bool, optional\n      Elements to include in the variance. See `~numpy.ufunc.reduce` for\n      details.\n  mean : array_like, optional\n      Provide the mean to prevent its recalculation. The mean should have\n      a shape as if it was calculated with ``keepdims=True``.\n      The axis for the calculation of the mean should be the same as used in\n      the call to this var function.\n  correction : {int, float}, optional\n      Array API compatible name for the ``ddof`` parameter. Only one of them\n      can be provided at the same time.\nNotes (about ddof):\n      The mean is normally calculated as ``x.sum() / N``, where ``N = len(x)``.\n      If, however, `ddof` is specified, the divisor ``N - ddof`` is used\n      instead.  In standard statistical practice, ``ddof=1`` provides an\n      unbiased estimator of the variance of a hypothetical infinite\n      population.  ``ddof=0`` provides a maximum likelihood estimate of the\n      variance for normally distributed variables.",
+  "references_always": [],
+  "references_by_param": {
+   "where": [
+    "  `numpy.ufunc.reduce` — referenced by `where`:",
+    "      where : array_like of bool, optional",
+    "      A boolean array which is broadcasted to match the dimensions",
+    "      of `array`, and selects elements to include in the reduction. Note",
+    "      that for ufuncs like ``minimum`` that do not have an identity",
+    "      defined, one has to pass in also ``initial``."
+   ]
+  },
+  "params": [
+   {
+    "name": "a",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "dtype",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "out",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "keepdims",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "where",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "mean",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   },
+   {
+    "name": "correction",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "<no value>",
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `np.nanvar` uses `ddof=0` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of numpy.nanvar"
+    ]
+   },
+   {
+    "rule": "axis",
+    "kind": "axis",
+    "params": [
+     "axis"
+    ],
+    "segments": [
+     "`axis`: check the dimension of the input `a` (the array passed as the first argument; in your line it is `{shown}`).",
+     "There are three options for `axis`: `None` (the default: the whole array is flattened into one number), `0` (one value per column), `1` (one value per row). If `a` is 2-D, set `axis=0` for one value per column, or `axis=1` if the task instructions ask for one value per row. If `a` is 1-D, `axis` does not apply."
+    ],
+    "claims": [
+     "np axis=None flattens; 0 one value per column; 1 one value per row"
+    ]
+   },
+   {
+    "rule": "nan",
+    "kind": "calls",
+    "params": [],
+    "segments": [
+     "NaN: `np.var` returns `nan` if any value is NaN; `np.nanvar` skips NaN values. If <task_instructions> say how to treat missing values, follow them. If they do not, check where the NaN in your input would come from: if the input data have no missing values, a NaN in this array was made by your own code (for example an unfilled slot); find that step instead of skipping it."
+    ],
+    "claims": [
+     "np.std returns nan with a NaN; np.nanstd skips it"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0",
+      "missing": true
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ],
+    "mixed_ddof": true
+   },
+   "describe": "a call that does not set ddof, or sets ddof=0, when <task_instructions> ask for a sample estimate and do not ask for a population one; or any call in a cell whose variances and covariances use different ddof (np.var with np.cov, np.std with a pandas .cov)"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "np.nanvar",
+  "ddof_default": "uses `ddof=0` by default"
+ },
+ "pandas.DataFrame.std": {
+  "fn": "pandas.DataFrame.std",
+  "family": "pd_frame_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`pandas.DataFrame.std` — Return sample standard deviation over requested axis.\nSignature: `std(*, axis: 'Axis | None' = 0, skipna: 'bool' = True, ddof: 'int' = 1, numeric_only: 'bool' = False, **kwargs) -> 'Series | Any'`\nParameters:\n  axis : {index (0), columns (1)}\n      For `Series` this parameter is unused and defaults to 0.\n\n      .. warning::\n\n      The behavior of DataFrame.std with ``axis=None`` is deprecated,\n      in a future version this will reduce over both axes and return a scalar\n      To retain the old behavior, pass axis=0 (or do not pass axis).\n→ skipna : bool, default True\n      Exclude NA/null values. If an entire row/column is NA, the result\n      will be NA.\n→ ddof : int, default 1\n      Delta Degrees of Freedom. The divisor used in calculations is N - ddof,\n      where N represents the number of elements.\n  numeric_only : bool, default False\n      Include only float, int, boolean columns. Not implemented for Series.\n  **kwargs : dict\n      Additional keyword arguments to be passed to the function.\nNotes (about ddof, skipna):\n      To have the same behaviour as `numpy.std`, use `ddof=0` (instead of the\n      default `ddof=1`)",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "skipna",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "ddof",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "numeric_only",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "kwargs",
+    "kind": "VAR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof",
+   "skipna"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `DataFrame.std` uses `ddof=1` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of pandas.DataFrame.std"
+    ]
+   },
+   {
+    "rule": "axis",
+    "kind": "axis",
+    "params": [
+     "axis"
+    ],
+    "segments": [
+     "`axis`: check the dimension of the input `self` (the table the method is called on; in your line it is `{shown}`).",
+     "There are three options for `axis`: `None` (the whole table is reduced to one number), `0` (the default: one value per column), `1` (one value per row). If `self` is 2-D, set `axis=0` for one value per column, or `axis=1` if the task instructions ask for one value per row. If `self` is 1-D, `axis` does not apply."
+    ],
+    "claims": [
+     "DataFrame.std axis=0 one value per column; axis=1 one per row; axis=None one number"
+    ]
+   },
+   {
+    "rule": "skipna",
+    "kind": "param",
+    "params": [
+     "skipna"
+    ],
+    "segments": [
+     "NaN: `skipna=True` (the default) leaves NaN out of the result without a warning; `skipna=False` returns `nan` if any value is NaN. If <task_instructions> say how to treat missing values, follow them. If they do not, check where the NaN in your input would come from: if the input data have no missing values, a NaN in this column was made by your own code (for example an unfilled slot); find that step instead of skipping it."
+    ],
+    "claims": [
+     "skipna=True leaves NaN out; skipna=False returns nan",
+     "skipna is True by default for DataFrame and Series std/var"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0"
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that sets ddof=0, when <task_instructions> ask for a sample estimate and not a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "DataFrame.std",
+  "ddof_default": "uses `ddof=1` by default"
+ },
+ "pandas.DataFrame.var": {
+  "fn": "pandas.DataFrame.var",
+  "family": "pd_frame_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`pandas.DataFrame.var` — Return unbiased variance over requested axis.\nSignature: `var(*, axis: 'Axis | None' = 0, skipna: 'bool' = True, ddof: 'int' = 1, numeric_only: 'bool' = False, **kwargs) -> 'Series | Any'`\nParameters:\n  axis : {index (0), columns (1)}\n      For `Series` this parameter is unused and defaults to 0.\n\n      .. warning::\n\n      The behavior of DataFrame.var with ``axis=None`` is deprecated,\n      in a future version this will reduce over both axes and return a scalar\n      To retain the old behavior, pass axis=0 (or do not pass axis).\n→ skipna : bool, default True\n      Exclude NA/null values. If an entire row/column is NA, the result\n      will be NA.\n→ ddof : int, default 1\n      Delta Degrees of Freedom. The divisor used in calculations is N - ddof,\n      where N represents the number of elements.\n  numeric_only : bool, default False\n      Include only float, int, boolean columns. Not implemented for Series.\n  **kwargs :\n      Additional keywords passed.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "skipna",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "ddof",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "numeric_only",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "kwargs",
+    "kind": "VAR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof",
+   "skipna"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `DataFrame.var` uses `ddof=1` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of pandas.DataFrame.var"
+    ]
+   },
+   {
+    "rule": "axis",
+    "kind": "axis",
+    "params": [
+     "axis"
+    ],
+    "segments": [
+     "`axis`: check the dimension of the input `self` (the table the method is called on; in your line it is `{shown}`).",
+     "There are three options for `axis`: `None` (the whole table is reduced to one number), `0` (the default: one value per column), `1` (one value per row). If `self` is 2-D, set `axis=0` for one value per column, or `axis=1` if the task instructions ask for one value per row. If `self` is 1-D, `axis` does not apply."
+    ],
+    "claims": [
+     "DataFrame.std axis=0 one value per column; axis=1 one per row; axis=None one number"
+    ]
+   },
+   {
+    "rule": "skipna",
+    "kind": "param",
+    "params": [
+     "skipna"
+    ],
+    "segments": [
+     "NaN: `skipna=True` (the default) leaves NaN out of the result without a warning; `skipna=False` returns `nan` if any value is NaN. If <task_instructions> say how to treat missing values, follow them. If they do not, check where the NaN in your input would come from: if the input data have no missing values, a NaN in this column was made by your own code (for example an unfilled slot); find that step instead of skipping it."
+    ],
+    "claims": [
+     "skipna=True leaves NaN out; skipna=False returns nan",
+     "skipna is True by default for DataFrame and Series std/var"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0"
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that sets ddof=0, when <task_instructions> ask for a sample estimate and not a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "DataFrame.var",
+  "ddof_default": "uses `ddof=1` by default"
+ },
+ "pandas.Series.std": {
+  "fn": "pandas.Series.std",
+  "family": "pd_series_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`pandas.Series.std` — Return sample standard deviation.\nSignature: `std(*, axis: 'Axis | None' = None, skipna: 'bool' = True, ddof: 'int' = 1, numeric_only: 'bool' = False, **kwargs)`\nParameters:\n  axis : {index (0)}\n      This parameter is unused and defaults to 0.\n→ skipna : bool, default True\n      Exclude NA/null values. If Series is NA, the result\n      will be NA.\n→ ddof : int, default 1\n      Delta Degrees of Freedom. The divisor used in calculations is N - ddof,\n      where N represents the number of elements.\n  numeric_only : bool, default False\n      Not implemented for Series.\n  **kwargs :\n      Additional keywords have no effect but might be accepted\n      for compatibility with NumPy.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "skipna",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "ddof",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "numeric_only",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "kwargs",
+    "kind": "VAR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof",
+   "skipna"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `Series.std` uses `ddof=1` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of pandas.Series.std"
+    ]
+   },
+   {
+    "rule": "skipna",
+    "kind": "param",
+    "params": [
+     "skipna"
+    ],
+    "segments": [
+     "NaN: `skipna=True` (the default) leaves NaN out of the result without a warning; `skipna=False` returns `nan` if any value is NaN. If <task_instructions> say how to treat missing values, follow them. If they do not, check where the NaN in your input would come from: if the input data have no missing values, a NaN in this column was made by your own code (for example an unfilled slot); find that step instead of skipping it."
+    ],
+    "claims": [
+     "skipna=True leaves NaN out; skipna=False returns nan",
+     "skipna is True by default for DataFrame and Series std/var"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0"
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that sets ddof=0, when <task_instructions> ask for a sample estimate and not a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "Series.std",
+  "ddof_default": "uses `ddof=1` by default"
+ },
+ "pandas.Series.var": {
+  "fn": "pandas.Series.var",
+  "family": "pd_series_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`pandas.Series.var` — Return unbiased variance over requested axis.\nSignature: `var(*, axis: 'Axis | None' = None, skipna: 'bool' = True, ddof: 'int' = 1, numeric_only: 'bool' = False, **kwargs)`\nParameters:\n  axis : {index (0)}\n      For `Series` this parameter is unused and defaults to 0.\n\n      .. warning::\n\n      The behavior of DataFrame.var with ``axis=None`` is deprecated,\n      in a future version this will reduce over both axes and return a scalar\n      To retain the old behavior, pass axis=0 (or do not pass axis).\n→ skipna : bool, default True\n      Exclude NA/null values. If an entire row/column is NA, the result\n      will be NA.\n→ ddof : int, default 1\n      Delta Degrees of Freedom. The divisor used in calculations is N - ddof,\n      where N represents the number of elements.\n  numeric_only : bool, default False\n      Include only float, int, boolean columns. Not implemented for Series.\n  **kwargs :\n      Additional keywords passed.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "skipna",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "ddof",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "numeric_only",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "kwargs",
+    "kind": "VAR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof",
+   "skipna"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `Series.var` uses `ddof=1` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of pandas.Series.var"
+    ]
+   },
+   {
+    "rule": "skipna",
+    "kind": "param",
+    "params": [
+     "skipna"
+    ],
+    "segments": [
+     "NaN: `skipna=True` (the default) leaves NaN out of the result without a warning; `skipna=False` returns `nan` if any value is NaN. If <task_instructions> say how to treat missing values, follow them. If they do not, check where the NaN in your input would come from: if the input data have no missing values, a NaN in this column was made by your own code (for example an unfilled slot); find that step instead of skipping it."
+    ],
+    "claims": [
+     "skipna=True leaves NaN out; skipna=False returns nan",
+     "skipna is True by default for DataFrame and Series std/var"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0"
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that sets ddof=0, when <task_instructions> ask for a sample estimate and not a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "Series.var",
+  "ddof_default": "uses `ddof=1` by default"
+ },
+ "numpy.ndarray.std": {
+  "fn": "numpy.ndarray.std",
+  "family": "nd_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`numpy.ndarray.std` — a.std(axis=None, dtype=None, out=None, ddof=0, *, keepdims=<no value>, where=<no value>, mean=<no value>)\nSignature: `std(/, axis=None, dtype=None, out=None, ddof=0, **kwargs)`",
+  "references_always": [
+   "  `numpy.std` — referenced by `ddof`:",
+   "      ddof : {int, float}, optional",
+   "      Means Delta Degrees of Freedom.  The divisor used in calculations",
+   "      is ``N - ddof``, where ``N`` represents the number of elements.",
+   "      By default `ddof` is zero. See Notes for details about use of `ddof`."
+  ],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_ONLY",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "dtype",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "out",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "kwargs",
+    "kind": "VAR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   }
+  ],
+  "risky": [],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `ndarray.std` uses `ddof=0` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of numpy.ndarray.std"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0",
+      "missing": true
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ],
+    "mixed_ddof": true
+   },
+   "describe": "a call that does not set ddof, or sets ddof=0, when <task_instructions> ask for a sample estimate and do not ask for a population one; or any call in a cell whose variances and covariances use different ddof"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "ndarray.std",
+  "ddof_default": "uses `ddof=0` by default"
+ },
+ "numpy.ndarray.var": {
+  "fn": "numpy.ndarray.var",
+  "family": "nd_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`numpy.ndarray.var` — a.var(axis=None, dtype=None, out=None, ddof=0, *, keepdims=<no value>, where=<no value>, mean=<no value>)\nSignature: `var(/, axis=None, dtype=None, out=None, ddof=0, **kwargs)`",
+  "references_always": [
+   "  `numpy.var` — referenced by `ddof`:",
+   "      ddof : {int, float}, optional",
+   "      \"Delta Degrees of Freedom\": the divisor used in the calculation is",
+   "      ``N - ddof``, where ``N`` represents the number of elements. By",
+   "      default `ddof` is zero. See notes for details about use of `ddof`."
+  ],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_ONLY",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "dtype",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "out",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "kwargs",
+    "kind": "VAR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   }
+  ],
+  "risky": [],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `ndarray.var` uses `ddof=0` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of numpy.ndarray.var"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0",
+      "missing": true
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ],
+    "mixed_ddof": true
+   },
+   "describe": "a call that does not set ddof, or sets ddof=0, when <task_instructions> ask for a sample estimate and do not ask for a population one; or any call in a cell whose variances and covariances use different ddof"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "ndarray.var",
+  "ddof_default": "uses `ddof=0` by default"
+ },
+ "numpy.cov": {
+  "fn": "numpy.cov",
+  "family": "np_cov",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`numpy.cov` — Estimate a covariance matrix, given data and weights.\nSignature: `cov(m, y=None, rowvar=True, bias=False, ddof=None, fweights=None, aweights=None, *, dtype=None)`\nParameters:\n  m : array_like\n      A 1-D or 2-D array containing multiple variables and observations.\n      Each row of `m` represents a variable, and each column a single\n      observation of all those variables. Also see `rowvar` below.\n  y : array_like, optional\n      An additional set of variables and observations. `y` has the same form\n      as that of `m`.\n  rowvar : bool, optional\n      If `rowvar` is True (default), then each row represents a\n      variable, with observations in the columns. Otherwise, the relationship\n      is transposed: each column represents a variable, while the rows\n      contain observations.\n  bias : bool, optional\n      Default normalization (False) is by ``(N - 1)``, where ``N`` is the\n      number of observations given (unbiased estimate). If `bias` is True,\n      then normalization is by ``N``. These values can be overridden by using\n      the keyword ``ddof`` in numpy versions >= 1.5.\n→ ddof : int, optional\n      If not ``None`` the default value implied by `bias` is overridden.\n      Note that ``ddof=1`` will return the unbiased estimate, even if both\n      `fweights` and `aweights` are specified, and ``ddof=0`` will return\n      the simple average. See the notes for the details. The default value\n      is ``None``.\n  fweights : array_like, int, optional\n      1-D array of integer frequency weights; the number of times each\n      observation vector should be repeated.\n  aweights : array_like, optional\n      1-D array of observation vector weights. These relative weights are\n      typically large for observations considered \"important\" and smaller for\n      observations considered less \"important\". If ``ddof=0`` the array of\n      weights can be used to assign probabilities to observation vectors.\n  dtype : data-type, optional\n      Data-type of the result. By default, the return data-type will have\n      at least `numpy.float64` precision.\nNotes (about ddof):\n      Assume that the observations are in the columns of the observation\n      array `m` and let ``f = fweights`` and ``a = aweights`` for brevity. The\n      steps to compute the weighted covariance are as follows::\n          >>> m = np.arange(10, dtype=np.float64)\n          >>> f = np.arange(10) * 2\n          >>> a = np.arange(10) ** 2.\n          >>> ddof = 1\n          >>> w = f * a\n          >>> v1 = np.sum(w)\n          >>> v2 = np.sum(w * a)\n          >>> m -= np.sum(m * w, axis=None, keepdims=True) / v1\n          >>> cov = np.dot(m * w, m.T) * v1 / (v1**2 - ddof * v2)\n      Note that when ``a == 1``, the normalization factor\n      ``v1 / (v1**2 - ddof * v2)`` goes over to ``1 / (np.sum(f) - ddof)``\n      as it should.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "m",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "y",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "rowvar",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "bias",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "fweights",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "aweights",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "dtype",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `np.cov` divides by $N - 1$ by default (`ddof=None` with `bias=False`). Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of numpy.cov"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0"
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that sets ddof=0, when <task_instructions> ask for a sample estimate and not a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "np.cov",
+  "ddof_default": "divides by $N - 1$ by default (`ddof=None` with `bias=False`)"
+ },
+ "pandas.Rolling.std": {
+  "fn": "pandas.Rolling.std",
+  "family": "pd_window_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`pandas.Rolling.std` — Calculate the rolling standard deviation.\nSignature: `std(ddof: 'int' = 1, numeric_only: 'bool' = False, engine: \"Literal['cython', 'numba'] | None\" = None, engine_kwargs: 'dict[str, bool] | None' = None)`\nParameters:\n→ ddof : int, default 1\n      Delta Degrees of Freedom.  The divisor used in calculations\n      is ``N - ddof``, where ``N`` represents the number of elements.\n  numeric_only : bool, default False\n      Include only float, int, boolean columns.\n  engine : str, default None\n      * ``'cython'`` : Runs the operation through C-extensions from cython.\n      * ``'numba'`` : Runs the operation through JIT compiled code from numba.\n      * ``None`` : Defaults to ``'cython'`` or\n      globally setting ``compute.use_numba``\n  engine_kwargs : dict, default None\n      * For ``'cython'`` engine, there are no accepted ``engine_kwargs``\n      * For ``'numba'`` engine, the engine can accept ``nopython``, ``nogil``\n      and ``parallel`` dictionary keys. The values must either be ``True`` or\n      ``False``.\n\n      The default ``engine_kwargs`` for the ``'numba'`` engine is\n      ``{'nopython': True, 'nogil': False, 'parallel': False}``.\nNotes (about ddof):\n      The default ``ddof`` of 1 used in :meth:`Series.std` is different\n      than the default ``ddof`` of 0 in :func:`numpy.std`.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "numeric_only",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "engine",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "engine_kwargs",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `Rolling.std` uses `ddof=1` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of pandas.Rolling.std"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0"
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that sets ddof=0, when <task_instructions> ask for a sample estimate and not a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "Rolling.std",
+  "ddof_default": "uses `ddof=1` by default"
+ },
+ "pandas.Rolling.var": {
+  "fn": "pandas.Rolling.var",
+  "family": "pd_window_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`pandas.Rolling.var` — Calculate the rolling variance.\nSignature: `var(ddof: 'int' = 1, numeric_only: 'bool' = False, engine: \"Literal['cython', 'numba'] | None\" = None, engine_kwargs: 'dict[str, bool] | None' = None)`\nParameters:\n→ ddof : int, default 1\n      Delta Degrees of Freedom.  The divisor used in calculations\n      is ``N - ddof``, where ``N`` represents the number of elements.\n  numeric_only : bool, default False\n      Include only float, int, boolean columns.\n  engine : str, default None\n      * ``'cython'`` : Runs the operation through C-extensions from cython.\n      * ``'numba'`` : Runs the operation through JIT compiled code from numba.\n      * ``None`` : Defaults to ``'cython'`` or\n      globally setting ``compute.use_numba``\n  engine_kwargs : dict, default None\n      * For ``'cython'`` engine, there are no accepted ``engine_kwargs``\n      * For ``'numba'`` engine, the engine can accept ``nopython``, ``nogil``\n      and ``parallel`` dictionary keys. The values must either be ``True`` or\n      ``False``.\n\n      The default ``engine_kwargs`` for the ``'numba'`` engine is\n      ``{'nopython': True, 'nogil': False, 'parallel': False}``.\nNotes (about ddof):\n      The default ``ddof`` of 1 used in :meth:`Series.var` is different\n      than the default ``ddof`` of 0 in :func:`numpy.var`.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "numeric_only",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "engine",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "engine_kwargs",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `Rolling.var` uses `ddof=1` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of pandas.Rolling.var"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0"
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that sets ddof=0, when <task_instructions> ask for a sample estimate and not a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "Rolling.var",
+  "ddof_default": "uses `ddof=1` by default"
+ },
+ "pandas.Expanding.std": {
+  "fn": "pandas.Expanding.std",
+  "family": "pd_window_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`pandas.Expanding.std` — Calculate the expanding standard deviation.\nSignature: `std(ddof: 'int' = 1, numeric_only: 'bool' = False, engine: \"Literal['cython', 'numba'] | None\" = None, engine_kwargs: 'dict[str, bool] | None' = None)`\nParameters:\n→ ddof : int, default 1\n      Delta Degrees of Freedom.  The divisor used in calculations\n      is ``N - ddof``, where ``N`` represents the number of elements.\n  numeric_only : bool, default False\n      Include only float, int, boolean columns.\n  engine : str, default None\n      * ``'cython'`` : Runs the operation through C-extensions from cython.\n      * ``'numba'`` : Runs the operation through JIT compiled code from numba.\n      * ``None`` : Defaults to ``'cython'`` or globally setting\n      ``compute.use_numba``\n  engine_kwargs : dict, default None\n      * For ``'cython'`` engine, there are no accepted ``engine_kwargs``\n      * For ``'numba'`` engine, the engine can accept ``nopython``, ``nogil``\n      and ``parallel`` dictionary keys. The values must either be ``True`` or\n      ``False``. The default ``engine_kwargs`` for the ``'numba'`` engine is\n      ``{'nopython': True, 'nogil': False, 'parallel': False}``\nNotes (about ddof):\n      The default ``ddof`` of 1 used in :meth:`Series.std` is different\n      than the default ``ddof`` of 0 in :func:`numpy.std`.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "numeric_only",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "engine",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "engine_kwargs",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `Expanding.std` uses `ddof=1` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of pandas.Expanding.std"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0"
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that sets ddof=0, when <task_instructions> ask for a sample estimate and not a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "Expanding.std",
+  "ddof_default": "uses `ddof=1` by default"
+ },
+ "pandas.Expanding.var": {
+  "fn": "pandas.Expanding.var",
+  "family": "pd_window_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`pandas.Expanding.var` — Calculate the expanding variance.\nSignature: `var(ddof: 'int' = 1, numeric_only: 'bool' = False, engine: \"Literal['cython', 'numba'] | None\" = None, engine_kwargs: 'dict[str, bool] | None' = None)`\nParameters:\n→ ddof : int, default 1\n      Delta Degrees of Freedom.  The divisor used in calculations\n      is ``N - ddof``, where ``N`` represents the number of elements.\n  numeric_only : bool, default False\n      Include only float, int, boolean columns.\n  engine : str, default None\n      * ``'cython'`` : Runs the operation through C-extensions from cython.\n      * ``'numba'`` : Runs the operation through JIT compiled code from numba.\n      * ``None`` : Defaults to ``'cython'`` or globally setting\n      ``compute.use_numba``\n  engine_kwargs : dict, default None\n      * For ``'cython'`` engine, there are no accepted ``engine_kwargs``\n      * For ``'numba'`` engine, the engine can accept ``nopython``, ``nogil``\n      and ``parallel`` dictionary keys. The values must either be ``True`` or\n      ``False``. The default ``engine_kwargs`` for the ``'numba'`` engine is\n      ``{'nopython': True, 'nogil': False, 'parallel': False}``\nNotes (about ddof):\n      The default ``ddof`` of 1 used in :meth:`Series.var` is different\n      than the default ``ddof`` of 0 in :func:`numpy.var`.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "numeric_only",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "engine",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "engine_kwargs",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `Expanding.var` uses `ddof=1` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of pandas.Expanding.var"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0"
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that sets ddof=0, when <task_instructions> ask for a sample estimate and not a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "Expanding.var",
+  "ddof_default": "uses `ddof=1` by default"
+ },
+ "pandas.GroupBy.std": {
+  "fn": "pandas.GroupBy.std",
+  "family": "pd_window_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`pandas.GroupBy.std` — Compute standard deviation of groups, excluding missing values.\nSignature: `std(ddof: 'int' = 1, engine: \"Literal['cython', 'numba'] | None\" = None, engine_kwargs: 'dict[str, bool] | None' = None, numeric_only: 'bool' = False, skipna: 'bool' = True)`\nParameters:\n→ ddof : int, default 1\n      Delta Degrees of Freedom. The divisor used in calculations is ``N - ddof``,\n      where ``N`` represents the number of elements.\n  engine : str, default None\n      * ``'cython'`` : Runs the operation through C-extensions from cython.\n      * ``'numba'`` : Runs the operation through JIT compiled code from numba.\n      * ``None`` : Defaults to ``'cython'`` or globally setting\n      ``compute.use_numba``\n  engine_kwargs : dict, default None\n      * For ``'cython'`` engine, there are no accepted ``engine_kwargs``\n      * For ``'numba'`` engine, the engine can accept ``nopython``, ``nogil``\n      and ``parallel`` dictionary keys. The values must either be ``True`` or\n      ``False``. The default ``engine_kwargs`` for the ``'numba'`` engine is\n      ``{'nopython': True, 'nogil': False, 'parallel': False}``\n  numeric_only : bool, default False\n      Include only `float`, `int` or `boolean` data.\n\n\n      numeric_only now defaults to ``False``.\n  skipna : bool, default True\n      Exclude NA/null values. If an entire group is NA, the result will be NA.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "engine",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "engine_kwargs",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "numeric_only",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "skipna",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `GroupBy.std` uses `ddof=1` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of pandas.GroupBy.std"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0"
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that sets ddof=0, when <task_instructions> ask for a sample estimate and not a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "GroupBy.std",
+  "ddof_default": "uses `ddof=1` by default"
+ },
+ "pandas.GroupBy.var": {
+  "fn": "pandas.GroupBy.var",
+  "family": "pd_window_stdvar",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`pandas.GroupBy.var` — Compute variance of groups, excluding missing values.\nSignature: `var(ddof: 'int' = 1, engine: \"Literal['cython', 'numba'] | None\" = None, engine_kwargs: 'dict[str, bool] | None' = None, numeric_only: 'bool' = False, skipna: 'bool' = True)`\nParameters:\n→ ddof : int, default 1\n      Degrees of freedom.\n  engine : str, default None\n      * ``'cython'`` : Runs the operation through C-extensions from cython.\n      * ``'numba'`` : Runs the operation through JIT compiled code from numba.\n      * ``None`` : Defaults to ``'cython'`` or globally setting\n      ``compute.use_numba``\n  engine_kwargs : dict, default None\n      * For ``'cython'`` engine, there are no accepted ``engine_kwargs``\n      * For ``'numba'`` engine, the engine can accept ``nopython``, ``nogil``\n      and ``parallel`` dictionary keys. The values must either be ``True`` or\n      ``False``. The default ``engine_kwargs`` for the ``'numba'`` engine is\n      ``{'nopython': True, 'nogil': False, 'parallel': False}``\n  numeric_only : bool, default False\n      Include only `float`, `int` or `boolean` data.\n\n\n      numeric_only now defaults to ``False``.\n  skipna : bool, default True\n      Exclude NA/null values. If an entire group is NA, the result will be NA.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "engine",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "engine_kwargs",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "numeric_only",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "skipna",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `GroupBy.var` uses `ddof=1` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of pandas.GroupBy.var"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0"
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that sets ddof=0, when <task_instructions> ask for a sample estimate and not a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "GroupBy.var",
+  "ddof_default": "uses `ddof=1` by default"
+ },
+ "scipy.stats.zscore": {
+  "fn": "scipy.stats.zscore",
+  "family": "sp_zscore",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`scipy.stats.zscore` — Compute the z score.\nSignature: `zscore(a, axis=0, ddof=0, nan_policy='propagate')`\nParameters:\n  a : array_like\n      An array like object containing the sample data.\n  axis : int or None, optional\n      Axis along which to operate. Default is 0. If None, compute over\n      the whole array `a`.\n→ ddof : int, optional\n      Degrees of freedom correction in the calculation of the\n      standard deviation. Default is 0.\n  nan_policy : {'propagate', 'raise', 'omit'}, optional\n      Defines how to handle when input contains nan. 'propagate' returns nan,\n      'raise' throws an error, 'omit' performs the calculations ignoring nan\n      values. Default is 'propagate'.  Note that when the value is 'omit',\n      nans in the input also propagate to the output, but they do not affect\n      the z-scores computed for the non-nan values.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "a",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "ddof",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "nan_policy",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'propagate'",
+    "default": "propagate"
+   }
+  ],
+  "risky": [
+   "ddof"
+  ],
+  "checklist": [
+   {
+    "rule": "ddof",
+    "kind": "param",
+    "params": [
+     "ddof"
+    ],
+    "segments": [
+     "`ddof`: the divisor is $N$ minus `ddof`, where $N$ is the number of observations. `stats.zscore` uses `ddof=0` by default. Decide `ddof` in this order:",
+     "(1) The task gives a formula: $1/N$ means `ddof=0`; $1/(N-1)$ means `ddof=1`.",
+     "(2) The task uses a word: \"sample\", \"unbiased\" or \"n-1\" means `ddof=1`; \"population\" or \"maximum likelihood\" means `ddof=0`.",
+     "(3) The task says neither: use the statistical convention for the quantity you are computing.",
+     "| Quantity | Convention |\n|---|---|\n| dispersion estimated from a sample of observations: volatility of returns, a Sharpe ratio, a t-statistic, a standard error, a sample covariance matrix, the cross-sectional standard deviation in an event-study test | `ddof=1` |\n| dispersion of a complete set that is only described, not estimated | `ddof=0` |\n| a maximum-likelihood fit under a normal model (GARCH, an EWMA recursion, a Gaussian fit) | divide by $N$ (`ddof=0`) |\n| a cross-sectional z-score | both are common: follow the task; if it says nothing, keep what your line does |\n| realized variance (sum of squared returns, no mean removed) | no `ddof` |",
+     "Consistency: inside one ratio or decomposition (a regression slope $\\beta = \\mathrm{cov}/\\mathrm{var}$, variance shares that must sum to 100, a z-score built from a mean and a standard deviation) every variance and covariance must use the same `ddof`. Mixing them scales the ratio by $(N-1)/N$. A correlation does not depend on `ddof` when the numerator and the denominator use the same one.",
+     "The difference is a factor $\\sqrt{N/(N-1)}$ on a standard deviation: about 2.5% for $N = 20$, 0.2% for $N = 250$."
+    ],
+    "claims": [
+     "np.var (ddof=0) over np.cov (ddof=1) is the same-ddof ratio times (N-1)/N; a correlation does not depend on ddof",
+     "the std ratio sqrt(N/(N-1)) is about 2.5% for N=20 and 0.2% for N=250",
+     "default ddof of scipy.stats.zscore"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "rules": [
+     {
+      "param": "ddof",
+      "values": [
+       0
+      ],
+      "require": "sample (?:standard deviations?|std|variances?)|\\bunbiased\\b|ddof\\s*=\\s*1",
+      "forbid": "\\bpopulation\\b|ddof\\s*=\\s*0",
+      "missing": true
+     }
+    ],
+    "skip": [
+     "print",
+     "zero_guard"
+    ]
+   },
+   "describe": "a call that does not set ddof, or sets ddof=0, when <task_instructions> ask for a sample estimate and do not ask for a population one"
+  },
+  "steps": null,
+  "ddof_card": true,
+  "short": "stats.zscore",
+  "ddof_default": "uses `ddof=0` by default"
+ },
+ "scipy.stats.skew": {
+  "fn": "scipy.stats.skew",
+  "family": "sp_moment",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`scipy.stats.skew` — Compute the sample skewness of a data set.\nSignature: `skew(a, axis=0, bias=True, nan_policy='propagate', *, keepdims=False)`\nParameters:\n  a : ndarray\n      Input array.\n  axis : int or None, default: 0\n      If an int, the axis of the input along which to compute the statistic.\n      The statistic of each axis-slice (e.g. row) of the input will appear in a\n      corresponding element of the output.\n      If ``None``, the input will be raveled before computing the statistic.\n→ bias : bool, optional\n      If False, then the calculations are corrected for statistical bias.\n→ nan_policy : {'propagate', 'omit', 'raise'}\n      Defines how to handle input NaNs.\n\n      - ``propagate``: if a NaN is present in the axis slice (e.g. row) along\n      which the  statistic is computed, the corresponding entry of the output\n      will be NaN.\n      - ``omit``: NaNs will be omitted when performing the calculation.\n      If insufficient data remains in the axis slice along which the\n      statistic is computed, the corresponding entry of the output will be\n      NaN.\n      - ``raise``: if a NaN is present, a ``ValueError`` will be raised.\n  keepdims : bool, default: False\n      If this is set to True, the axes which are reduced are left\n      in the result as dimensions with size one. With this option,\n      the result will broadcast correctly against the input array.\nNotes (about bias, nan_policy):\n      The sample skewness is computed as the Fisher-Pearson coefficient\n      of skewness, i.e.\n      .. math::\n          g_1=\\frac{m_3}{m_2^{3/2}}\n      where\n      .. math::\n          m_i=\\frac{1}{N}\\sum_{n=1}^N(x[n]-\\bar{x})^i\n      is the biased sample :math:`i\\texttt{th}` central moment, and\n      :math:`\\bar{x}` is\n      the sample mean.  If ``bias`` is False, the calculations are\n      corrected for bias and the value computed is the adjusted\n      Fisher-Pearson standardized moment coefficient, i.e.\n      .. math::\n          G_1=\\frac{k_3}{k_2^{3/2}}=\n              \\frac{\\sqrt{N(N-1)}}{N-2}\\frac{m_3}{m_2^{3/2}}.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "a",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "bias",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "nan_policy",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'propagate'",
+    "default": "propagate"
+   },
+   {
+    "name": "keepdims",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   }
+  ],
+  "risky": [
+   "bias",
+   "nan_policy"
+  ],
+  "checklist": [
+   {
+    "rule": "bias",
+    "kind": "param",
+    "params": [
+     "bias"
+    ],
+    "segments": [
+     "`bias`: There are two options {`True`, `False`} for the `bias` parameter. `bias=False` corrects the estimate for statistical bias (the adjusted estimate); `bias=True` leaves it uncorrected. If the task instructions do not specify, keep the library default `bias=True` (the installed scipy signature).",
+     "Look for words such as `unbiased`, `bias-corrected` or `adjusted` in <task_instructions>."
+    ],
+    "claims": [
+     "skew default bias=True differs from bias=False",
+     "skew and kurtosis signatures: bias=True, fisher=True by default"
+    ]
+   },
+   {
+    "rule": "axis",
+    "kind": "axis",
+    "params": [
+     "axis"
+    ],
+    "segments": [
+     "`axis`: check the dimension of the input `a` (the array passed as the first argument; in your line it is `{shown}`).",
+     "There are three options for `axis`: `None` (the whole array is flattened into one number), `0` (the default: one value per column), `1` (one value per row). If `a` is 2-D, set `axis=0` for one value per column, or `axis=1` if the task instructions ask for one value per row. If `a` is 1-D, `axis` does not apply."
+    ],
+    "claims": [
+     "scipy axis default 0: one value per column of a 2-D input"
+    ]
+   },
+   {
+    "rule": "nan_policy",
+    "kind": "param",
+    "params": [
+     "nan_policy"
+    ],
+    "segments": [
+     "NaN: `nan_policy='propagate'` (the default) returns `nan` if any value is NaN; `nan_policy='omit'` skips NaN; `nan_policy='raise'` raises an error. If <task_instructions> say how to treat missing values, follow them. If they do not, check where the NaN in your input would come from: if the input data have no missing values, a NaN in this array was made by your own code (for example an unfilled slot); find that step instead of skipping it."
+    ],
+    "claims": [
+     "nan_policy propagate returns nan, omit skips, raise raises"
+    ]
+   }
+  ],
+  "checklist_default": {
+   "bias": true
+  },
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "skip": [
+     "print",
+     "zero_guard"
+    ],
+    "rules": [
+     {
+      "param": "bias",
+      "values": [
+       true
+      ],
+      "missing": true,
+      "require": "\\bunbiased\\b|\\bbias-corrected\\b"
+     },
+     {
+      "param": "fisher",
+      "values": [
+       true
+      ],
+      "missing": true,
+      "require": "\\bPearson\\b[^.\\n]{0,40}\\bkurtosis|\\bkurtosis\\b[^.\\n]{0,40}\\bPearson\\b|non-excess kurtosis|raw kurtosis"
+     }
+    ]
+   },
+   "describe": "a call that leaves bias=True when <task_instructions> ask for an unbiased or bias-corrected estimate, or leaves fisher=True when they ask for Pearson kurtosis"
+  },
+  "steps": null,
+  "ddof_card": false,
+  "short": "stats.skew",
+  "ddof_default": null
+ },
+ "scipy.stats.kurtosis": {
+  "fn": "scipy.stats.kurtosis",
+  "family": "sp_moment",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`scipy.stats.kurtosis` — Compute the kurtosis (Fisher or Pearson) of a dataset.\nSignature: `kurtosis(a, axis=0, fisher=True, bias=True, nan_policy='propagate', *, keepdims=False)`\nParameters:\n  a : array\n      Data for which the kurtosis is calculated.\n  axis : int or None, default: 0\n      If an int, the axis of the input along which to compute the statistic.\n      The statistic of each axis-slice (e.g. row) of the input will appear in a\n      corresponding element of the output.\n      If ``None``, the input will be raveled before computing the statistic.\n→ fisher : bool, optional\n      If True, Fisher's definition is used (normal ==> 0.0). If False,\n      Pearson's definition is used (normal ==> 3.0).\n→ bias : bool, optional\n      If False, then the calculations are corrected for statistical bias.\n→ nan_policy : {'propagate', 'omit', 'raise'}\n      Defines how to handle input NaNs.\n\n      - ``propagate``: if a NaN is present in the axis slice (e.g. row) along\n      which the  statistic is computed, the corresponding entry of the output\n      will be NaN.\n      - ``omit``: NaNs will be omitted when performing the calculation.\n      If insufficient data remains in the axis slice along which the\n      statistic is computed, the corresponding entry of the output will be\n      NaN.\n      - ``raise``: if a NaN is present, a ``ValueError`` will be raised.\n  keepdims : bool, default: False\n      If this is set to True, the axes which are reduced are left\n      in the result as dimensions with size one. With this option,\n      the result will broadcast correctly against the input array.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "a",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "fisher",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "bias",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "nan_policy",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'propagate'",
+    "default": "propagate"
+   },
+   {
+    "name": "keepdims",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   }
+  ],
+  "risky": [
+   "bias",
+   "fisher",
+   "nan_policy"
+  ],
+  "checklist": [
+   {
+    "rule": "bias",
+    "kind": "param",
+    "params": [
+     "bias"
+    ],
+    "segments": [
+     "`bias`: There are two options {`True`, `False`} for the `bias` parameter. `bias=False` corrects the estimate for statistical bias (the adjusted estimate); `bias=True` leaves it uncorrected. If the task instructions do not specify, keep the library default `bias=True` (the installed scipy signature).",
+     "Look for words such as `unbiased`, `bias-corrected` or `adjusted` in <task_instructions>."
+    ],
+    "claims": [
+     "skew default bias=True differs from bias=False",
+     "skew and kurtosis signatures: bias=True, fisher=True by default"
+    ]
+   },
+   {
+    "rule": "fisher",
+    "kind": "param",
+    "params": [
+     "fisher"
+    ],
+    "segments": [
+     "`fisher`: There are two options {`True`, `False`} for the `fisher` parameter. `fisher=True` gives the excess kurtosis (a normal distribution gives $0$); `fisher=False` gives the ordinary (Pearson) kurtosis (a normal distribution gives $3$). If the task instructions do not specify, keep the library default `fisher=True` (the installed scipy signature).",
+     "Look for words such as `excess kurtosis`, `Fisher` or `Pearson` in <task_instructions>."
+    ],
+    "claims": [
+     "kurtosis default fisher=True excess",
+     "skew and kurtosis signatures: bias=True, fisher=True by default"
+    ]
+   },
+   {
+    "rule": "axis",
+    "kind": "axis",
+    "params": [
+     "axis"
+    ],
+    "segments": [
+     "`axis`: check the dimension of the input `a` (the array passed as the first argument; in your line it is `{shown}`).",
+     "There are three options for `axis`: `None` (the whole array is flattened into one number), `0` (the default: one value per column), `1` (one value per row). If `a` is 2-D, set `axis=0` for one value per column, or `axis=1` if the task instructions ask for one value per row. If `a` is 1-D, `axis` does not apply."
+    ],
+    "claims": [
+     "scipy axis default 0: one value per column of a 2-D input"
+    ]
+   },
+   {
+    "rule": "nan_policy",
+    "kind": "param",
+    "params": [
+     "nan_policy"
+    ],
+    "segments": [
+     "NaN: `nan_policy='propagate'` (the default) returns `nan` if any value is NaN; `nan_policy='omit'` skips NaN; `nan_policy='raise'` raises an error. If <task_instructions> say how to treat missing values, follow them. If they do not, check where the NaN in your input would come from: if the input data have no missing values, a NaN in this array was made by your own code (for example an unfilled slot); find that step instead of skipping it."
+    ],
+    "claims": [
+     "nan_policy propagate returns nan, omit skips, raise raises"
+    ]
+   }
+  ],
+  "checklist_default": {
+   "bias": true,
+   "fisher": true
+  },
+  "trigger": {
+   "static": {
+    "kind": "param_rules",
+    "skip": [
+     "print",
+     "zero_guard"
+    ],
+    "rules": [
+     {
+      "param": "bias",
+      "values": [
+       true
+      ],
+      "missing": true,
+      "require": "\\bunbiased\\b|\\bbias-corrected\\b"
+     },
+     {
+      "param": "fisher",
+      "values": [
+       true
+      ],
+      "missing": true,
+      "require": "\\bPearson\\b[^.\\n]{0,40}\\bkurtosis|\\bkurtosis\\b[^.\\n]{0,40}\\bPearson\\b|non-excess kurtosis|raw kurtosis"
+     }
+    ]
+   },
+   "describe": "a call that leaves bias=True when <task_instructions> ask for an unbiased or bias-corrected estimate, or leaves fisher=True when they ask for Pearson kurtosis"
+  },
+  "steps": null,
+  "ddof_card": false,
+  "short": "stats.kurtosis",
+  "ddof_default": null
+ },
+ "statsmodels.api.add_constant": {
+  "fn": "statsmodels.api.add_constant",
+  "family": "sm_add_constant",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`statsmodels.api.add_constant` — Add a column of ones to an array\nSignature: `add_constant(data, prepend=True, has_constant='skip')`\nParameters:\n  data : array_like\n      A column-ordered design matrix.\n  prepend : bool, optional\n      If True (default), the constant is in the first column. If False, the\n      constant is appended (last column).\n→ has_constant : {'raise', 'add', 'skip'}, optional\n      Behavior if ``data`` already has a constant. The default will return\n      data without adding another constant. If 'raise', will raise an\n      error if any column has a constant value. Using 'add' will add a\n      column of 1s if a constant column is present.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "data",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "prepend",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "has_constant",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'skip'",
+    "default": "skip"
+   }
+  ],
+  "risky": [
+   "has_constant"
+  ],
+  "checklist": [
+   {
+    "rule": "data",
+    "kind": "input",
+    "params": [],
+    "segments": [
+     "`data`: check the shape of the input `data` (in your line it is `{shown}`).",
+     "A 1-D list such as `[1, x]` is read as one column of values, not as one row; for one prediction row pass a 2-D array of one row, e.g. `np.array([[x]])` with `has_constant='add'`. Do not put the `1` into the list yourself: `add_constant` adds the constant column."
+    ],
+    "claims": [
+     "a 1-D list [1, x] is read as one column (two rows)",
+     "one prediction row as np.array([[x]]) with has_constant='add' gives params[0] + params[1] * x"
+    ]
+   },
+   {
+    "rule": "has_constant",
+    "kind": "param",
+    "params": [
+     "has_constant"
+    ],
+    "segments": [
+     "`has_constant`: There are three options {`'skip'`, `'add'`, `'raise'`} for the `has_constant` parameter. `'skip'` adds no constant column when the input already has a column that looks constant (a single row always does); `'add'` adds it anyway; `'raise'` raises an error."
+    ],
+    "claims": [
+     "has_constant='skip' adds no constant to a single row; 'add' adds it"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "into_predict"
+   },
+   "runtime": {
+    "kind": "one_row_or_1d",
+    "arg": 0
+   },
+   "describe": "a call whose result goes straight into .predict(...), when the input evaluated in the session has fewer than 2 dimensions or a single row"
+  },
+  "steps": null,
+  "ddof_card": false,
+  "short": "api.add_constant",
+  "ddof_default": null
+ },
+ "pandas.DataFrame.sort_values": {
+  "fn": "pandas.DataFrame.sort_values",
+  "family": "pd_order",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`pandas.DataFrame.sort_values` — Sort by the values along either axis.\nSignature: `sort_values(by: 'IndexLabel', *, axis: 'Axis' = 0, ascending: 'bool | list[bool] | tuple[bool, ...]' = True, inplace: 'bool' = False, kind: 'SortKind' = 'quicksort', na_position: 'str' = 'last', ignore_index: 'bool' = False, key: 'ValueKeyFunc | None' = None) -> 'DataFrame | None'`\nParameters:\n  by : str or list of str\n      Name or list of names to sort by.\n\n      - if `axis` is 0 or `'index'` then `by` may contain index\n      levels and/or column labels.\n      - if `axis` is 1 or `'columns'` then `by` may contain column\n      levels and/or index labels.\n  axis : \"{0 or 'index', 1 or 'columns'}\", default 0\n      Axis to be sorted.\n→ ascending : bool or list of bool, default True\n      Sort ascending vs. descending. Specify list for multiple sort\n      orders.  If this is a list of bools, must match the length of\n      the by.\n  inplace : bool, default False\n      If True, perform operation in-place.\n  kind : {'quicksort', 'mergesort', 'heapsort', 'stable'}, default 'quicksort'\n      Choice of sorting algorithm. See also :func:`numpy.sort` for more\n      information. `mergesort` and `stable` are the only stable algorithms. For\n      DataFrames, this option is only applied when sorting on a single\n      column or label.\n  na_position : {'first', 'last'}, default 'last'\n      Puts NaNs at the beginning if `first`; `last` puts NaNs at the\n      end.\n  ignore_index : bool, default False\n      If True, the resulting axis will be labeled 0, 1, …, n - 1.\n  key : callable, optional\n      Apply the key function to the values\n      before sorting. This is similar to the `key` argument in the\n      builtin :meth:`sorted` function, with the notable difference that\n      this `key` function should be *vectorized*. It should expect a\n      ``Series`` and return a Series with the same shape as the input.\n      It will be applied to each column in `by` independently. The values in the\n      returned Series will be used as the keys for sorting.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "by",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "ascending",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "inplace",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "kind",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "'quicksort'",
+    "default": "quicksort"
+   },
+   {
+    "name": "na_position",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "'last'",
+    "default": "last"
+   },
+   {
+    "name": "ignore_index",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "key",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [
+   "ascending"
+  ],
+  "checklist": [
+   {
+    "rule": "float_ties",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "ties in a float key: sort or rank by the values as computed, without rounding them first. Values that differ only in the last digits (for example `0.0030000000000000005` and `0.003`) are different values, and in a descending order the larger one comes first; rounding would make them equal and change the order.",
+     "Tie-breaking convention for multiple rankings: when computing a second ranking over the same rows, if the task instructions specify no tie-breaking rule, break exact ties in the second measure by ascending first-rank value. This preserves the order established by the first ranking rather than introducing a name-based tie-breaker. The first ranking must define a unique order; otherwise, an additional tie-breaker is required.",
+     "```python\n# second rank over the same rows: exact ties follow the first rank, not the name\nsub = sub.sort_values([first_key, \"name\"], ascending=[False, True])\nsub[\"rank_first\"] = range(1, len(sub) + 1)\nsub = sub.sort_values([second_key, \"rank_first\"], ascending=[False, True])\nsub[\"rank_second\"] = range(1, len(sub) + 1)\n```"
+    ],
+    "claims": [
+     "ratios equal on paper can differ in the last digits; the sort and its tie-breaker follow the noise; rounding the key restores the tie rule"
+    ]
+   },
+   {
+    "rule": "rank_or_sort",
+    "kind": "note",
+    "params": [],
+    "segments": [
+     "`rank` or sort-then-number: decide this before you write the line, because it decides the numbers in the output.",
+     "(1) The output must be positions $1, \\dots, n$ with every number used exactly once (a ranking table, a top-$k$ list, ranks that must be complete): you must sort by all keys, with the tie rule as the later keys, and then number the rows with `range(1, len(df) + 1)`. Do not use `rank(method=\"min\")` or `rank(method=\"dense\")` here: they repeat numbers.",
+     "(2) The task names a tie method for ranks (average, minimum, dense), or the ranks feed a statistic (a rank correlation, quantile groups): you must call `rank(method=...)` with that method; if no method is named, use `method=\"average\"`.",
+     "(3) `rank` ranks one column only. To rank by two keys you must sort by both keys first and then number the rows; never rank the first key alone and leave its ties to chance.",
+     "(4) Exact ties and no tie rule in <task_instructions>: follow the tie-breaking convention for multiple rankings above."
+    ],
+    "claims": [
+     "DataFrame.rank ranks one column at a time",
+     "method first follows row order"
+    ]
+   },
+   {
+    "rule": "ascending",
+    "kind": "param",
+    "params": [
+     "ascending"
+    ],
+    "segments": [
+     "`ascending`: `ascending=True` (the default) puts the smallest value first (rank `1`); `ascending=False` puts the largest first. Set it to the direction <task_instructions> give for rank `1`."
+    ],
+    "claims": [
+     "sort_values and rank: ascending=True puts the smallest first (rank 1); ascending=False the largest"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "near_tie"
+   },
+   "runtime": {
+    "kind": "near_tie_keys"
+   },
+   "describe": "a sort_values or rank call whose float key holds values that differ only within rounding noise (relative 1e-9), in a cell that turns the order into a rank (a rank call, or range(1, ...), np.arange(1, ...) or cumcount() after the sort)"
+  },
+  "steps": "cell",
+  "ddof_card": false,
+  "short": "DataFrame.sort_values",
+  "ddof_default": null
+ },
+ "pandas.Series.sort_values": {
+  "fn": "pandas.Series.sort_values",
+  "family": "pd_order",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`pandas.Series.sort_values` — Sort by the values.\nSignature: `sort_values(*, axis: 'Axis' = 0, ascending: 'bool | Sequence[bool]' = True, inplace: 'bool' = False, kind: 'SortKind' = 'quicksort', na_position: 'NaPosition' = 'last', ignore_index: 'bool' = False, key: 'ValueKeyFunc | None' = None) -> 'Series | None'`\nParameters:\n  axis : {0 or 'index'}\n      Unused. Parameter needed for compatibility with DataFrame.\n→ ascending : bool or list of bools, default True\n      If True, sort values in ascending order, otherwise descending.\n  inplace : bool, default False\n      If True, perform operation in-place.\n  kind : {'quicksort', 'mergesort', 'heapsort', 'stable'}, default 'quicksort'\n      Choice of sorting algorithm. See also :func:`numpy.sort` for more\n      information. 'mergesort' and 'stable' are the only stable  algorithms.\n  na_position : {'first' or 'last'}, default 'last'\n      Argument 'first' puts NaNs at the beginning, 'last' puts NaNs at\n      the end.\n  ignore_index : bool, default False\n      If True, the resulting axis will be labeled 0, 1, …, n - 1.\n  key : callable, optional\n      If not None, apply the key function to the series values\n      before sorting. This is similar to the `key` argument in the\n      builtin :meth:`sorted` function, with the notable difference that\n      this `key` function should be *vectorized*. It should expect a\n      ``Series`` and return an array-like.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "ascending",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "inplace",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "kind",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "'quicksort'",
+    "default": "quicksort"
+   },
+   {
+    "name": "na_position",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "'last'",
+    "default": "last"
+   },
+   {
+    "name": "ignore_index",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "key",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [
+   "ascending"
+  ],
+  "checklist": [
+   {
+    "rule": "float_ties",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "ties in a float key: sort or rank by the values as computed, without rounding them first. Values that differ only in the last digits (for example `0.0030000000000000005` and `0.003`) are different values, and in a descending order the larger one comes first; rounding would make them equal and change the order.",
+     "Tie-breaking convention for multiple rankings: when computing a second ranking over the same rows, if the task instructions specify no tie-breaking rule, break exact ties in the second measure by ascending first-rank value. This preserves the order established by the first ranking rather than introducing a name-based tie-breaker. The first ranking must define a unique order; otherwise, an additional tie-breaker is required.",
+     "```python\n# second rank over the same rows: exact ties follow the first rank, not the name\nsub = sub.sort_values([first_key, \"name\"], ascending=[False, True])\nsub[\"rank_first\"] = range(1, len(sub) + 1)\nsub = sub.sort_values([second_key, \"rank_first\"], ascending=[False, True])\nsub[\"rank_second\"] = range(1, len(sub) + 1)\n```"
+    ],
+    "claims": [
+     "ratios equal on paper can differ in the last digits; the sort and its tie-breaker follow the noise; rounding the key restores the tie rule"
+    ]
+   },
+   {
+    "rule": "rank_or_sort",
+    "kind": "note",
+    "params": [],
+    "segments": [
+     "`rank` or sort-then-number: decide this before you write the line, because it decides the numbers in the output.",
+     "(1) The output must be positions $1, \\dots, n$ with every number used exactly once (a ranking table, a top-$k$ list, ranks that must be complete): you must sort by all keys, with the tie rule as the later keys, and then number the rows with `range(1, len(df) + 1)`. Do not use `rank(method=\"min\")` or `rank(method=\"dense\")` here: they repeat numbers.",
+     "(2) The task names a tie method for ranks (average, minimum, dense), or the ranks feed a statistic (a rank correlation, quantile groups): you must call `rank(method=...)` with that method; if no method is named, use `method=\"average\"`.",
+     "(3) `rank` ranks one column only. To rank by two keys you must sort by both keys first and then number the rows; never rank the first key alone and leave its ties to chance.",
+     "(4) Exact ties and no tie rule in <task_instructions>: follow the tie-breaking convention for multiple rankings above."
+    ],
+    "claims": [
+     "DataFrame.rank ranks one column at a time",
+     "method first follows row order"
+    ]
+   },
+   {
+    "rule": "ascending",
+    "kind": "param",
+    "params": [
+     "ascending"
+    ],
+    "segments": [
+     "`ascending`: `ascending=True` (the default) puts the smallest value first (rank `1`); `ascending=False` puts the largest first. Set it to the direction <task_instructions> give for rank `1`."
+    ],
+    "claims": [
+     "sort_values and rank: ascending=True puts the smallest first (rank 1); ascending=False the largest"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "near_tie"
+   },
+   "runtime": {
+    "kind": "near_tie_keys"
+   },
+   "describe": "a sort_values or rank call whose float key holds values that differ only within rounding noise (relative 1e-9), in a cell that turns the order into a rank (a rank call, or range(1, ...), np.arange(1, ...) or cumcount() after the sort)"
+  },
+  "steps": "cell",
+  "ddof_card": false,
+  "short": "Series.sort_values",
+  "ddof_default": null
+ },
+ "pandas.DataFrame.rank": {
+  "fn": "pandas.DataFrame.rank",
+  "family": "pd_order",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`pandas.DataFrame.rank` — Compute numerical data ranks (1 through n) along axis.\nSignature: `rank(axis: 'Axis' = 0, method: \"Literal['average', 'min', 'max', 'first', 'dense']\" = 'average', numeric_only: 'bool' = False, na_option: \"Literal['keep', 'top', 'bottom']\" = 'keep', ascending: 'bool' = True, pct: 'bool' = False) -> 'Self'`\nParameters:\n  axis : {0 or 'index', 1 or 'columns'}, default 0\n      Index to direct ranking.\n      For `Series` this parameter is unused and defaults to 0.\n→ method : {'average', 'min', 'max', 'first', 'dense'}, default 'average'\n      How to rank the group of records that have the same value (i.e. ties):\n\n      * average: average rank of the group\n      * min: lowest rank in the group\n      * max: highest rank in the group\n      * first: ranks assigned in order they appear in the array\n      * dense: like 'min', but rank always increases by 1 between groups.\n  numeric_only : bool, default False\n      For DataFrame objects, rank only numeric columns if set to True.\n  na_option : {'keep', 'top', 'bottom'}, default 'keep'\n      How to rank NaN values:\n\n      * keep: assign NaN rank to NaN values\n      * top: assign lowest rank to NaN values\n      * bottom: assign highest rank to NaN values\n→ ascending : bool, default True\n      Whether or not the elements should be ranked in ascending order.\n  pct : bool, default False\n      Whether or not to display the returned rankings in percentile\n      form.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "method",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'average'",
+    "default": "average"
+   },
+   {
+    "name": "numeric_only",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "na_option",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'keep'",
+    "default": "keep"
+   },
+   {
+    "name": "ascending",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "pct",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   }
+  ],
+  "risky": [
+   "method",
+   "ascending"
+  ],
+  "checklist": [
+   {
+    "rule": "float_ties",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "ties in a float key: sort or rank by the values as computed, without rounding them first. Values that differ only in the last digits (for example `0.0030000000000000005` and `0.003`) are different values, and in a descending order the larger one comes first; rounding would make them equal and change the order.",
+     "Tie-breaking convention for multiple rankings: when computing a second ranking over the same rows, if the task instructions specify no tie-breaking rule, break exact ties in the second measure by ascending first-rank value. This preserves the order established by the first ranking rather than introducing a name-based tie-breaker. The first ranking must define a unique order; otherwise, an additional tie-breaker is required.",
+     "```python\n# second rank over the same rows: exact ties follow the first rank, not the name\nsub = sub.sort_values([first_key, \"name\"], ascending=[False, True])\nsub[\"rank_first\"] = range(1, len(sub) + 1)\nsub = sub.sort_values([second_key, \"rank_first\"], ascending=[False, True])\nsub[\"rank_second\"] = range(1, len(sub) + 1)\n```"
+    ],
+    "claims": [
+     "ratios equal on paper can differ in the last digits; the sort and its tie-breaker follow the noise; rounding the key restores the tie rule"
+    ]
+   },
+   {
+    "rule": "rank_or_sort",
+    "kind": "note",
+    "params": [],
+    "segments": [
+     "`rank` or sort-then-number: decide this before you write the line, because it decides the numbers in the output.",
+     "(1) The output must be positions $1, \\dots, n$ with every number used exactly once (a ranking table, a top-$k$ list, ranks that must be complete): you must sort by all keys, with the tie rule as the later keys, and then number the rows with `range(1, len(df) + 1)`. Do not use `rank(method=\"min\")` or `rank(method=\"dense\")` here: they repeat numbers.",
+     "(2) The task names a tie method for ranks (average, minimum, dense), or the ranks feed a statistic (a rank correlation, quantile groups): you must call `rank(method=...)` with that method; if no method is named, use `method=\"average\"`.",
+     "(3) `rank` ranks one column only. To rank by two keys you must sort by both keys first and then number the rows; never rank the first key alone and leave its ties to chance.",
+     "(4) Exact ties and no tie rule in <task_instructions>: follow the tie-breaking convention for multiple rankings above."
+    ],
+    "claims": [
+     "DataFrame.rank ranks one column at a time",
+     "method first follows row order"
+    ]
+   },
+   {
+    "rule": "rank_method",
+    "kind": "param",
+    "params": [
+     "method"
+    ],
+    "segments": [
+     "`method`: There are five options for how tied values are ranked: `'average'` (the default: each tied value gets the mean of their ranks), `'min'` (the lowest rank of the group), `'max'` (the highest), `'first'` (the ranks follow the order in which the values appear in the data) and `'dense'` (like `'min'`, but the next group's rank is one higher). Use the option the tie rule in <task_instructions> describes; `'first'` makes the result depend on the row order, so sort by the tie-breaking column before ranking if you use it."
+    ],
+    "claims": [
+     "rank methods on ties: average, min, max, first (by position), dense; average is the default"
+    ]
+   },
+   {
+    "rule": "ascending",
+    "kind": "param",
+    "params": [
+     "ascending"
+    ],
+    "segments": [
+     "`ascending`: `ascending=True` (the default) puts the smallest value first (rank `1`); `ascending=False` puts the largest first. Set it to the direction <task_instructions> give for rank `1`."
+    ],
+    "claims": [
+     "sort_values and rank: ascending=True puts the smallest first (rank 1); ascending=False the largest"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "near_tie"
+   },
+   "runtime": {
+    "kind": "near_tie_keys"
+   },
+   "describe": "a sort_values or rank call whose float key holds values that differ only within rounding noise (relative 1e-9), in a cell that turns the order into a rank (a rank call, or range(1, ...), np.arange(1, ...) or cumcount() after the sort)"
+  },
+  "steps": "cell",
+  "ddof_card": false,
+  "short": "DataFrame.rank",
+  "ddof_default": null
+ },
+ "pandas.Series.rank": {
+  "fn": "pandas.Series.rank",
+  "family": "pd_order",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`pandas.Series.rank` — Compute numerical data ranks (1 through n) along axis.\nSignature: `rank(axis: 'Axis' = 0, method: \"Literal['average', 'min', 'max', 'first', 'dense']\" = 'average', numeric_only: 'bool' = False, na_option: \"Literal['keep', 'top', 'bottom']\" = 'keep', ascending: 'bool' = True, pct: 'bool' = False) -> 'Self'`\nParameters:\n  axis : {0 or 'index', 1 or 'columns'}, default 0\n      Index to direct ranking.\n      For `Series` this parameter is unused and defaults to 0.\n→ method : {'average', 'min', 'max', 'first', 'dense'}, default 'average'\n      How to rank the group of records that have the same value (i.e. ties):\n\n      * average: average rank of the group\n      * min: lowest rank in the group\n      * max: highest rank in the group\n      * first: ranks assigned in order they appear in the array\n      * dense: like 'min', but rank always increases by 1 between groups.\n  numeric_only : bool, default False\n      For DataFrame objects, rank only numeric columns if set to True.\n  na_option : {'keep', 'top', 'bottom'}, default 'keep'\n      How to rank NaN values:\n\n      * keep: assign NaN rank to NaN values\n      * top: assign lowest rank to NaN values\n      * bottom: assign highest rank to NaN values\n→ ascending : bool, default True\n      Whether or not the elements should be ranked in ascending order.\n  pct : bool, default False\n      Whether or not to display the returned rankings in percentile\n      form.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "axis",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "method",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'average'",
+    "default": "average"
+   },
+   {
+    "name": "numeric_only",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "na_option",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'keep'",
+    "default": "keep"
+   },
+   {
+    "name": "ascending",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "pct",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   }
+  ],
+  "risky": [
+   "method",
+   "ascending"
+  ],
+  "checklist": [
+   {
+    "rule": "float_ties",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "ties in a float key: sort or rank by the values as computed, without rounding them first. Values that differ only in the last digits (for example `0.0030000000000000005` and `0.003`) are different values, and in a descending order the larger one comes first; rounding would make them equal and change the order.",
+     "Tie-breaking convention for multiple rankings: when computing a second ranking over the same rows, if the task instructions specify no tie-breaking rule, break exact ties in the second measure by ascending first-rank value. This preserves the order established by the first ranking rather than introducing a name-based tie-breaker. The first ranking must define a unique order; otherwise, an additional tie-breaker is required.",
+     "```python\n# second rank over the same rows: exact ties follow the first rank, not the name\nsub = sub.sort_values([first_key, \"name\"], ascending=[False, True])\nsub[\"rank_first\"] = range(1, len(sub) + 1)\nsub = sub.sort_values([second_key, \"rank_first\"], ascending=[False, True])\nsub[\"rank_second\"] = range(1, len(sub) + 1)\n```"
+    ],
+    "claims": [
+     "ratios equal on paper can differ in the last digits; the sort and its tie-breaker follow the noise; rounding the key restores the tie rule"
+    ]
+   },
+   {
+    "rule": "rank_or_sort",
+    "kind": "note",
+    "params": [],
+    "segments": [
+     "`rank` or sort-then-number: decide this before you write the line, because it decides the numbers in the output.",
+     "(1) The output must be positions $1, \\dots, n$ with every number used exactly once (a ranking table, a top-$k$ list, ranks that must be complete): you must sort by all keys, with the tie rule as the later keys, and then number the rows with `range(1, len(df) + 1)`. Do not use `rank(method=\"min\")` or `rank(method=\"dense\")` here: they repeat numbers.",
+     "(2) The task names a tie method for ranks (average, minimum, dense), or the ranks feed a statistic (a rank correlation, quantile groups): you must call `rank(method=...)` with that method; if no method is named, use `method=\"average\"`.",
+     "(3) `rank` ranks one column only. To rank by two keys you must sort by both keys first and then number the rows; never rank the first key alone and leave its ties to chance.",
+     "(4) Exact ties and no tie rule in <task_instructions>: follow the tie-breaking convention for multiple rankings above."
+    ],
+    "claims": [
+     "DataFrame.rank ranks one column at a time",
+     "method first follows row order"
+    ]
+   },
+   {
+    "rule": "rank_method",
+    "kind": "param",
+    "params": [
+     "method"
+    ],
+    "segments": [
+     "`method`: There are five options for how tied values are ranked: `'average'` (the default: each tied value gets the mean of their ranks), `'min'` (the lowest rank of the group), `'max'` (the highest), `'first'` (the ranks follow the order in which the values appear in the data) and `'dense'` (like `'min'`, but the next group's rank is one higher). Use the option the tie rule in <task_instructions> describes; `'first'` makes the result depend on the row order, so sort by the tie-breaking column before ranking if you use it."
+    ],
+    "claims": [
+     "rank methods on ties: average, min, max, first (by position), dense; average is the default"
+    ]
+   },
+   {
+    "rule": "ascending",
+    "kind": "param",
+    "params": [
+     "ascending"
+    ],
+    "segments": [
+     "`ascending`: `ascending=True` (the default) puts the smallest value first (rank `1`); `ascending=False` puts the largest first. Set it to the direction <task_instructions> give for rank `1`."
+    ],
+    "claims": [
+     "sort_values and rank: ascending=True puts the smallest first (rank 1); ascending=False the largest"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "near_tie"
+   },
+   "runtime": {
+    "kind": "near_tie_keys"
+   },
+   "describe": "a sort_values or rank call whose float key holds values that differ only within rounding noise (relative 1e-9), in a cell that turns the order into a rank (a rank call, or range(1, ...), np.arange(1, ...) or cumcount() after the sort)"
+  },
+  "steps": "cell",
+  "ddof_card": false,
+  "short": "Series.rank",
+  "ddof_default": null
+ },
+ "arch.arch_model": {
+  "fn": "arch.arch_model",
+  "family": "arch_model",
+  "task_driven": true,
+  "property": false,
+  "documentation": "`arch.arch_model` — Initialization of common ARCH model specifications\nSignature: `arch_model(y: Union[numpy.ndarray, pandas.DataFrame, pandas.Series, NoneType], x: Union[numpy.ndarray, pandas.DataFrame, pandas.Series, numpy.ndarray[tuple[int, int], numpy.dtype[numpy.float64]], NoneType] = None, mean: Literal['Constant', 'Zero', 'LS', 'AR', 'ARX', 'HAR', 'HARX', 'constant', 'zero'] = 'Constant', lags: int | list[int] | numpy.ndarray[tuple[int, ...], numpy.dtype[numpy.int32]] | numpy.ndarray[tuple[int, ...], numpy.dtype[numpy.int64]] | None = 0, vol: Literal['GARCH', 'ARCH', 'EGARCH', 'FIGARCH', 'APARCH', 'HARCH'] = 'GARCH', p: int | list[int] = 1, o: int = 0, q: int = 1, power: float = 2.0, dist: Literal['normal', 'gaussian', 't', 'studentst', 'skewstudent', 'skewt', 'ged', 'generalized error'] = 'normal', hold_back: int | None = None, rescale: bool | None = None) -> arch.univariate.mean.HARX`\nParameters:\n  y : ndarray, Series, None\n      The dependent variable\n  x : ndarray, DataFrame, optional\n      Exogenous regressors.  Ignored if model does not permit exogenous\n      regressors.\n→ mean : str, optional\n      Name of the mean model.  Currently supported options are: 'Constant',\n      'Zero', 'LS', 'AR', 'ARX', 'HAR' and  'HARX'\n  lags : int or list[int], optional\n      Either a scalar integer value indicating lag length or a list of\n      integers specifying lag locations.\n→ vol : str, optional\n      Name of the volatility model.  Currently supported options are:\n      'GARCH' (default), 'ARCH', 'EGARCH', 'FIGARCH', 'APARCH' and 'HARCH'\n→ p : int, optional\n      Lag order of the symmetric innovation\n→ o : int, optional\n      Lag order of the asymmetric innovation\n→ q : int, optional\n      Lag order of lagged volatility or equivalent\n  power : float, optional\n      Power to use with GARCH and related models\n→ dist : int, optional\n      Name of the error distribution.  Currently supported options are:\n\n      * Normal: 'normal', 'gaussian' (default)\n      * Students's t: 't', 'studentst'\n      * Skewed Student's t: 'skewstudent', 'skewt'\n      * Generalized Error Distribution: 'ged', 'generalized error\"\n  hold_back : int\n      Number of observations at the start of the sample to exclude when\n      estimating model parameters.  Used when comparing models with different\n      lag lengths to estimate on the common sample.\n→ rescale : bool\n      Flag indicating whether to automatically rescale data if the scale\n      of the data is likely to produce convergence issues when estimating\n      model parameters. If False, the model is estimated on the data without\n      transformation.  If True, then y is rescaled and the new scale is\n      reported in the estimation results.\nNotes (about mean, vol, p, o, q, dist, rescale):\n      Input that are not relevant for a particular specification, such as `lags`\n      when `mean='zero'`, are silently ignored.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "y",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "x",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "mean",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'Constant'",
+    "default": "Constant"
+   },
+   {
+    "name": "lags",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "vol",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'GARCH'",
+    "default": "GARCH"
+   },
+   {
+    "name": "p",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "o",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "0",
+    "default": 0
+   },
+   {
+    "name": "q",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "power",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "2.0",
+    "default": 2.0
+   },
+   {
+    "name": "dist",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'normal'",
+    "default": "normal"
+   },
+   {
+    "name": "hold_back",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "rescale",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [
+   "mean",
+   "vol",
+   "p",
+   "o",
+   "q",
+   "dist",
+   "rescale"
+  ],
+  "checklist": [
+   {
+    "rule": "mean",
+    "kind": "param",
+    "params": [
+     "mean"
+    ],
+    "segments": [
+     "`mean`: The options for the `mean` parameter are `'Constant'` (a constant mean $\\mu$ is estimated), `'Zero'` (no mean is estimated: the returns are taken as zero-mean), and `'AR'`, `'ARX'`, `'HAR'`, `'LS'` (means with lags or regressors). Set it to what the task instructions say about the mean; if they do not specify, the arch default is `'Constant'` (arch 8.0.0, https://bashtage.github.io/arch/univariate/generated/arch.univariate.arch_model.html)."
+    ],
+    "claims": [
+     "arch_model defaults: Constant mean, GARCH(1,1), normal",
+     "mean='Zero' estimates no mu"
+    ]
+   },
+   {
+    "rule": "vol",
+    "kind": "param",
+    "params": [
+     "vol",
+     "p",
+     "o",
+     "q"
+    ],
+    "segments": [
+     "`vol`, `p`, `o`, `q`: `vol='GARCH'` with `p=1`, `o=0`, `q=1` is $\\mathrm{GARCH}(1,1)$; `o=1` adds the asymmetric (GJR) term; `vol='EGARCH'`, `'ARCH'`, `'FIGARCH'`, `'APARCH'`, `'HARCH'` are other volatility models. Set the model and the orders the task instructions name; if they do not specify, the arch default is `vol='GARCH'`, `p=1`, `o=0`, `q=1` (arch 8.0.0, https://bashtage.github.io/arch/univariate/generated/arch.univariate.arch_model.html)."
+    ],
+    "claims": [
+     "arch_model defaults: Constant mean, GARCH(1,1), normal"
+    ]
+   },
+   {
+    "rule": "dist",
+    "kind": "param",
+    "params": [
+     "dist"
+    ],
+    "segments": [
+     "`dist`: The options for the error distribution are `'normal'` (Gaussian), `'t'` or `'studentst'` (Student's $t$, adds `nu`, the degrees of freedom $\\nu$), `'skewt'` or `'skewstudent'` (skewed Student's $t$), and `'ged'`. Set it to the distribution the task instructions name; if they do not specify, the arch default is `'normal'` (arch 8.0.0, https://bashtage.github.io/arch/univariate/generated/arch.univariate.arch_model.html)."
+    ],
+    "claims": [
+     "arch_model defaults: Constant mean, GARCH(1,1), normal",
+     "dist='t' adds nu (degrees of freedom)"
+    ]
+   },
+   {
+    "rule": "rescale",
+    "kind": "param",
+    "params": [
+     "rescale"
+    ],
+    "segments": [
+     "`rescale` and units: `rescale=None` (the default) and `rescale=False` fit the data as given; `rescale=True` may multiply the data by a factor, reported in `result.scale`. When the returns were multiplied by $100$ before fitting, $\\mu$ and `conditional_volatility` are in percent and $\\omega$ in percent squared: divide by $100$ ($\\omega$ by $10000$) for decimal units, and write the units the task instructions ask for."
+    ],
+    "claims": [
+     "rescale=None and rescale=False leave the data scale (scale 1); rescale=True reports the factor used",
+     "returns multiplied by 100: conditional_volatility is in percent; dividing by 100 gives decimal units"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "off"
+   },
+   "group": "arch",
+   "describe": "not triggered on its own"
+  },
+  "steps": null,
+  "ddof_card": false,
+  "short": "arch_model",
+  "ddof_default": null
+ },
+ "arch.univariate.base.ARCHModel.fit": {
+  "fn": "arch.univariate.base.ARCHModel.fit",
+  "family": "arch_fit",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`arch.univariate.base.ARCHModel.fit` — Estimate model parameters\nSignature: `fit(update_freq: int = 1, disp: Union[Literal['off', 'final'], bool] = 'final', starting_values: Union[numpy.ndarray[tuple[int], numpy.dtype[numpy.float64]], pandas.Series, NoneType] = None, cov_type: Literal['robust', 'classic'] = 'robust', show_warning: bool = True, first_obs: Union[int, str, datetime.datetime, numpy.datetime64, pandas.Timestamp, NoneType] = None, last_obs: Union[int, str, datetime.datetime, numpy.datetime64, pandas.Timestamp, NoneType] = None, tol: float | None = None, options: dict[str, typing.Any] | None = None, backcast: float | numpy.ndarray[tuple[int], numpy.dtype[numpy.float64]] | None = None) -> 'ARCHModelResult'`\nParameters:\n  update_freq : int, optional\n      Frequency of iteration updates.  Output is generated every\n      `update_freq` iterations. Set to 0 to disable iterative output.\n  disp : {bool, \"off\", \"final\"}\n      Either 'final' to print optimization result or 'off' to display\n      nothing. If using a boolean, False is \"off\" and True is \"final\"\n  starting_values : ndarray, optional\n      Array of starting values to use.  If not provided, starting values\n      are constructed by the model components.\n  cov_type : str, optional\n      Estimation method of parameter covariance.  Supported options are\n      'robust', which does not assume the Information Matrix Equality\n      holds and 'classic' which does.  In the ARCH literature, 'robust'\n      corresponds to Bollerslev-Wooldridge covariance estimator.\n  show_warning : bool, optional\n      Flag indicating whether convergence warnings should be shown.\n  first_obs : {int, str, datetime, Timestamp}\n      First observation to use when estimating model\n  last_obs : {int, str, datetime, Timestamp}\n      Last observation to use when estimating model\n  tol : float, optional\n      Tolerance for termination.\n  options : dict, optional\n      Options to pass to `scipy.optimize.minimize`.  Valid entries\n      include 'ftol', 'eps', 'disp', and 'maxiter'.\n  backcast : {float, ndarray}, optional\n      Value to use as backcast. Should be measure :math:`\\sigma^2_0`\n      since model-specific non-linear transformations are applied to\n      value before computing the variance recursions.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "update_freq",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "disp",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'final'",
+    "default": "final"
+   },
+   {
+    "name": "starting_values",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "cov_type",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'robust'",
+    "default": "robust"
+   },
+   {
+    "name": "show_warning",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "first_obs",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "last_obs",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "tol",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "options",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "backcast",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [],
+  "checklist": [
+   {
+    "rule": "disp",
+    "kind": "param",
+    "params": [
+     "disp",
+     "update_freq"
+    ],
+    "segments": [
+     "`disp`, `update_freq`: `disp='final'` (the default) prints the optimization result and `disp='off'` prints nothing; `update_freq=0` stops the per-iteration output. Neither changes the estimates."
+    ],
+    "claims": []
+   },
+   {
+    "rule": "convergence",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "convergence: check `result.convergence_flag == 0` (`0` means the optimizer reported success) before using the estimates."
+    ],
+    "claims": [
+     "convergence_flag is 0 when the optimizer succeeds"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "output_warning",
+    "any": [
+     [
+      "ConvergenceWarning|DataScaleWarning|did not converge|Inequality constraints incompatible|Positive directional derivative"
+     ],
+     [
+      "(?i)convergence[ _]flag\\W{0,3}\\s*[1-9]"
+     ],
+     [
+      "alpha(?:\\[1\\])?\\W{0,3}\\s*(?:0\\.1(?:0*)\\b(?![\\d.])|1\\.0+e-01\\b)",
+      "beta(?:\\[1\\])?\\W{0,3}\\s*(?:0\\.88(?:0*)\\b(?![\\d.])|8\\.80*e-01\\b)"
+     ]
+    ]
+   },
+   "group": "arch",
+   "describe": "a .fit(...) whose cell output shows a convergence or scale warning, a non-zero convergence_flag, or alpha and beta at the starting values 0.1 and 0.88"
+  },
+  "steps": null,
+  "ddof_card": false,
+  "short": "univariate.base.ARCHModel.fit",
+  "ddof_default": null
+ },
+ "arch.univariate.base.ARCHModelResult.forecast": {
+  "fn": "arch.univariate.base.ARCHModelResult.forecast",
+  "family": "arch_forecast",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`arch.univariate.base.ARCHModelResult.forecast` — Construct forecasts from estimated model\nSignature: `forecast(params: Union[numpy.ndarray[tuple[int], numpy.dtype[numpy.float64]], pandas.Series, NoneType] = None, horizon: int = 1, start: Union[int, str, datetime.datetime, numpy.datetime64, pandas.Timestamp, NoneType] = None, align: Literal['origin', 'target'] = 'origin', method: Literal['analytic', 'simulation', 'bootstrap'] = 'analytic', simulations: int = 1000, rng: collections.abc.Callable[[int | tuple[int, ...]], numpy.ndarray[tuple[int, ...], numpy.dtype[numpy.float64]]] | None = None, random_state: numpy.random.mtrand.RandomState | None = None, *, reindex: bool = False, x: Union[dict[Optional[collections.abc.Hashable], Union[numpy.ndarray, pandas.DataFrame, pandas.Series]], numpy.ndarray, pandas.DataFrame, pandas.Series, NoneType] = None) -> 'ARCHModelForecast'`\nParameters:\n  params : ndarray, optional\n      Alternative parameters to use.  If not provided, the parameters\n      estimated when fitting the model are used.  Must be identical in\n      shape to the parameters computed by fitting the model.\n→ horizon : int, optional\n      Number of steps to forecast\n  start : {int, datetime, Timestamp, str}, optional\n      An integer, datetime or str indicating the first observation to\n      produce the forecast for.  Datetimes can only be used with pandas\n      inputs that have a datetime index. Strings must be convertible\n      to a date time, such as in '1945-01-01'.\n→ align : str, optional\n      Either 'origin' or 'target'.  When set of 'origin', the t-th row\n      of forecasts contains the forecasts for t+1, t+2, ..., t+h. When\n      set to 'target', the t-th row contains the 1-step ahead forecast\n      from time t-1, the 2 step from time t-2, ..., and the h-step from\n      time t-h.  'target' simplified computing forecast errors since the\n      realization and h-step forecast are aligned.\n→ method : {'analytic', 'simulation', 'bootstrap'}, optional\n      Method to use when producing the forecast. The default is analytic.\n      The method only affects the variance forecast generation.  Not all\n      volatility models support all methods. In particular, volatility\n      models that do not evolve in squares such as EGARCH or TARCH do not\n      support the 'analytic' method for horizons > 1.\n  simulations : int, optional\n      Number of simulations to run when computing the forecast using\n      either simulation or bootstrap.\n  rng : callable, optional\n      Custom random number generator to use in simulation-based forecasts.\n      Must produce random samples using the syntax `rng(size)` where size\n      the 2-element tuple (simulations, horizon).\n  random_state : RandomState, optional\n      NumPy RandomState instance to use when method is 'bootstrap'\n→ reindex : bool, optional\n      Whether to reindex the forecasts to have the same dimension as the series\n      being forecast.\n\n\n      The default has been changed to False.\n  x : {dict[label, array_like], array_like}\n      Values to use for exogenous regressors if any are included in the\n      model. Three formats are accepted:\n\n      * 2-d array-like: This format can be used when there is a single\n      exogenous variable. The input must have shape (nforecast, horizon)\n      or (nobs, horizon) where nforecast is the number of forecasting\n      periods and nobs is the original shape of y. For example, if a\n      single series of forecasts are made from the end of the sample\n      with a horizon of 10, then the input can be (1, 10). Alternatively,\n      if the original data had 1000 observations, then the input can be\n      (1000, 10), and only the final row is used to produce forecasts.\n      * A dictionary of 2-d array-like: This format is identical to the\n      previous except that the dictionary keys must match the names of\n      the exog variables.  Requires that the exog variables were passed\n      as a pandas DataFrame.\n      * A 3-d NumPy array (or equivalent). In this format, each panel\n      (0th axis) is a 2-d array that must have shape (nforecast, horizon)\n      or (nobs,horizon). The array x[j] corresponds to the j-th column of\n      the exogenous variables.\n\n      Due to the complexity required to accommodate all scenarios, please\n      see the example notebook that demonstrates the valid formats for\n      x.\nNotes (about horizon, align, reindex, method):\n      The most basic 1-step ahead forecast will return a vector with the same\n      length as the original data, where the t-th value will be the time-t\n      forecast for time t + 1.  When the horizon is > 1, and when using the\n      default value for `align`, the forecast value in position [t, h] is the\n      time-t, h+1 step ahead forecast.\n      If model contains exogenous variables (`model.x is not None`), then\n      only 1-step ahead forecasts are available.  Using horizon > 1 will\n      produce a warning and all columns, except the first, will be\n      nan-filled.\n      If `align` is 'origin', forecast[t,h] contains the forecast made using\n      y[:t] (that is, up to but not including t) for horizon h + 1.  For\n      example, y[100,2] contains the 3-step ahead forecast using the first\n      100 data points, which will correspond to the realization y[100 + 2].\n      If `align` is 'target', then the same forecast is in location\n      [102, 2], so that it is aligned with the observation to use when\n      evaluating, but still in the same column.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "params",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "horizon",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1",
+    "default": 1
+   },
+   {
+    "name": "start",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "align",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'origin'",
+    "default": "origin"
+   },
+   {
+    "name": "method",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'analytic'",
+    "default": "analytic"
+   },
+   {
+    "name": "simulations",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "1000",
+    "default": 1000
+   },
+   {
+    "name": "rng",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "random_state",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   },
+   {
+    "name": "reindex",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   },
+   {
+    "name": "x",
+    "kind": "KEYWORD_ONLY",
+    "has_default": true,
+    "default_repr": "None",
+    "default": null
+   }
+  ],
+  "risky": [
+   "horizon",
+   "align",
+   "reindex",
+   "method"
+  ],
+  "checklist": [
+   {
+    "rule": "forecast",
+    "kind": "param",
+    "params": [
+     "horizon",
+     "align",
+     "reindex",
+     "method"
+    ],
+    "segments": [
+     "`horizon`, `align`, `reindex`: `horizon=h` gives the columns `h.1` ... `h.h`; `align='origin'` (the default) labels each row by its forecast origin $t$, so row $t$ holds the forecasts for $t+1, \\dots, t+h$; `reindex=False` (the default) keeps only the rows from the forecast start on (the last origin when `start` is not given). The next-step variance is `forecast.variance.iloc[-1, 0]` (column `h.1`); the volatility is its square root. If the returns were multiplied by $100$ before fitting, divide the forecast variance by $100^2$ ($10000$) and the volatility by $100$."
+    ],
+    "claims": [
+     "forecast(horizon=1, reindex=False): one row labelled by the last origin, column h.1 is sigma2 for the next step",
+     "forecast(reindex=True) has one row per observation (NaN before the first origin)",
+     "returns multiplied by 100: the forecast variance is 100**2 times the decimal one, the volatility 100 times"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "off"
+   },
+   "group": "arch",
+   "describe": "not triggered on its own"
+  },
+  "steps": null,
+  "ddof_card": false,
+  "short": "univariate.base.ARCHModelResult.forecast",
+  "ddof_default": null
+ },
+ "arch.univariate.base.ARCHModelResult.conditional_volatility": {
+  "fn": "arch.univariate.base.ARCHModelResult.conditional_volatility",
+  "family": "arch_condvol",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`arch.univariate.base.ARCHModelResult.conditional_volatility` — Estimated conditional volatility\nReturns:\n      conditional_volatility : {ndarray, Series}\n      nobs element array containing the conditional volatility (square\n      root of conditional variance).  The values are aligned with the\n      input data so that the value in the t-th position is the variance\n      of t-th error, which is computed using time-(t-1) information.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [],
+  "risky": [],
+  "checklist": [
+   {
+    "rule": "ex_ante",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "timing: `conditional_volatility[t]` is computed from information up to $t-1$ (the arch documentation: `computed using time-(t-1) information`): it is the forecast made before $r_t$ is seen, not an estimate that uses $r_t$. Which date a value belongs to is decided by the timing the task instructions state."
+    ],
+    "claims": [
+     "conditional_volatility[t] uses information up to t-1: sigma2[t] = omega + alpha*e[t-1]^2 + beta*sigma2[t-1]"
+    ]
+   },
+   {
+    "rule": "units",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "units: if the returns were multiplied by $100$ before fitting, divide `conditional_volatility` by $100$ for decimal units."
+    ],
+    "claims": [
+     "returns multiplied by 100: conditional_volatility is in percent; dividing by 100 gives decimal units"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "line_match",
+    "pattern": "\\.conditional_volatility(?:\\.(?:iloc|values|to_numpy\\(\\)))?\\[\\s*-1\\s*\\]|\\.conditional_volatility\\b.*\\.shift\\(",
+    "forbid": "\\bin[- ]sample conditional vol|last (?:in[- ]sample |fitted )?conditional vol"
+   },
+   "group": "arch",
+   "describe": "a read of .conditional_volatility that takes [-1] or shifts it, unless <task_instructions> ask for the last in-sample conditional volatility"
+  },
+  "steps": null,
+  "ddof_card": false,
+  "short": "univariate.base.ARCHModelResult.conditional_volatility",
+  "ddof_default": null
+ },
+ "arch.univariate.base.ARCHModelResult.params": {
+  "fn": "arch.univariate.base.ARCHModelResult.params",
+  "family": "arch_params",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`arch.univariate.base.ARCHModelResult.params` — Model Parameters",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [],
+  "risky": [],
+  "checklist": [
+   {
+    "rule": "param_names",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "names: read `result.params` by name: `'mu'`, `'omega'`, `'alpha[1]'`, `'beta[1]'`, and `'nu'` with a Student's $t$; the positions change with the model. $\\omega$ is in squared data units (divide by $10000$ after multiplying returns by $100$); $\\alpha$ and $\\beta$ have no units."
+    ],
+    "claims": [
+     "params are named mu, omega, alpha[1], beta[1]",
+     "dist='t' adds nu (degrees of freedom)"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "line_match",
+    "pattern": "\\.params(?:\\.(?:iloc|values|to_numpy\\(\\)))?\\[\\s*-?\\d"
+   },
+   "group": "arch",
+   "describe": "a read of .params by position"
+  },
+  "steps": null,
+  "ddof_card": false,
+  "short": "univariate.base.ARCHModelResult.params",
+  "ddof_default": null
+ },
+ "pandas.GroupBy.rank": {
+  "fn": "pandas.GroupBy.rank",
+  "family": "pd_order",
+  "task_driven": false,
+  "property": false,
+  "documentation": "`pandas.GroupBy.rank` — Provide the rank of values within each group.\nSignature: `rank(method: 'str' = 'average', ascending: 'bool' = True, na_option: 'str' = 'keep', pct: 'bool' = False) -> 'NDFrameT'`\nParameters:\n→ method : {'average', 'min', 'max', 'first', 'dense'}, default 'average'\n      * average: average rank of group.\n      * min: lowest rank in group.\n      * max: highest rank in group.\n      * first: ranks assigned in order they appear in the array.\n      * dense: like 'min', but rank always increases by 1 between groups.\n→ ascending : bool, default True\n      False for ranks by high (1) to low (N).\n  na_option : {'keep', 'top', 'bottom'}, default 'keep'\n      * keep: leave NA values where they are.\n      * top: smallest rank if ascending.\n      * bottom: smallest rank if descending.\n  pct : bool, default False\n      Compute percentage rank of data within each group.",
+  "references_always": [],
+  "references_by_param": {},
+  "params": [
+   {
+    "name": "self",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": false,
+    "default_repr": null,
+    "default": null
+   },
+   {
+    "name": "method",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'average'",
+    "default": "average"
+   },
+   {
+    "name": "ascending",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "True",
+    "default": true
+   },
+   {
+    "name": "na_option",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "'keep'",
+    "default": "keep"
+   },
+   {
+    "name": "pct",
+    "kind": "POSITIONAL_OR_KEYWORD",
+    "has_default": true,
+    "default_repr": "False",
+    "default": false
+   }
+  ],
+  "risky": [
+   "method",
+   "ascending"
+  ],
+  "checklist": [
+   {
+    "rule": "float_ties",
+    "kind": "plain",
+    "params": [],
+    "segments": [
+     "ties in a float key: sort or rank by the values as computed, without rounding them first. Values that differ only in the last digits (for example `0.0030000000000000005` and `0.003`) are different values, and in a descending order the larger one comes first; rounding would make them equal and change the order.",
+     "Tie-breaking convention for multiple rankings: when computing a second ranking over the same rows, if the task instructions specify no tie-breaking rule, break exact ties in the second measure by ascending first-rank value. This preserves the order established by the first ranking rather than introducing a name-based tie-breaker. The first ranking must define a unique order; otherwise, an additional tie-breaker is required.",
+     "```python\n# second rank within each group: exact ties follow the first rank, not the row order or the name\ndf = df.sort_values([group_key, first_key, \"name\"], ascending=[True, False, True])\ndf[\"rank_first\"] = df.groupby(group_key).cumcount() + 1\ndf = df.sort_values([group_key, second_key, \"rank_first\"], ascending=[True, False, True])\ndf[\"rank_second\"] = df.groupby(group_key).cumcount() + 1\n```"
+    ],
+    "claims": [
+     "ratios equal on paper can differ in the last digits; the sort and its tie-breaker follow the noise; rounding the key restores the tie rule"
+    ]
+   },
+   {
+    "rule": "rank_or_sort",
+    "kind": "note",
+    "params": [],
+    "segments": [
+     "`rank` or sort-then-number: decide this before you write the line, because it decides the numbers in the output.",
+     "(1) The output must be positions $1, \\dots, n$ with every number used exactly once (a ranking table, a top-$k$ list, ranks that must be complete): you must sort by all keys, with the tie rule as the later keys, and then number the rows with `range(1, len(df) + 1)`. Do not use `rank(method=\"min\")` or `rank(method=\"dense\")` here: they repeat numbers.",
+     "(2) The task names a tie method for ranks (average, minimum, dense), or the ranks feed a statistic (a rank correlation, quantile groups): you must call `rank(method=...)` with that method; if no method is named, use `method=\"average\"`.",
+     "(3) `rank` ranks one column only. To rank by two keys you must sort by both keys first and then number the rows; never rank the first key alone and leave its ties to chance.",
+     "(4) Exact ties and no tie rule in <task_instructions>: follow the tie-breaking convention for multiple rankings above."
+    ],
+    "claims": [
+     "DataFrame.rank ranks one column at a time",
+     "method first follows row order"
+    ]
+   },
+   {
+    "rule": "rank_method",
+    "kind": "param",
+    "params": [
+     "method"
+    ],
+    "segments": [
+     "`method`: There are five options for how tied values are ranked: `'average'` (the default: each tied value gets the mean of their ranks), `'min'` (the lowest rank of the group), `'max'` (the highest), `'first'` (the ranks follow the order in which the values appear in the data) and `'dense'` (like `'min'`, but the next group's rank is one higher). Use the option the tie rule in <task_instructions> describes; `'first'` makes the result depend on the row order, so sort by the tie-breaking column before ranking if you use it."
+    ],
+    "claims": [
+     "rank methods on ties: average, min, max, first (by position), dense; average is the default"
+    ]
+   },
+   {
+    "rule": "ascending",
+    "kind": "param",
+    "params": [
+     "ascending"
+    ],
+    "segments": [
+     "`ascending`: `ascending=True` (the default) puts the smallest value first (rank `1`); `ascending=False` puts the largest first. Set it to the direction <task_instructions> give for rank `1`."
+    ],
+    "claims": [
+     "sort_values and rank: ascending=True puts the smallest first (rank 1); ascending=False the largest"
+    ]
+   }
+  ],
+  "checklist_default": {},
+  "trigger": {
+   "static": {
+    "kind": "near_tie"
+   },
+   "runtime": {
+    "kind": "near_tie_keys"
+   },
+   "describe": "a sort_values or rank call whose float key holds values that differ only within rounding noise (relative 1e-9), in a cell that turns the order into a rank (a rank call, or range(1, ...), np.arange(1, ...) or cumcount() after the sort)"
+  },
+  "steps": "cell",
+  "ddof_card": false,
+  "short": "GroupBy.rank",
+  "ddof_default": null
+ }
+}

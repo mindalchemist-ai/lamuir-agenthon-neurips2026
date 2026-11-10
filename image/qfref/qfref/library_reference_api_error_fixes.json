@@ -1,0 +1,753 @@
+[
+ {
+  "id": "pandas_fillna_method",
+  "category": "removed",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "(?:NDFrame|DataFrame|Series)\\.fillna\\(\\) got an unexpected keyword argument ['\\\"]method['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Use .ffill() or .bfill(), not fillna(method=...). Choose direction from the task."
+ },
+ {
+  "id": "pandas_groupby_axis",
+  "category": "removed",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "DataFrame\\.groupby\\(\\) got an unexpected keyword argument ['\\\"]axis['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "For column grouping use df.T.groupby(...).<aggregation>().T; groupby(axis=...) was removed. Check mixed dtypes before transposing."
+ },
+ {
+  "id": "numpy_clip_axis",
+  "category": "unavailable",
+  "libraries": [
+   "numpy"
+  ],
+  "pattern": "(?:clip|_clip)\\(\\) got an unexpected keyword argument ['\\\"]axis['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "NumPy clip is elementwise and has no axis argument: remove axis. pandas DataFrame.clip does support axis for alignment, so first verify the receiver type."
+ },
+ {
+  "id": "statsmodels_cov_hac",
+  "category": "unavailable",
+  "libraries": [
+   "statsmodels"
+  ],
+  "pattern": "['\\\"]OLSResults['\\\"] object has no attribute ['\\\"]cov_[hH][aA][cC]['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "OLSResults has no cov_hac/cov_HAC method. Use get_robustcov_results(cov_type='HAC',maxlags=L,use_correction=...) or sandwich_covariance.cov_hac(result,nlags=L); choose correction from the definition."
+ },
+ {
+  "id": "statsmodels_cov_hac_nlags",
+  "category": "unavailable",
+  "libraries": [
+   "statsmodels"
+  ],
+  "pattern": "cov_hac(?:_simple)?\\(\\) got an unexpected keyword argument ['\\\"]maxlags['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "sandwich_covariance.cov_hac/cov_hac_simple use nlags=L, not maxlags=L. get_robustcov_results uses maxlags=L; do not interchange their keyword names."
+ },
+ {
+  "id": "pandas_random",
+  "category": "unavailable",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "module ['\\\"]pandas['\\\"] has no attribute ['\\\"]random['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "pandas has no random module. Use the task-specified NumPy random interface; default_rng(seed) and legacy RandomState/seed are not interchangeable sequences."
+ },
+ {
+  "id": "series_get_loc",
+  "category": "object_type",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "['\\\"]Series['\\\"] object has no attribute ['\\\"]get_loc['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "get_loc is an Index method: use s.index.get_loc(label). With duplicate labels it may return a slice or mask, not a single integer."
+ },
+ {
+  "id": "series_to_series",
+  "category": "object_type",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "['\\\"]Series['\\\"] object has no attribute ['\\\"]to_series['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "The object is already a Series: omit .to_series(), or use s.copy() for an independent copy. Index.to_series() is a different interface."
+ },
+ {
+  "id": "expanding_shift",
+  "category": "object_type",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "['\\\"]Expanding['\\\"] object has no attribute ['\\\"]shift['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "An Expanding object is not a Series: aggregate before shifting, e.g. s.expanding().mean().shift(1). Shifting input before aggregation has different timing; follow the definition."
+ },
+ {
+  "id": "string_dt",
+  "category": "object_type",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "Can only use \\.dt accessor with datetimelike values",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Parse string Series with pd.to_datetime(...), choosing format/timezone/error handling explicitly, before .dt access."
+ },
+ {
+  "id": "ndarray_values",
+  "category": "object_type",
+  "libraries": [
+   "numpy"
+  ],
+  "pattern": "['\\\"](?:numpy\\.)?ndarray['\\\"] object has no attribute ['\\\"]values['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "The object is already a NumPy array: remove .values. Series/DataFrame.to_numpy() is for converting pandas objects."
+ },
+ {
+  "id": "datetimeindex_dt",
+  "category": "object_type",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "['\\\"]DatetimeIndex['\\\"] object has no attribute ['\\\"]dt['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "DatetimeIndex exposes year/strftime/etc directly: use idx.year or idx.strftime(...). The .dt accessor belongs to datetime-like Series."
+ },
+ {
+  "id": "datetime64_strftime",
+  "category": "object_type",
+  "libraries": [
+   "numpy",
+   "pandas"
+  ],
+  "pattern": "['\\\"]numpy\\.datetime64['\\\"] object has no attribute ['\\\"]strftime['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Convert a NumPy datetime64 scalar to pd.Timestamp(value).strftime(format), or use np.datetime_as_string for an ISO representation; establish timezone/format requirements first."
+ },
+ {
+  "id": "periodindex_dt",
+  "category": "object_type",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "['\\\"]PeriodIndex['\\\"] object has no attribute ['\\\"]dt['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "PeriodIndex exposes .year and other period fields directly. Use to_timestamp only when a timestamp representation is intended, choosing period boundaries explicitly."
+ },
+ {
+  "id": "resample_m",
+  "category": "removed",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "Invalid frequency: M\\b[\\s\\S]*(?:no longer supported|Use 'ME')",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Resampling offset 'M' is replaced by 'ME'. Period frequencies are different: to_period('M') still uses M."
+ },
+ {
+  "id": "resample_q",
+  "category": "removed",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "Invalid frequency: Q\\b[\\s\\S]*(?:no longer supported|Use 'QE')",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Resampling offset 'Q' is replaced by 'QE'. Period frequencies are different: to_period('M') still uses M."
+ },
+ {
+  "id": "resample_y",
+  "category": "removed",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "Invalid frequency: Y\\b[\\s\\S]*(?:no longer supported|Use 'YE')",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Resampling offset 'Y' is replaced by 'YE'. Period frequencies are different: to_period('M') still uses M."
+ },
+ {
+  "id": "pandas_applymap",
+  "category": "removed",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "['\\\"]DataFrame['\\\"] object has no attribute ['\\\"]applymap['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Use DataFrame.map for elementwise scalar mapping; DataFrame.apply has different semantics."
+ },
+ {
+  "id": "numpy_trapz",
+  "category": "removed",
+  "libraries": [
+   "numpy"
+  ],
+  "pattern": "module ['\\\"]numpy['\\\"] has no attribute ['\\\"]trapz['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Use np.trapezoid(y,x=...), not np.trapz."
+ },
+ {
+  "id": "scipy_trapz",
+  "category": "removed",
+  "libraries": [
+   "scipy"
+  ],
+  "pattern": "(?:module ['\\\"]scipy\\.integrate['\\\"] has no attribute ['\\\"]trapz['\\\"]|cannot import name ['\\\"]trapz['\\\"] from ['\\\"]scipy\\.integrate['\\\"])",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Use scipy.integrate.trapezoid; trapz was removed from scipy.integrate."
+ },
+ {
+  "id": "scipy_logm_disp",
+  "category": "removed",
+  "libraries": [
+   "scipy"
+  ],
+  "pattern": "logm\\(\\) got an unexpected keyword argument ['\\\"]disp['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "scipy.linalg.logm(A) now returns the matrix only; remove disp. Inspect expm(logA) reconstruction error explicitly."
+ },
+ {
+  "id": "polars_groupby",
+  "category": "removed",
+  "libraries": [
+   "polars"
+  ],
+  "pattern": "['\\\"]DataFrame['\\\"] object has no attribute ['\\\"]groupby['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "For a Polars DataFrame use group_by(...).agg(...), not the pandas spelling groupby. Verify the actual dataframe implementation."
+ },
+ {
+  "id": "polars_expr_apply",
+  "category": "removed",
+  "libraries": [
+   "polars"
+  ],
+  "pattern": "['\\\"]Expr['\\\"] object has no attribute ['\\\"]apply['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Use Polars Expr.map_elements(...,return_dtype=...) for scalar UDFs; prefer native expressions where possible."
+ },
+ {
+  "id": "sklearn_pca_attribute",
+  "category": "unavailable",
+  "libraries": [
+   "scikit-learn"
+  ],
+  "pattern": "['\\\"]PCA['\\\"] object has no attribute ['\\\"]explained_variance_ratio['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Fitted PCA exposes explained_variance_ratio_ with a trailing underscore, not explained_variance_ratio."
+ },
+ {
+  "id": "arch_predict",
+  "category": "unavailable",
+  "libraries": [
+   "arch"
+  ],
+  "pattern": "['\\\"]ARCHModelResult['\\\"] object has no attribute ['\\\"]predict['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "ARCHModelResult forecasts use .forecast(horizon=...,reindex=False), not .predict(); select variance versus residual_variance and alignment explicitly."
+ },
+ {
+  "id": "talib_case",
+  "category": "unavailable",
+  "libraries": [
+   "TA-Lib"
+  ],
+  "pattern": "module ['\\\"]talib['\\\"] has no attribute ['\\\"]sma['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "TA-Lib function names are case-sensitive: use talib.SMA(...,timeperiod=...), not talib.sma."
+ },
+ {
+  "id": "pyarrow_table_conversion",
+  "category": "unavailable",
+  "libraries": [
+   "pyarrow"
+  ],
+  "pattern": "['\\\"]pyarrow\\.lib\\.Table['\\\"] object has no attribute ['\\\"]to_df['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Use PyArrow Table.to_pandas(), not .to_df()."
+ },
+ {
+  "id": "statsmodels_hac_nested_kwargs",
+  "category": "unavailable",
+  "libraries": [
+   "statsmodels"
+  ],
+  "pattern": "get_robustcov_results[\\s\\S]*KeyError: ['\\\"]maxlags['\\\"]",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "get_robustcov_results takes maxlags=L directly, not cov_kwds={'maxlags':L}. OLS.fit(cov_type='HAC',cov_kwds=...) uses the nested form. This hint requires the robust-covariance call in the traceback context, not a bare KeyError."
+ },
+ {
+  "id": "ndarray_pandas_method",
+  "category": "object_type",
+  "libraries": [
+   "numpy",
+   "pandas"
+  ],
+  "pattern": "'numpy\\.ndarray' object has no attribute '(?:iloc|loc|isin|describe|shift|rolling|fillna|dropna|abs|idxmax|idxmin)'",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "The object is a NumPy array, not a pandas Series or DataFrame (often the result of .to_numpy(), .values or a NumPy function). Use positional indexing a[i], np.isin(a, values) or np.abs(a); if pandas methods or labels are needed, rebuild it with its original index (pd.Series(a, index=original.index)), since a new default index does not align with other data. Model results follow their input: arch's conditional_volatility / resid and statsmodels' params / bse are ndarrays when the model was fit on an array and labelled Series when fit on a Series; np.asarray(x)[-1] reads the last value either way. (arch 8.0.0, statsmodels 0.15.0)"
+ },
+ {
+  "id": "scalar_pandas_method",
+  "category": "object_type",
+  "libraries": [
+   "numpy"
+  ],
+  "pattern": "'(?:numpy\\.)?float(?:64)?' object has no attribute '(?:abs|clip|iloc|values)'",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "The value is a scalar, not an array or Series: use abs(x), min(max(x, lo), hi) or np.clip(x, lo, hi); a reduction such as .mean() or .sum() already returned one number."
+ },
+ {
+  "id": "frequency_lowercase_alias",
+  "category": "removed",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "Invalid frequency: \\d*(?:S|T|H|L|U|N)\\b",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Time-based frequency aliases are lower case in this pandas: 'h' (hour), 'min' (minute, e.g. '5min'), 's' (second), 'ms', 'us', 'ns'."
+ },
+ {
+  "id": "statsmodels_index_alignment",
+  "category": "object_type",
+  "libraries": [
+   "statsmodels",
+   "pandas"
+  ],
+  "pattern": "The indices for endog and exog are not aligned",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "Align y and X by their observation keys, then filter missing rows jointly, e.g. d = pd.concat([y, X], axis=1, join='inner').dropna(). Convert to arrays only after confirming identical observation order; dropping index labels does not repair misalignment."
+ },
+ {
+  "id": "array_to_scalar",
+  "category": "object_type",
+  "libraries": [
+   "numpy"
+  ],
+  "pattern": "only 0-dimensional arrays can be converted to Python scalars|only length-1 arrays can be converted to Python scalars",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "float() or int() needs a single zero-dimensional value. If the value is logically one number and the array has size 1, use a.item(); otherwise select the element you mean (a[0]) or keep the array and apply the operation elementwise."
+ },
+ {
+  "id": "frame_tolist",
+  "category": "object_type",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "'(?:DataFrame|list)' object has no attribute 'tolist'",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "tolist is a Series, Index and NumPy method: use df[col].tolist(), df.to_numpy().tolist() or df.values.tolist(); a Python list needs no conversion."
+ },
+ {
+  "id": "save_json_argument_order",
+  "category": "wrong_call",
+  "libraries": [
+   "session_io"
+  ],
+  "pattern": "save_json[\\s\\S]*expected str, bytes or os\\.PathLike object, not dict",
+  "hint": "save_json takes the path first: save_json(path, data).",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "pandas_numpy_function",
+  "category": "unavailable",
+  "libraries": [
+   "pandas",
+   "numpy"
+  ],
+  "pattern": "module 'pandas' has no attribute '(?:log|exp|sqrt|mean|std|sum|abs|where|maximum|minimum|zeros|zeros_like|arange|isnan)'",
+  "hint": "pandas has no top-level function by this name; it is a NumPy function: call np.<same name>(...) (for example np.zeros, np.arange, np.log) on arrays or Series. For missing values in pandas objects use pd.isna rather than np.isnan. Keep axis, ddof and missing-value handling explicit: np.std uses ddof=0 while Series.std uses ddof=1, and pandas reductions skip NaN by default.",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "merge_key_dtype",
+  "category": "wrong_call",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "You are trying to merge on \\S+ and \\S+ columns for key",
+  "hint": "The merge key has different dtypes on the two sides. Convert both keys to the same type first, e.g. pd.to_datetime(...) on both date keys or .astype(str) on both identifier keys, then check that the number of matched rows is what you expect.",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "json_numpy_scalar",
+  "category": "wrong_object",
+  "libraries": [
+   "numpy",
+   "Python"
+  ],
+  "pattern": "Object of type (?:u?int(?:8|16|32|64)|float(?:16|32|64)|bool_?|ndarray|Timestamp|datetime64|Timedelta|timedelta64|NaTType|NAType) is not JSON serializable",
+  "hint": "json may not serialize NumPy or pandas values directly: use save_json(path, data) from session_io, or convert first: int(x), float(x), bool(x), a.tolist() for arrays, ts.strftime('%Y-%m-%d') or ts.isoformat() for a Timestamp (use the date format the task states).",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "pandas_setitem_dtype",
+  "category": "removed",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "Invalid value '.*' for dtype '(?:int64|int32|float64|bool|str)'",
+  "hint": "pandas 3 does not change a column's dtype on assignment, and text columns have the 'str' dtype. Cast first, e.g. df[c] = df[c].astype(float) or .astype(object) before writing a label into a numeric column, or build a new column from the computed values. (pandas 3.0.5)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "scipy_minimize_options",
+  "category": "wrong_call",
+  "libraries": [
+   "scipy"
+  ],
+  "pattern": "minimize\\(\\) got an unexpected keyword argument '(?:disp|ftol|gtol|maxiter|maxfun|maxfev|eps|xatol|fatol)'",
+  "hint": "Solver settings go in options: minimize(fun, x0, method=..., options={'maxiter': ..., 'ftol': ...}); the only top-level tolerance argument is tol=. Option names depend on the method.",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "pandas_infer_datetime_format",
+  "category": "removed",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "to_datetime\\(\\) got an unexpected keyword argument 'infer_datetime_format'",
+  "hint": "infer_datetime_format was removed: pd.to_datetime infers one consistent format by default. Pass format='...' for a known format or format='mixed' for mixed formats, and compare NaT counts before and after parsing.",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "numpy_percentile_interpolation",
+  "category": "removed",
+  "libraries": [
+   "numpy"
+  ],
+  "pattern": "(?:percentile|quantile|nanpercentile|nanquantile)\\(\\) got an unexpected keyword argument 'interpolation'",
+  "hint": "NumPy renamed interpolation= to method=: np.percentile(a, q, method='linear'). Use the method the task defines, e.g. 'lower', 'higher', 'nearest' or 'linear'.",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "numpy_student_t_draw",
+  "category": "wrong_object",
+  "libraries": [
+   "numpy"
+  ],
+  "pattern": "'numpy\\.random\\.(?:mtrand\\.RandomState|_generator\\.Generator)' object has no attribute 't'",
+  "hint": "Student-t draws are rng.standard_t(df, size=...); keep the random generator and seed the task specifies.",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "numpy_default_rng_location",
+  "category": "wrong_object",
+  "libraries": [
+   "numpy"
+  ],
+  "pattern": "module 'numpy' has no attribute 'default_rng'",
+  "hint": "default_rng is in numpy.random: rng = np.random.default_rng(seed).",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "object_dtype_ufunc",
+  "category": "wrong_object",
+  "libraries": [
+   "numpy",
+   "pandas"
+  ],
+  "pattern": "ufunc '\\w+' not supported for the input types|loop of ufunc does not support argument \\d+ of type \\w+ which has no callable \\w+ method",
+  "hint": "This ufunc cannot operate on the supplied input types. Inspect the input dtype and intended operation before converting. For genuinely numeric data, use explicit numeric conversion and check for newly missing or non-finite values; do not silently discard failed conversions or convert identifiers to numbers. For nonnumeric missing-value checks, use an appropriate missing-value operation such as pandas.isna. scipy.special.factorial(n) computes n!, whereas scipy.special.gammaln(n + 1) computes log(n!) for nonnegative integers; they are not interchangeable.",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "numpy_math",
+  "category": "removed",
+  "libraries": [
+   "numpy"
+  ],
+  "pattern": "module ['\\\"]numpy['\\\"] has no attribute ['\\\"]math['\\\"]",
+  "hint": "numpy.math is unavailable. Preserve the original operation and check whether its input is scalar or array-valued. Use the corresponding Python math function for supported scalar inputs, or an appropriate NumPy/SciPy function for arrays. For factorial specifically, use math.factorial(k) for one nonnegative integer or scipy.special.factorial(n) for an array of nonnegative integers. For log(n!), use scipy.special.gammaln(n + 1). Preserve the surrounding formula.",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "pandas_numeric_ignore",
+  "category": "removed",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "to_numeric[\\s\\S]*ValueError: invalid error value specified",
+  "hint": "pd.to_numeric(errors='ignore') is unavailable. Use errors='raise' for strict numeric conversion. Use errors='coerce' only when invalid values are intentionally treated as missing, and inspect newly missing entries. If nonnumeric values must be preserved, handle them explicitly.",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "object_dtype_numeric_method",
+  "category": "object_type",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "Cannot use method '(?:nlargest|nsmallest)' with dtype object",
+  "hint": "The column holds Python objects or strings, so nlargest/nsmallest need a numeric column. Use pd.to_numeric(s) (errors='raise') for strict conversion; use errors='coerce' only when invalid values are intentionally treated as missing, and inspect the newly missing entries before ranking.",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "pandas_int_label_key",
+  "category": "behaviour",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "site-packages/pandas/core/(?:series|frame|indexing|indexes/\\w+)\\.py(?:(?!\\n *(?:File |Cell In)).)*\\nKeyError: -?\\d{1,3}\\s*(?:\\n|$)",
+  "hint": "pandas 3 reads an integer in s[i] as an index label, never as a position: use s.iloc[0] / s.iloc[-1] for positions (df.iloc[:, j] for a column by position) and s.loc[label] or s['name'] for labels. statsmodels params and arch conditional_volatility are labelled Series when the model was fit on a Series; np.asarray(x)[-1] works for an array or a Series. (pandas 3.0.5)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "extension_array_sort",
+  "category": "object_type",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "'(?:DatetimeArray|ArrowStringArray|ArrowExtensionArray|StringArray|Categorical|IntegerArray|FloatingArray|BooleanArray|PeriodArray|DatetimeIndex)' object has no attribute 'sort'",
+  "hint": "Series.unique() returns a pandas ExtensionArray (DatetimeArray, ArrowStringArray) for datetime and text columns, and it has no .sort(): use s.drop_duplicates().sort_values(), pd.Index(u).sort_values() or np.sort(np.asarray(u)) (the last gives numpy.datetime64 elements). (pandas 3.0.5)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "pandas_str_operation",
+  "category": "behaviour",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "operation '\\w+' not supported for dtype 'str'",
+  "hint": "The column has pandas 3's 'str' dtype (text): convert numbers with pd.to_numeric(s) before arithmetic, or convert the other side with .astype(str) before joining text. (pandas 3.0.5)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "pandas_keepdims",
+  "category": "unavailable",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "the 'keepdims' parameter is not supported in the pandas implementation",
+  "hint": "pandas reductions have no keepdims: reduce, then reshape the NumPy result, e.g. df.mean(axis=1).to_numpy()[:, None], or call np.mean(df.to_numpy(), axis=1, keepdims=True). (pandas 3.0.5)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "readonly_view",
+  "category": "behaviour",
+  "libraries": [
+   "numpy",
+   "pandas"
+  ],
+  "pattern": "(?:assignment destination|output array) is read-only",
+  "hint": "With pandas Copy-on-Write, .values / .to_numpy() can return a read-only view: take a writable copy with s.to_numpy(copy=True) or np.array(s), or change the frame itself with df.loc[mask, col] = value. (pandas 3.0.5, NumPy 2.5.3)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "index_level_and_column",
+  "category": "behaviour",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "is both an index level and a column label, which is ambiguous",
+  "hint": "The name is both an index level and a column: drop the index level with reset_index(drop=True) or rename it with rename_axis(None), then sort, group or merge by the column. (pandas 3.0.5)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "to_csv_float_format",
+  "category": "unavailable",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "float_format must be a string or callable",
+  "hint": "to_csv(float_format=...) takes a format string such as '%.6f' or a function such as lambda x: f'{x:.6f}', not an integer. (pandas 3.0.5)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "rolling_ddof",
+  "category": "unavailable",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "rolling\\(\\) got an unexpected keyword argument 'ddof'",
+  "hint": "ddof belongs to the aggregation, not to rolling: s.rolling(window=n).std(ddof=1) (the default ddof is 1, the sample estimate). (pandas 3.0.5)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "numpy_bool_negative",
+  "category": "unavailable",
+  "libraries": [
+   "numpy"
+  ],
+  "pattern": "numpy boolean (?:negative|subtract), the `-` operator, is not supported",
+  "hint": "Boolean arrays do not support -: negate with ~mask or np.logical_not(mask), and compare with mask_a ^ mask_b; cast with mask.astype(int) first when a signed number is meant. (NumPy 2.5.3)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "numpy_generator_legacy_name",
+  "category": "unavailable",
+  "libraries": [
+   "numpy"
+  ],
+  "pattern": "'numpy\\.random\\._generator\\.Generator' object has no attribute '(?:rand|randn|randint|random_sample|seed)'",
+  "hint": "A Generator from np.random.default_rng uses rng.random(size) for uniforms, rng.standard_normal(size) for normals and rng.integers(low, high, size) for integers; seed it when creating it. Keep the random interface and seed the task specifies. (NumPy 2.5.3)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "scipy_dist_method_name",
+  "category": "unavailable",
+  "libraries": [
+   "scipy"
+  ],
+  "pattern": "'\\w+_gen' object has no attribute '(?:dnorm|pnorm|qnorm|dcdf|cfd|dpdf|density|cumulative|quantile|inv_cdf)'",
+  "hint": "scipy.stats distributions use pdf, cdf, ppf (inverse cdf), sf, isf, logpdf and rvs, e.g. scipy.stats.norm.cdf(x). (SciPy 1.18.1)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "studentt_copula_df",
+  "category": "unavailable",
+  "libraries": [
+   "statsmodels"
+  ],
+  "pattern": "StudentTCopula\\.__init__\\(\\) got an unexpected keyword argument 'nu'",
+  "hint": "statsmodels' StudentTCopula takes the degrees of freedom as df=, e.g. StudentTCopula(corr=R, df=nu, k_dim=d), from statsmodels.distributions.copula.api. (statsmodels 0.15.0)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "add_constant_single_row",
+  "category": "behaviour",
+  "libraries": [
+   "statsmodels"
+  ],
+  "pattern": "predict[\\s\\S]*shapes \\(1,\\d+\\) and \\(\\d+,\\) not aligned",
+  "hint": "sm.add_constant skips a column that already looks constant, and a single row always does: build the prediction row with sm.add_constant(x_new, has_constant='add'), or prepend the 1.0 yourself, so it has as many columns as the fitted exog. (statsmodels 0.15.0)",
+  "flags": [
+   "DOTALL"
+  ]
+ },
+ {
+  "id": "pandas_missing_column_after_groupby",
+  "category": "changed",
+  "libraries": [
+   "pandas"
+  ],
+  "pattern": "KeyError: \\\"?\\[?'[^']+'\\]? not in index",
+  "flags": [
+   "DOTALL"
+  ],
+  "hint": "A column that was present earlier is missing from this frame. In this pandas version df.groupby(key).apply(func) does not keep the grouping column(s): func receives each group without them and they are not columns of the result, so selecting that column later raises this error, and repeating the merge does not restore it. Compute grouped values with groupby(key)[column].rank()/transform()/agg() and assign the result back to the original frame, or reset_index() after an apply. Print df.columns once at the step that built the frame instead of rebuilding it."
+ }
+]

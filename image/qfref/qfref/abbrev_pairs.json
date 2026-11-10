@@ -1,0 +1,2668 @@
+[
+ {
+  "abbr": "hr",
+  "full": "holdings_report",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-13f-amendment-aware-crowding:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "hr",
+  "full": "holdings_reports",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-13f-amendment-aware-crowding:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "pde",
+  "full": "partial_differential_equation",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-EXAMPLE-bs-greeks-pde:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "sec",
+  "full": "seconds",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-EXAMPLE-bs-greeks-pde:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "str",
+  "full": "strike",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-EXAMPLE-bs-greeks-pde:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "rf",
+  "full": "residual_fitted",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-alpha-hedge-strategy:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "rf",
+  "full": "risk_free",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "mkt",
+  "full": "market",
+  "kind": "single_word",
+  "n_sources": 4,
+  "sources": [
+   "t1-alpha-hedge-strategy:instruction",
+   "t1-fama-french-factor-model-new:instruction",
+   "t1-implied-vol-approximations:instruction",
+   "t1-sentiment-factor-alpha:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "rich",
+  "full": "richardson",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-american-option-fd-new:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "py",
+  "full": "python3",
+  "kind": "single_word",
+  "n_sources": 7,
+  "sources": [
+   "t1-american-option-fd-new:instruction",
+   "t1-bollinger-backtest-aapl:instruction",
+   "t1-credit-migration-matrix:instruction",
+   "t1-delta-hedging-pnl-simulation:instruction",
+   "t1-realized-vol-estimators:instruction",
+   "t1-stochvol-implied-surface-new:instruction",
+   "t1-variance-swap-replication:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "py",
+  "full": "python",
+  "kind": "single_word",
+  "n_sources": 9,
+  "sources": [
+   "t1-american-option-fd-new:instruction",
+   "t1-bollinger-backtest-aapl:instruction",
+   "t1-credit-migration-matrix:instruction",
+   "t1-delta-hedging-pnl-simulation:instruction",
+   "t1-ewma-portfolio-risk-decomposition:instruction",
+   "t1-realized-vol-estimators:instruction",
+   "t1-stochvol-implied-surface-new:instruction",
+   "t1-swap-curve-bootstrap-ois:instruction",
+   "t1-variance-swap-replication:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "psor",
+  "full": "projected_successive_over_relaxation",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-american-option-fd-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "gbm",
+  "full": "geometric_brownian_motion",
+  "kind": "parenthetical",
+  "n_sources": 2,
+  "sources": [
+   "t1-asian-option-levy-curran:instruction",
+   "t1-lookback-options:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "mc",
+  "full": "monte_carlo",
+  "kind": "initials",
+  "n_sources": 5,
+  "sources": [
+   "t1-asian-option-levy-curran:instruction",
+   "t1-crypto-funding-rate-basis-carry:instruction",
+   "t1-fft-compound-poisson:instruction",
+   "t1-lookback-options:instruction",
+   "t1-spread-option-kirk-margrabe:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "mc",
+  "full": "matching",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-asian-option-levy-curran:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "mc",
+  "full": "marginal_cvar",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-credit-portfolio-var-cvar:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "mc",
+  "full": "marginal_cva",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-credit-portfolio-var-cvar:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "geo",
+  "full": "geometric",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-asian-option-levy-curran:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "arith",
+  "full": "arithmetic",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-asian-option-levy-curran:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "euro",
+  "full": "european",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-barone-adesi-whaley:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "amer",
+  "full": "american",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-barone-adesi-whaley:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "fd",
+  "full": "finite_difference",
+  "kind": "parenthetical",
+  "n_sources": 2,
+  "sources": [
+   "t1-barrier-garch-var:instruction",
+   "t1-mc-greek-surface-1:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "fd",
+  "full": "forward",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-barrier-garch-var:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "vol",
+  "full": "volatility",
+  "kind": "single_word",
+  "n_sources": 9,
+  "sources": [
+   "t1-barrier-garch-var:instruction",
+   "t1-cta-basel-capital:instruction",
+   "t1-interest-rate-cap-floor:instruction",
+   "t1-localvol-barrier:instruction",
+   "t1-ohlc-realized-vol-estimators:instruction",
+   "t1-regime-cta-vol-target:instruction",
+   "t1-sentiment-factor-alpha:instruction",
+   "t1-standard-var-methods:instruction",
+   "t1-stochvol-implied-surface-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "vol",
+  "full": "volumes",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-corporate-action-adjustment:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "vol",
+  "full": "volume",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-corporate-action-adjustment:instruction",
+   "t1-sentiment-factor-alpha:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "vol",
+  "full": "violation",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-dcc-garch-portfolio-var:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "vol",
+  "full": "vocabularies",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-ohlc-realized-vol-estimators:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "vol",
+  "full": "vocabulary",
+  "kind": "single_word",
+  "n_sources": 3,
+  "sources": [
+   "t1-ohlc-realized-vol-estimators:instruction",
+   "t1-regime-cta-vol-target:instruction",
+   "t1-sentiment-factor-alpha:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "vol",
+  "full": "volatilities",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-stochvol-implied-surface-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "var",
+  "full": "variance",
+  "kind": "single_word",
+  "n_sources": 6,
+  "sources": [
+   "t1-barrier-garch-var:instruction",
+   "t1-cta-basel-capital:instruction",
+   "t1-ewma-portfolio-risk-decomposition:template",
+   "t1-ipca-latent-factors:instruction",
+   "t1-localvol-barrier:input_data",
+   "t1-variance-swap-replication:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "var",
+  "full": "vocabulary",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-kelly-var-sizing:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "time",
+  "full": "timestamps",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-binance-btc-participation-tca:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ms",
+  "full": "millisecond",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-binance-btc-participation-tca:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ms",
+  "full": "market_side",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-binance-btc-participation-tca:input_data"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "qty",
+  "full": "quantity",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-binance-btc-participation-tca:instruction",
+   "t1-prediction-markets-cross-venue-dislocation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "diag",
+  "full": "diagonal",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-bl-regime-hmm:instruction",
+   "t1-credit-migration-matrix:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "diag",
+  "full": "diagnostic",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-bl-regime-hmm:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "diag",
+  "full": "diagnostics",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-ipca-latent-factors:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "prob",
+  "full": "probability",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-bl-regime-hmm:instruction",
+   "t1-creditmetrics-portfolio-var:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "bl",
+  "full": "belongs",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-bl-regime-hmm:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "iter",
+  "full": "iterations",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-bl-regime-hmm:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "asset",
+  "full": "assignment",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-bl-regime-hmm:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "cov",
+  "full": "covariance",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-bl-regime-hmm:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "adj",
+  "full": "adjusted",
+  "kind": "single_word",
+  "n_sources": 3,
+  "sources": [
+   "t1-bollinger-backtest-aapl:instruction",
+   "t1-momentum-backtest:instruction",
+   "t1-sma-crossover-spy:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "adj",
+  "full": "adjust",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-momentum-backtest:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "cum",
+  "full": "cumulative",
+  "kind": "single_word",
+  "n_sources": 3,
+  "sources": [
+   "t1-bollinger-backtest-aapl:instruction",
+   "t1-momentum-backtest:instruction",
+   "t1-sma-crossover-spy:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dir",
+  "full": "directory",
+  "kind": "single_word",
+  "n_sources": 5,
+  "sources": [
+   "t1-cir-bond-pricing:instruction",
+   "t1-first-passage-time:instruction",
+   "t1-hull-white-swaption:instruction",
+   "t1-implied-vol-approximations:instruction",
+   "t1-merton-jump-diffusion:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dir",
+  "full": "deliverables",
+  "kind": "single_word",
+  "n_sources": 4,
+  "sources": [
+   "t1-fx-carry-forward-hedge:instruction",
+   "t1-localvol-barrier:instruction",
+   "t1-mtm-xccy-basis-desk:instruction",
+   "t1-yield-curve-bond-immunization:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dir",
+  "full": "direction",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fx-carry-forward-hedge:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dir",
+  "full": "discrete",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-localvol-barrier:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dir",
+  "full": "dupire",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-localvol-barrier:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "zcb",
+  "full": "zero_coupon_bond",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-cir-bond-pricing:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "temp",
+  "full": "temperature",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-cme-hdd-option-pricing:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "stats",
+  "full": "statistics",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-cme-hdd-option-pricing:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "cc",
+  "full": "check",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-compound-option-geske:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "cc",
+  "full": "charactersitics",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-credit-migration-matrix:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "cc",
+  "full": "confidence",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-evt-pot-var:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "bs",
+  "full": "black_scholes",
+  "kind": "initials",
+  "n_sources": 2,
+  "sources": [
+   "t1-compound-option-geske:instruction",
+   "t1-merton-jump-diffusion:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "pc",
+  "full": "price",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-compound-option-geske:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "pc",
+  "full": "parity_check",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-compound-option-geske:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "logm",
+  "full": "logarithm",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-credit-migration-matrix:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "df",
+  "full": "default",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-credit-migration-matrix:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "df",
+  "full": "discount_factors",
+  "kind": "initials",
+  "n_sources": 2,
+  "sources": [
+   "t1-interest-rate-cap-floor:instruction",
+   "t1-swap-curve-bootstrap-ois:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "df",
+  "full": "date_float",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-swap-curve-bootstrap-ois:template"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "df",
+  "full": "discount_factor",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-swap-curve-bootstrap-ois:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "df",
+  "full": "dates_float",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-swap-curve-bootstrap-ois:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "df",
+  "full": "date_freq",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-swap-curve-bootstrap-ois:template"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "hhi",
+  "full": "herfindahl_hirschman_index",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-credit-portfolio-var-cvar:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "el",
+  "full": "expected_loss",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-credit-portfolio-var-cvar:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "va",
+  "full": "value",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-credit-portfolio-var-cvar:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "hac",
+  "full": "heteroscedasticity_and_autocorrelation_consistent",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-credit-spread-decomposition:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "hac",
+  "full": "heteroskedasticity_and_autocorrelation_consistent",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "sim",
+  "full": "simulations",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-creditmetrics-portfolio-var:instruction",
+   "t1-fft-compound-poisson:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "sim",
+  "full": "simulation",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fft-compound-poisson:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "es",
+  "full": "expected_shortfall",
+  "kind": "parenthetical",
+  "n_sources": 4,
+  "sources": [
+   "t1-creditmetrics-portfolio-var:instruction",
+   "t1-dcc-garch-portfolio-var:instruction",
+   "t1-standard-var-methods:instruction",
+   "t1-var-es-estimation:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "es",
+  "full": "estimates",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-dcc-garch-portfolio-var:instruction",
+   "t1-var-es-estimation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "es",
+  "full": "estimate",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-var-es-estimation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "date",
+  "full": "datetime",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-crypto-funding-rate-basis-carry:instruction",
+   "t1-swap-curve-bootstrap-ois:template"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "per",
+  "full": "periods",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-crypto-funding-rate-basis-carry:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "per",
+  "full": "period",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-cta-basel-capital:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "per",
+  "full": "parameters",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-cta-basel-capital:instruction",
+   "t1-regime-cta-vol-target:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "per",
+  "full": "pressure",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-form4-cross-sectional-sale-pressure:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "per",
+  "full": "perspective",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-mtm-xccy-basis-desk:instruction",
+   "t1-swap-curve-bootstrap-ois:template"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "tsa",
+  "full": "tsa_stattools_adfuller",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-crypto-funding-rate-basis-carry:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "mm",
+  "full": "maruyama",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-crypto-funding-rate-basis-carry:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "mm",
+  "full": "momentum",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-double-sort:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "mm",
+  "full": "minimum",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-historical-var-data-prep:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "run",
+  "full": "return",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-cta-basel-capital:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ima",
+  "full": "internal_models_approach",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-cta-basel-capital:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "fhs",
+  "full": "filtered_historical_simulation",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-dcc-garch-portfolio-var:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "divs",
+  "full": "dividends",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-delta-hedging-pnl-simulation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "pv",
+  "full": "present_value",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-delta-hedging-pnl-simulation:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "pv",
+  "full": "price_value",
+  "kind": "initials",
+  "n_sources": 2,
+  "sources": [
+   "t1-structured-note-risk:instruction",
+   "t1-yield-curve-bond-immunization:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "pv",
+  "full": "perspective",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-swap-curve-bootstrap-ois:instruction",
+   "t1-swap-curve-bootstrap-ois:template"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "iv",
+  "full": "implied_volatility",
+  "kind": "initials",
+  "n_sources": 2,
+  "sources": [
+   "t1-delta-hedging-pnl-simulation:instruction",
+   "t1-stochvol-implied-surface-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "iv",
+  "full": "interest_volume",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-localvol-barrier:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "iv",
+  "full": "implied_vol",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-merton-jump-diffusion:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "iv",
+  "full": "implied_volatilities",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-stochvol-implied-surface-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "freq",
+  "full": "frequencies",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-delta-hedging-pnl-simulation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "freq",
+  "full": "frequency",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-zero-coupon-bootstrapping:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dt",
+  "full": "delta",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-delta-hedging-pnl-simulation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dt",
+  "full": "discount",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-delta-hedging-pnl-simulation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dt",
+  "full": "detection",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-ou-jump-commodity:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dt",
+  "full": "daily_timestep",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-ou-jump-commodity:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ret",
+  "full": "recompute",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-double-sort:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ret",
+  "full": "return",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-double-sort:instruction",
+   "t1-stable-residual:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "sue",
+  "full": "standardized_unexpected_earnings",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-earnings-surprise-calculator:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "spy",
+  "full": "separately",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-etf-cross-asset-lead-lag:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "corr",
+  "full": "correlation",
+  "kind": "single_word",
+  "n_sources": 3,
+  "sources": [
+   "t1-etf-cross-asset-lead-lag:instruction",
+   "t1-ipca-latent-factors:instruction",
+   "t1-lob-pc-signal:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "lag",
+  "full": "lagger",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-etf-cross-asset-lead-lag:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "count",
+  "full": "constituent",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-etf-overlap-redemption-pressure:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dd",
+  "full": "date_dollar",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-etf-overlap-redemption-pressure:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dd",
+  "full": "depend",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-fx-carry-forward-hedge:instruction",
+   "t1-yield-curve-bond-immunization:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dd",
+  "full": "decide",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-fx-carry-forward-hedge:instruction",
+   "t1-yield-curve-bond-immunization:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dd",
+  "full": "duplicate_date",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-historical-var-data-prep:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dd",
+  "full": "dirty_daily",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-historical-var-data-prep:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dd",
+  "full": "dropped",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-historical-var-data-prep:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dd",
+  "full": "dedup",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-stable-residual:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dd",
+  "full": "deduplication",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-stable-residual:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dd",
+  "full": "dated",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-yield-curve-bond-immunization:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "car",
+  "full": "cumulative_abnormal_returns",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-event-study-earnings:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "obs",
+  "full": "observations",
+  "kind": "single_word",
+  "n_sources": 3,
+  "sources": [
+   "t1-event-study-earnings:instruction",
+   "t1-fx-carry-forward-hedge:instruction",
+   "t1-geometric-mean-reverting-jd:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "obs",
+  "full": "observation",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fx-carry-forward-hedge:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ar",
+  "full": "across",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-event-study-earnings:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ar",
+  "full": "abnormal",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-event-study-earnings:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ar",
+  "full": "abnormal_return",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-event-study-earnings:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ar",
+  "full": "aggregate",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-event-study-earnings:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "caar",
+  "full": "cumulative_average_abnormal_returns",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-event-study-earnings:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ind",
+  "full": "intermediates",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-evt-pot-var:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "md",
+  "full": "method",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-evt-pot-var:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "md",
+  "full": "methods",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-evt-pot-var:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "md",
+  "full": "magnitudes",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-evt-pot-var:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "port",
+  "full": "portfolio",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-ewma-portfolio-risk-decomposition:template"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "tlt",
+  "full": "template",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-ewma-portfolio-risk-decomposition:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ann",
+  "full": "annualized",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-ewma-portfolio-risk-decomposition:template",
+   "t1-realized-vol-estimators:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ann",
+  "full": "annualization",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-ewma-portfolio-risk-decomposition:template"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "conf",
+  "full": "confidence",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-ewma-portfolio-risk-decomposition:template"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ss",
+  "full": "smb_size",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ss",
+  "full": "statistic",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "sm",
+  "full": "statsmodels",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "sm",
+  "full": "sample",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "np",
+  "full": "numpy",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "smb",
+  "full": "small_minus_big",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "alpha",
+  "full": "alphabetically",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "nw",
+  "full": "newey_west",
+  "kind": "initials",
+  "n_sources": 2,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction",
+   "t1-fomc-tone-event-study:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "nw",
+  "full": "newey",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction",
+   "t1-fomc-tone-event-study:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "se",
+  "full": "standard_errors",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-fama-french-factor-model-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "se",
+  "full": "standard_error",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-mc-greek-surface-1:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "rn",
+  "full": "returns",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-first-passage-time:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "tf",
+  "full": "tfidf",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fomc-tone-event-study:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "tf",
+  "full": "term_frequency",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-fomc-tone-event-study:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "stat",
+  "full": "statistic",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fomc-tone-event-study:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "resid",
+  "full": "residual",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fomc-tone-event-study:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "rank",
+  "full": "rankings",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-form4-cross-sectional-sale-pressure:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "rank",
+  "full": "ranking",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-form4-cross-sectional-sale-pressure:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "spot",
+  "full": "snapshot",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-fx-carry-forward-hedge:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "jd",
+  "full": "jumps_detected",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-geometric-mean-reverting-jd:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "floor",
+  "full": "floorlets",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-interest-rate-cap-floor:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "floor",
+  "full": "floorlet",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-interest-rate-cap-floor:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "cap",
+  "full": "caplet",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-interest-rate-cap-floor:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "cap",
+  "full": "caplets",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-interest-rate-cap-floor:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "sv",
+  "full": "solver",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-ipca-latent-factors:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "sv",
+  "full": "sensitive",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-ipca-latent-factors:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "sv",
+  "full": "singular_value",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-ipca-latent-factors:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "sv",
+  "full": "several",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-ipca-latent-factors:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ic",
+  "full": "indices",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-lob-pc-signal:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "train",
+  "full": "training",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-lob-pc-signal:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "train",
+  "full": "transforming",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-lob-pc-signal:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "pc1",
+  "full": "principal_component",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-lob-pc-signal:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ttm",
+  "full": "timestamps",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-localvol-barrier:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ttm",
+  "full": "timestamp",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-localvol-barrier:input_data"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ts",
+  "full": "tick_size",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-localvol-barrier:input_data"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ts",
+  "full": "timestamp",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-localvol-barrier:input_data",
+   "t1-prediction-markets-cross-venue-dislocation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ts",
+  "full": "type_strike",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-option-put-call-parity-forward-audit:input_data"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ts",
+  "full": "trades",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-prediction-markets-cross-venue-dislocation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ts",
+  "full": "threshold_synchronized",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-prediction-markets-cross-venue-dislocation:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ts",
+  "full": "timestamps",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-prediction-markets-cross-venue-dislocation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ts",
+  "full": "threshold",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-prediction-markets-cross-venue-dislocation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "cf",
+  "full": "closed_form",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-lookback-options:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "cf",
+  "full": "create_fixed",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-lookback-options:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "err",
+  "full": "errors",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-lookback-options:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "float",
+  "full": "floating",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-lookback-options:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "lr",
+  "full": "likelihood_ratio",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-mc-greek-surface-1:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "star",
+  "full": "standard",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-merton-jump-diffusion:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "imp",
+  "full": "implied",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-merton-jump-diffusion:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "fx",
+  "full": "fixing",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-mtm-xccy-basis-desk:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "fx",
+  "full": "fra_x18",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-mtm-xccy-basis-desk:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "fx",
+  "full": "fixed",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-mtm-xccy-basis-desk:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "fx",
+  "full": "fra_x21",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-mtm-xccy-basis-desk:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "gbp",
+  "full": "gbpusd",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-mtm-xccy-basis-desk:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ccy",
+  "full": "currency",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-mtm-xccy-basis-desk:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "agent",
+  "full": "agreement",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-multimodal-alpha-fusion-edgar-cot-gdelt:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "cot",
+  "full": "committee",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-multimodal-alpha-fusion-edgar-cot-gdelt:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "cot",
+  "full": "conviction",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-multimodal-alpha-fusion-edgar-cot-gdelt:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "yz",
+  "full": "yang_zhang",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-ohlc-realized-vol-estimators:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ids",
+  "full": "intermediates",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-option-put-call-parity-forward-audit:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ids",
+  "full": "identifiers",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-option-put-call-parity-forward-audit:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "total",
+  "full": "theoretical",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-prediction-markets-cross-venue-dislocation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "break",
+  "full": "breaking",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-prediction-markets-cross-venue-dislocation:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "rv",
+  "full": "realized_variance",
+  "kind": "initials",
+  "n_sources": 2,
+  "sources": [
+   "t1-realized-vol-estimators:instruction",
+   "t1-variance-swap-replication:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "rv",
+  "full": "realized_volatility",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-variance-swap-replication:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "lo",
+  "full": "lookback",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-regime-cta-vol-target:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "mp",
+  "full": "marchenko_pastur",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-regime-riskparity-cvar:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "beta",
+  "full": "betabab",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-residual-momentum:instruction",
+   "t1-stable-residual:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "beta",
+  "full": "betadown",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-residual-momentum:instruction",
+   "t1-stable-residual:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ir",
+  "full": "information",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-sentiment-factor-alpha:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "ir",
+  "full": "information_ratio",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-sentiment-factor-alpha:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "gpd",
+  "full": "generalized_pareto_distribution",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-smith-tail-index:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "net",
+  "full": "negative",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-stable-residual:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "prev",
+  "full": "previous",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-stable-residual:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "pqt",
+  "full": "parquet",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-stable-residual:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "proj",
+  "full": "project",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-stable-residual:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "hs",
+  "full": "historical_simulation",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-standard-var-methods:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "gl",
+  "full": "gauss_legendre",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-stochvol-implied-surface-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "quad",
+  "full": "quadrature",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-stochvol-implied-surface-new:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "par",
+  "full": "pillars",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-swap-curve-bootstrap-ois:template"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "mat",
+  "full": "maturity",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-swap-curve-bootstrap-ois:template"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "rep",
+  "full": "reprice",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-swap-curve-bootstrap-ois:template"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "rep",
+  "full": "repriced",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-swap-curve-bootstrap-ois:template"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "dep",
+  "full": "deposits",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-swap-curve-bootstrap-ois:template"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "fit",
+  "full": "fitted",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-var-es-estimation:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "bw",
+  "full": "bandwidth",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-var-es-estimation:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "rmse",
+  "full": "root_mean_squared_error",
+  "kind": "parenthetical",
+  "n_sources": 1,
+  "sources": [
+   "t1-var-es-estimation:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "kde",
+  "full": "kernel_density_estimation",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-var-es-estimation:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "mo",
+  "full": "month",
+  "kind": "single_word",
+  "n_sources": 2,
+  "sources": [
+   "t1-yield-curve-pca-dynamics:input_data",
+   "t1-yield-curve-pca-dynamics:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "yr",
+  "full": "years",
+  "kind": "single_word",
+  "n_sources": 1,
+  "sources": [
+   "t1-yield-curve-pca-dynamics:instruction"
+  ],
+  "term": false,
+  "origin": "materials"
+ },
+ {
+  "abbr": "yr",
+  "full": "yield_report",
+  "kind": "initials",
+  "n_sources": 1,
+  "sources": [
+   "t1-yield-curve-pca-dynamics:instruction"
+  ],
+  "term": true,
+  "origin": "materials"
+ },
+ {
+  "abbr": "nobs",
+  "full": "number_of_observations",
+  "kind": "public",
+  "n_sources": 1,
+  "sources": [
+   "statsmodels RegressionResults.nobs ('Number of observations')"
+  ],
+  "term": true,
+  "origin": "public"
+ },
+ {
+  "abbr": "resid",
+  "full": "residual",
+  "kind": "public",
+  "n_sources": 1,
+  "sources": [
+   "statsmodels RegressionResults.resid ('The residuals of the model')"
+  ],
+  "term": true,
+  "origin": "public"
+ },
+ {
+  "abbr": "ssr",
+  "full": "sum_of_squared_residuals",
+  "kind": "public",
+  "n_sources": 1,
+  "sources": [
+   "statsmodels RegressionResults.ssr ('Sum of squared (whitened) residuals')"
+  ],
+  "term": true,
+  "origin": "public"
+ },
+ {
+  "abbr": "mse",
+  "full": "mean_squared_error",
+  "kind": "public",
+  "n_sources": 1,
+  "sources": [
+   "statsmodels RegressionResults.mse_resid ('Mean squared error of the residuals')"
+  ],
+  "term": true,
+  "origin": "public"
+ },
+ {
+  "abbr": "var",
+  "full": "value_at_risk",
+  "kind": "public",
+  "n_sources": 1,
+  "sources": [
+   "BCBS d457 Minimum capital requirements for market risk (2019), VaR"
+  ],
+  "term": true,
+  "origin": "public"
+ },
+ {
+  "abbr": "es",
+  "full": "expected_shortfall",
+  "kind": "public",
+  "n_sources": 1,
+  "sources": [
+   "BCBS d457 Minimum capital requirements for market risk (2019), ES"
+  ],
+  "term": true,
+  "origin": "public"
+ },
+ {
+  "abbr": "bps",
+  "full": "basis_points",
+  "kind": "public",
+  "n_sources": 1,
+  "sources": [
+   "general market convention (1 bp = 0.01%)"
+  ],
+  "term": true,
+  "origin": "public"
+ }
+]
