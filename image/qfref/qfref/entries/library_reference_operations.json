@@ -1,0 +1,690 @@
+{
+  "library_reference_howto_group_counts": {
+    "line": "LibraryReference: Group, map categories and accumulate counts",
+    "match": [
+      "grouped counts",
+      "aggregate counts",
+      "merge categories",
+      "rating counts",
+      "coarse categories",
+      "group by",
+      "groupby",
+      "category mapping",
+      "transition counts"
+    ],
+    "summary": "Consolidate fine labels into broader buckets, combine repeated observations, aggregate totals, sum duplicate keys, cross tabulate counts.",
+    "apis": [
+      "pd.Series",
+      "groupby",
+      "np.add.at",
+      "np.bincount"
+    ],
+    "characters": 1020,
+    "libraries": [
+      "numpy",
+      "pandas"
+    ]
+  },
+  "library_reference_howto_transition": {
+    "line": "LibraryReference: Propagate a transition matrix over multiple periods",
+    "match": [
+      "multi period transition",
+      "transition matrix",
+      "cumulative default probability",
+      "transition probabilities",
+      "Markov chain",
+      "generator matrix",
+      "matrix power"
+    ],
+    "summary": "Multiple horizon state migration, repeated transition propagation, absorbing state probability, continuous time intensity matrix.",
+    "apis": [
+      "np.linalg.matrix_power",
+      "linalg.expm",
+      "linalg.logm"
+    ],
+    "characters": 978,
+    "libraries": [
+      "numpy",
+      "scipy"
+    ]
+  },
+  "library_reference_howto_time_pairs": {
+    "line": "LibraryReference: Pair lags before slicing rolling windows",
+    "match": [
+      "AR(1)",
+      "autoregressive",
+      "rolling window",
+      "lagged variable",
+      "lagged returns",
+      "lagged signal",
+      "lag alignment",
+      "lookback",
+      "exponential moving average"
+    ],
+    "summary": "Predecessor response pairing on full timeline, past observations, moving estimates, warmup, temporal windows, recursive smoothing.",
+    "apis": [
+      "pd.Series",
+      "shift",
+      "rolling",
+      "ewm",
+      "dropna"
+    ],
+    "characters": 996,
+    "libraries": [
+      "pandas"
+    ]
+  },
+  "library_reference_howto_regression_hac": {
+    "line": "LibraryReference: Regressions, coefficient indexing and robust errors",
+    "match": [
+      "ordinary least squares",
+      "linear regression",
+      "OLS",
+      "Newey West",
+      "HAC",
+      "robust standard errors",
+      "factor regression",
+      "t statistic",
+      "studentized residual"
+    ],
+    "summary": "Estimate slopes intercept and coefficient inference, heteroskedastic autocorrelation sandwich covariance, leverage influence diagnostics.",
+    "apis": [
+      "sm.OLS",
+      "sm.add_constant",
+      "np.linalg.lstsq",
+      "np.column_stack",
+      "np.ones",
+      "get_robustcov_results",
+      "get_influence",
+      "durbin_watson"
+    ],
+    "characters": 1237,
+    "libraries": [
+      "numpy",
+      "statsmodels"
+    ]
+  },
+  "library_reference_howto_randomization": {
+    "line": "LibraryReference: Resample, permute and compare refitted statistics",
+    "match": [
+      "permutation test",
+      "randomization test",
+      "randomisation test",
+      "sign flip",
+      "sign flips",
+      "wild bootstrap",
+      "resampling",
+      "bootstrap test"
+    ],
+    "summary": "Reshuffle observations, random signs, empirical significance, repeated fits, identity draw, exchangeability, null distribution exceedances.",
+    "apis": [
+      "np.linalg.pinv",
+      "np.stack",
+      "np.mean",
+      "np.abs",
+      "itertools.product"
+    ],
+    "characters": 1105,
+    "libraries": [
+      "numpy"
+    ]
+  },
+  "library_reference_howto_optimize": {
+    "line": "LibraryReference: Solve roots and constrained calibration problems",
+    "match": [
+      "root finding",
+      "root solve",
+      "implied volatility",
+      "critical price",
+      "calibrate",
+      "calibration",
+      "constrained optimization",
+      "least squares",
+      "minimize",
+      "SLSQP",
+      "L-BFGS-B"
+    ],
+    "summary": "Find zero of continuous equation with bracket, parameter estimation objective minimization, bounded search, convergence and feasibility.",
+    "apis": [
+      "optimize.brentq",
+      "optimize.minimize",
+      "optimize.least_squares",
+      "optimize.root",
+      "optimize.linprog"
+    ],
+    "characters": 952,
+    "libraries": [
+      "scipy"
+    ]
+  },
+  "library_reference_howto_distribution": {
+    "line": "LibraryReference: Fit distributions and evaluate tail probabilities",
+    "match": [
+      "distribution fit",
+      "maximum likelihood",
+      "Student t",
+      "noncentral chi",
+      "density estimation",
+      "Gaussian KDE",
+      "generalized Pareto",
+      "tail probability",
+      "p value",
+      "p values"
+    ],
+    "summary": "Infer distribution degrees of freedom location scale, cumulative density survivor inverse quantile, likelihood, kernel smoothing, moments.",
+    "apis": [
+      "stats.norm.cdf",
+      "stats.norm.pdf",
+      "stats.norm.ppf",
+      "stats.norm.sf",
+      "stats.t.fit",
+      "stats.t",
+      "stats.f",
+      "stats.chi2",
+      "stats.genpareto.fit",
+      "stats.gaussian_kde",
+      "stats.skew",
+      "stats.kurtosis",
+      "stats.kendalltau",
+      "stats.spearmanr"
+    ],
+    "characters": 1005,
+    "libraries": [
+      "numpy",
+      "scipy"
+    ]
+  },
+  "library_reference_howto_dates_align": {
+    "line": "LibraryReference: Parse dates, align labels and locate sessions",
+    "match": [
+      "date alignment",
+      "trading calendar",
+      "trading day",
+      "timestamps",
+      "time zone",
+      "timezone",
+      "parse dates",
+      "align dates",
+      "calendar date"
+    ],
+    "summary": "Datetime conversion from string, chronological order, matching indexed observations, nearest eligible business session and insertion point.",
+    "apis": [
+      "pd.to_datetime",
+      "pd.Timestamp",
+      "pd.Timedelta",
+      "pd.searchsorted",
+      "searchsorted",
+      "reindex",
+      "loc",
+      "iloc"
+    ],
+    "characters": 1273,
+    "libraries": [
+      "pandas"
+    ]
+  },
+  "library_reference_howto_output": {
+    "line": "LibraryReference: Write labeled and missing-safe deliverables",
+    "match": [
+      "write output",
+      "output files",
+      "save JSON",
+      "write JSON",
+      "write CSV",
+      "deliverables",
+      "missing values",
+      "empty cells",
+      "column names",
+      "CSV"
+    ],
+    "summary": "Serialize finite numerical results, preserve absent observations, name row labels and index columns, persist dictionaries and tabular schemas.",
+    "apis": [
+      "save_json",
+      "autosave_json",
+      "to_csv",
+      "reset_index",
+      "rename_axis",
+      "json.dump",
+      "json.dumps"
+    ],
+    "characters": 1151,
+    "libraries": [
+      "numpy",
+      "pandas",
+      "Python"
+    ]
+  },
+  "library_reference_howto_volatility": {
+    "line": "LibraryReference: Fit and forecast conditional variance",
+    "match": [
+      "GARCH",
+      "EGARCH",
+      "conditional volatility",
+      "volatility forecast",
+      "conditional variance",
+      "variance forecast",
+      "volatility clustering"
+    ],
+    "summary": "Time varying innovations volatility persistence, heteroskedastic return model, fitted variance units and multi horizon forecasts.",
+    "apis": [
+      "arch_model",
+      "forecast",
+      "conditional_volatility"
+    ],
+    "characters": 1139,
+    "libraries": [
+      "numpy",
+      "arch"
+    ]
+  },
+  "library_reference_howto_polars": {
+    "line": "LibraryReference: Evaluate expressions and lazy grouped transformations",
+    "match": [
+      "lazy frame",
+      "lazyframe",
+      "expression API",
+      "with_columns",
+      "group_by",
+      "pandas migration",
+      "Polars",
+      "lazy query",
+      "expression engine"
+    ],
+    "summary": "Column expressions, deferred dataframe computation, streaming query planning, migrate eager tables, window expressions partitioned aggregations.",
+    "apis": [
+      "pl.col",
+      "group_by",
+      "with_columns",
+      "collect",
+      "over",
+      "scan_csv",
+      "scan_parquet"
+    ],
+    "characters": 1085,
+    "libraries": [
+      "polars"
+    ]
+  },
+  "library_reference_howto_orders": {
+    "line": "LibraryReference: Schedule event-driven orders and fills",
+    "match": [
+      "event driven backtest",
+      "market order",
+      "order execution",
+      "next bar open",
+      "broker commission",
+      "Backtrader",
+      "pending order",
+      "order notification"
+    ],
+    "summary": "Bar engine order submission fill notifications, trading events, cash broker positions, OHLCV feed and transaction commission.",
+    "apis": [
+      "bt.Cerebro",
+      "bt.feeds.PandasData",
+      "setcommission",
+      "notify_order"
+    ],
+    "characters": 975,
+    "libraries": [
+      "backtrader"
+    ]
+  },
+  "library_reference_howto_indicators": {
+    "line": "LibraryReference: Compute rolling technical indicators",
+    "match": [
+      "Bollinger",
+      "MACD",
+      "RSI",
+      "ATR",
+      "technical indicator",
+      "moving average crossover",
+      "exponential moving average",
+      "simple moving average"
+    ],
+    "summary": "Price momentum oscillator bands volatility range moving trend average, warmup observations, indicator initialization.",
+    "apis": [
+      "talib.SMA",
+      "talib.EMA",
+      "talib.MACD",
+      "talib.RSI",
+      "talib.ATR",
+      "talib.BBANDS",
+      "rolling",
+      "ewm"
+    ],
+    "characters": 969,
+    "libraries": [
+      "numpy",
+      "TA-Lib"
+    ]
+  },
+  "library_reference_howto_pca": {
+    "line": "LibraryReference: Fit components, standardize and preserve training boundaries",
+    "match": [
+      "PCA",
+      "principal component",
+      "dimensionality reduction",
+      "factor loading",
+      "standardization",
+      "train test split",
+      "ridge regression"
+    ],
+    "summary": "Low dimensional projections, orthogonal factors, latent basis explained variance and sign orientation, preprocessing leakage.",
+    "apis": [
+      "PCA",
+      "StandardScaler",
+      "LinearRegression",
+      "Ridge",
+      "TimeSeriesSplit",
+      "np.corrcoef"
+    ],
+    "characters": 1145,
+    "libraries": [
+      "numpy",
+      "scikit-learn"
+    ]
+  },
+  "library_reference_howto_integrate": {
+    "line": "LibraryReference: Integrate, interpolate and differentiate numerical surfaces",
+    "match": [
+      "numerical integration",
+      "quadrature",
+      "Gauss Legendre",
+      "interpolation",
+      "finite difference",
+      "local volatility",
+      "call surface",
+      "PCHIP",
+      "CubicSpline"
+    ],
+    "summary": "Integral approximation weighted nodes, nonuniform surface derivatives, boundary behavior, shape preserving curve, extrapolation.",
+    "apis": [
+      "integrate.quad",
+      "interpolate.PchipInterpolator",
+      "interpolate.CubicSpline",
+      "np.gradient",
+      "np.polynomial.legendre.leggauss",
+      "linalg.solve_banded"
+    ],
+    "characters": 1162,
+    "libraries": [
+      "numpy",
+      "scipy"
+    ]
+  },
+  "library_reference_howto_array_math": {
+    "line": "LibraryReference: Compute array statistics without axis or dtype mistakes",
+    "match": [
+      "covariance matrix",
+      "vectorization",
+      "array operations",
+      "correlation matrix"
+    ],
+    "summary": "Numerical reductions, elementwise transforms, matrix algebra contractions broadcasting, aligned covariance observations, cumulative wealth.",
+    "apis": [
+      "np.exp",
+      "np.log",
+      "np.sqrt",
+      "np.abs",
+      "np.std",
+      "np.var",
+      "np.mean",
+      "np.nanmean",
+      "np.sum",
+      "np.prod",
+      "np.cumsum",
+      "np.cumprod",
+      "np.maximum",
+      "np.maximum.accumulate",
+      "np.outer",
+      "np.dot",
+      "np.cov",
+      "np.corrcoef",
+      "np.min",
+      "np.max"
+    ],
+    "characters": 1092,
+    "libraries": [
+      "numpy"
+    ]
+  },
+  "library_reference_howto_simulation": {
+    "line": "LibraryReference: Manage random streams and paired simulation draws",
+    "match": [
+      "Monte Carlo",
+      "random seed",
+      "random number",
+      "common random numbers",
+      "antithetic",
+      "simulation paths",
+      "simulate paths",
+      "stochastic simulation"
+    ],
+    "summary": "Reproducible sampling sequence, independent generator state, paired bumped scenarios, sampling error, variance reduction.",
+    "apis": [
+      "np.random.default_rng",
+      "np.random.RandomState",
+      "np.random.seed",
+      "np.random.normal",
+      "np.random.uniform",
+      "np.random.poisson",
+      "np.random.choice"
+    ],
+    "characters": 1002,
+    "libraries": [
+      "numpy"
+    ]
+  },
+  "library_reference_howto_quantiles": {
+    "line": "LibraryReference: Select empirical quantiles and tail loss averages",
+    "match": [
+      "Value at Risk",
+      "VaR",
+      "Expected Shortfall",
+      "CVaR",
+      "empirical quantile",
+      "historical quantile",
+      "tail loss",
+      "percentile",
+      "quantile"
+    ],
+    "summary": "Ordered sample tail cutoff confidence interval probability, loss sign, threshold exceedances, historical shortfall averaging.",
+    "apis": [
+      "np.quantile",
+      "np.percentile",
+      "np.sort",
+      "np.searchsorted"
+    ],
+    "characters": 891,
+    "libraries": [
+      "numpy"
+    ]
+  },
+  "library_reference_howto_table_io": {
+    "line": "LibraryReference: Read typed local spreadsheet and columnar tables",
+    "match": [
+      "Excel",
+      "spreadsheet",
+      "Parquet",
+      "xlsx",
+      "workbook",
+      "columnar file",
+      "pyarrow",
+      "openpyxl"
+    ],
+    "summary": "Local tabular ingestion, sheet headers, schema types, column selection, cached formulas, preserved dataframe index.",
+    "apis": [
+      "pd.read_csv",
+      "pd.read_parquet",
+      "pd.read_excel",
+      "pd.read_pickle",
+      "pa.Table.from_pandas",
+      "pq.read_table",
+      "pq.write_table",
+      "openpyxl.load_workbook"
+    ],
+    "characters": 1098,
+    "libraries": [
+      "pandas",
+      "pyarrow",
+      "openpyxl"
+    ]
+  },
+  "library_reference_howto_plots": {
+    "line": "LibraryReference: Save static or interactive chart files",
+    "match": [
+      "plot",
+      "chart",
+      "visualization",
+      "visualisation",
+      "interactive HTML",
+      "heatmap",
+      "bar graph",
+      "figure"
+    ],
+    "summary": "Render local image files, time series lines, plotly interactive document with embedded javascript, noninteractive drawing backend.",
+    "apis": [
+      "plt.subplots",
+      "plt.savefig",
+      "plt.plot",
+      "sns.lineplot",
+      "sns.heatmap",
+      "px.line",
+      "write_html"
+    ],
+    "characters": 1100,
+    "libraries": [
+      "matplotlib",
+      "seaborn",
+      "plotly"
+    ]
+  },
+  "library_reference_howto_xml_pairs": {
+    "line": "LibraryReference: Parse structured text and enumerate ordered pairs",
+    "match": [
+      "XML",
+      "namespace",
+      "footnote",
+      "structured filing",
+      "unordered pairs",
+      "pair enumeration",
+      "combinations",
+      "text extraction"
+    ],
+    "summary": "Hierarchical document nodes attributes, tree parsing, structured local records, position-preserving combinations and group pairs.",
+    "apis": [
+      "ET.parse",
+      "ET.fromstring",
+      "findtext",
+      "itertools.combinations",
+      "itertools.product"
+    ],
+    "characters": 1093,
+    "libraries": [
+      "Python"
+    ]
+  },
+  "library_reference_howto_cash_clock": {
+    "line": "LibraryReference: Track portfolio execution, costs and cash timing",
+    "match": [
+      "long short backtest",
+      "rebalance",
+      "rebalancing",
+      "hedging PnL",
+      "cash account",
+      "self financing",
+      "transaction costs",
+      "turnover"
+    ],
+    "summary": "Weight replacement, previous close signals, next period earnings, interest dividend trade liquidation bookkeeping and wealth.",
+    "apis": [
+      "monthly_long_short",
+      "rebalanced_returns",
+      "factor_regression",
+      "arithmetic_metrics"
+    ],
+    "characters": 1162,
+    "libraries": [
+      "Python",
+      "pandas"
+    ]
+  },
+  "library_reference_howto_fft": {
+    "line": "LibraryReference: Transform discrete distributions with FFT conventions",
+    "match": [
+      "FFT",
+      "characteristic function inversion",
+      "discrete Fourier",
+      "compound Poisson",
+      "convolution",
+      "frequency grid"
+    ],
+    "summary": "Discrete probability transform frequency inversion circular convolution zero padding imaginary residue normalization and aliasing.",
+    "apis": [
+      "np.fft.fft",
+      "np.fft.ifft"
+    ],
+    "characters": 925,
+    "libraries": [
+      "numpy"
+    ]
+  },
+  "library_reference_howto_dtype": {
+    "line": "LibraryReference: Allocate numerical arrays and preserve numerical precision",
+    "match": [
+      "integer array",
+      "dtype",
+      "full_like",
+      "type conversion"
+    ],
+    "summary": "Integer truncation during allocation, floating shifts, explicit coercion, missing numerical values and mutation of array views.",
+    "apis": [
+      "np.full_like",
+      "np.arange",
+      "np.linspace",
+      "np.array",
+      "np.where",
+      "np.isnan",
+      "np.isfinite",
+      "np.clip",
+      "pd.to_numeric",
+      "pd.isna"
+    ],
+    "characters": 1279,
+    "libraries": [
+      "numpy",
+      "pandas"
+    ]
+  },
+  "library_reference_howto_elementwise": {
+    "line": "LibraryReference: Apply stable elementwise transforms and payoff bounds",
+    "match": [
+      "log returns",
+      "log return",
+      "square root",
+      "payoff",
+      "discount factor",
+      "discounting",
+      "exponential transform"
+    ],
+    "summary": "Exponential logarithm square root absolute value vector transforms, clipping contingent payoffs, stable small changes, simple reductions.",
+    "apis": [
+      "np.exp",
+      "np.log",
+      "np.log1p",
+      "np.expm1",
+      "np.sqrt",
+      "np.abs",
+      "np.maximum",
+      "np.where",
+      "np.clip",
+      "np.std",
+      "np.mean",
+      "np.sum"
+    ],
+    "characters": 815,
+    "libraries": [
+      "numpy"
+    ]
+  }
+}

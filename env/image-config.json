@@ -1,0 +1,31 @@
+{
+ "Entrypoint": [
+  "/usr/local/bin/python",
+  "/opt/solve.py"
+ ],
+ "Cmd": null,
+ "Env": [
+  "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+  "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+  "PYTHON_VERSION=3.13.16",
+  "PYTHON_SHA256=f4b1bfb3c79b5bb11b8d228a12504163b4c0dab4d679828d8f5f26b6cb6ab35d",
+  "LITELLM_LOCAL_MODEL_COST_MAP=True",
+  "MSWEA_COST_TRACKING=ignore_errors",
+  "MSWEA_SILENT_STARTUP=1",
+  "MSWEA_CONFIGURED=true",
+  "MSWEA_MODEL_RETRY_STOP_AFTER_ATTEMPT=2",
+  "PYTHONDONTWRITEBYTECODE=1",
+  "HOME=/tmp",
+  "XDG_CONFIG_HOME=/tmp/.config",
+  "XDG_CACHE_HOME=/tmp/.cache",
+  "MPLCONFIGDIR=/tmp/.matplotlib",
+  "NUMBA_CACHE_DIR=/tmp/.numba",
+  "HF_HOME=/tmp/.hf"
+ ],
+ "Labels": {
+  "qfbench2.interface_version": "2.0"
+ },
+ "WorkingDir": "/app",
+ "User": null,
+ "Volumes": null
+}

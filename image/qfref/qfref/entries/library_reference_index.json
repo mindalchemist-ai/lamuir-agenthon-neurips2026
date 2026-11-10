@@ -1,0 +1,403 @@
+{
+  "library_reference_numpy": {
+    "line": "LibraryReference: NumPy: arrays, grouped accumulation and numerical linear algebra",
+    "match": []
+  },
+  "library_reference_pandas": {
+    "line": "LibraryReference: pandas: types, labels, joins and grouped sums",
+    "match": []
+  },
+  "library_reference_time_windows": {
+    "line": "LibraryReference: Time series: rolling windows, lag pairing and trading dates",
+    "match": []
+  },
+  "library_reference_scipy_optimize": {
+    "line": "LibraryReference: SciPy optimize: roots, least squares and constrained optimization",
+    "match": []
+  },
+  "library_reference_scipy_stats": {
+    "line": "LibraryReference: SciPy stats: distributions, tails and statistical tests",
+    "match": []
+  },
+  "library_reference_scipy_numerics": {
+    "line": "LibraryReference: SciPy: matrix functions, integration and interpolation",
+    "match": []
+  },
+  "library_reference_statsmodels": {
+    "line": "LibraryReference: statsmodels: regression, HAC and diagnostics",
+    "match": []
+  },
+  "library_reference_refits_randomization": {
+    "line": "LibraryReference: Fixed-design refits and randomization comparisons",
+    "match": []
+  },
+  "library_reference_arch": {
+    "line": "LibraryReference: arch: conditional volatility and units",
+    "match": []
+  },
+  "library_reference_sklearn": {
+    "line": "LibraryReference: scikit-learn: preprocessing, PCA, regression and time splits",
+    "match": []
+  },
+  "library_reference_polars": {
+    "line": "LibraryReference: Polars: expressions, grouping and lazy execution",
+    "match": []
+  },
+  "library_reference_talib": {
+    "line": "LibraryReference: TA-Lib: inputs, warm-up and outputs",
+    "match": []
+  },
+  "library_reference_backtrader": {
+    "line": "LibraryReference: Backtrader: feeds, orders and execution timing",
+    "match": []
+  },
+  "library_reference_file_io": {
+    "line": "LibraryReference: openpyxl and PyArrow: spreadsheet and columnar file I/O",
+    "match": []
+  },
+  "library_reference_plot_files": {
+    "line": "LibraryReference: Matplotlib, Seaborn and Plotly: files only when requested",
+    "match": []
+  },
+  "library_reference_session_io": {
+    "line": "LibraryReference: Session: save_json, autosave_json and qfref",
+    "match": []
+  },
+  "library_reference_backtest_tools": {
+    "line": "LibraryReference: backtest_tools: information clock and return types",
+    "match": []
+  },
+  "library_reference_standard_library": {
+    "line": "LibraryReference: Python standard library: local files, strict JSON and scalar mathematics",
+    "match": []
+  },
+  "library_reference_optional_runtime": {
+    "line": "LibraryReference: Optional libraries and local helper scripts: check the environment",
+    "match": []
+  },
+  "library_reference_howto_group_counts": {
+    "line": "LibraryReference: Group, map categories and accumulate counts",
+    "match": [
+      "grouped counts",
+      "aggregate counts",
+      "merge categories",
+      "rating counts",
+      "coarse categories",
+      "group by",
+      "groupby",
+      "category mapping",
+      "transition counts"
+    ]
+  },
+  "library_reference_howto_transition": {
+    "line": "LibraryReference: Propagate a transition matrix over multiple periods",
+    "match": [
+      "multi period transition",
+      "transition matrix",
+      "cumulative default probability",
+      "transition probabilities",
+      "Markov chain",
+      "generator matrix",
+      "matrix power"
+    ]
+  },
+  "library_reference_howto_time_pairs": {
+    "line": "LibraryReference: Pair lags before slicing rolling windows",
+    "match": [
+      "AR(1)",
+      "autoregressive",
+      "rolling window",
+      "lagged variable",
+      "lagged returns",
+      "lagged signal",
+      "lag alignment",
+      "lookback",
+      "exponential moving average"
+    ]
+  },
+  "library_reference_howto_regression_hac": {
+    "line": "LibraryReference: Regressions, coefficient indexing and robust errors",
+    "match": [
+      "ordinary least squares",
+      "linear regression",
+      "OLS",
+      "Newey West",
+      "HAC",
+      "robust standard errors",
+      "factor regression",
+      "t statistic",
+      "studentized residual"
+    ]
+  },
+  "library_reference_howto_randomization": {
+    "line": "LibraryReference: Resample, permute and compare refitted statistics",
+    "match": [
+      "permutation test",
+      "randomization test",
+      "randomisation test",
+      "sign flip",
+      "sign flips",
+      "wild bootstrap",
+      "resampling",
+      "bootstrap test"
+    ]
+  },
+  "library_reference_howto_optimize": {
+    "line": "LibraryReference: Solve roots and constrained calibration problems",
+    "match": [
+      "root finding",
+      "root solve",
+      "implied volatility",
+      "critical price",
+      "calibrate",
+      "calibration",
+      "constrained optimization",
+      "least squares",
+      "minimize",
+      "SLSQP",
+      "L-BFGS-B"
+    ]
+  },
+  "library_reference_howto_distribution": {
+    "line": "LibraryReference: Fit distributions and evaluate tail probabilities",
+    "match": [
+      "distribution fit",
+      "maximum likelihood",
+      "Student t",
+      "noncentral chi",
+      "density estimation",
+      "Gaussian KDE",
+      "generalized Pareto",
+      "tail probability",
+      "p value",
+      "p values"
+    ]
+  },
+  "library_reference_howto_dates_align": {
+    "line": "LibraryReference: Parse dates, align labels and locate sessions",
+    "match": [
+      "date alignment",
+      "trading calendar",
+      "trading day",
+      "timestamps",
+      "time zone",
+      "timezone",
+      "parse dates",
+      "align dates",
+      "calendar date"
+    ]
+  },
+  "library_reference_howto_output": {
+    "line": "LibraryReference: Write labeled and missing-safe deliverables",
+    "match": [
+      "write output",
+      "output files",
+      "save JSON",
+      "write JSON",
+      "write CSV",
+      "deliverables",
+      "missing values",
+      "empty cells",
+      "column names",
+      "CSV"
+    ]
+  },
+  "library_reference_howto_volatility": {
+    "line": "LibraryReference: Fit and forecast conditional variance",
+    "match": [
+      "GARCH",
+      "EGARCH",
+      "conditional volatility",
+      "volatility forecast",
+      "conditional variance",
+      "variance forecast",
+      "volatility clustering"
+    ]
+  },
+  "library_reference_howto_polars": {
+    "line": "LibraryReference: Evaluate expressions and lazy grouped transformations",
+    "match": [
+      "lazy frame",
+      "lazyframe",
+      "expression API",
+      "with_columns",
+      "group_by",
+      "pandas migration",
+      "Polars",
+      "lazy query",
+      "expression engine"
+    ]
+  },
+  "library_reference_howto_orders": {
+    "line": "LibraryReference: Schedule event-driven orders and fills",
+    "match": [
+      "event driven backtest",
+      "market order",
+      "order execution",
+      "next bar open",
+      "broker commission",
+      "Backtrader",
+      "pending order",
+      "order notification"
+    ]
+  },
+  "library_reference_howto_indicators": {
+    "line": "LibraryReference: Compute rolling technical indicators",
+    "match": [
+      "Bollinger",
+      "MACD",
+      "RSI",
+      "ATR",
+      "technical indicator",
+      "moving average crossover",
+      "exponential moving average",
+      "simple moving average"
+    ]
+  },
+  "library_reference_howto_pca": {
+    "line": "LibraryReference: Fit components, standardize and preserve training boundaries",
+    "match": [
+      "PCA",
+      "principal component",
+      "dimensionality reduction",
+      "factor loading",
+      "standardization",
+      "train test split",
+      "ridge regression"
+    ]
+  },
+  "library_reference_howto_integrate": {
+    "line": "LibraryReference: Integrate, interpolate and differentiate numerical surfaces",
+    "match": [
+      "numerical integration",
+      "quadrature",
+      "Gauss Legendre",
+      "interpolation",
+      "finite difference",
+      "local volatility",
+      "call surface",
+      "PCHIP",
+      "CubicSpline"
+    ]
+  },
+  "library_reference_howto_array_math": {
+    "line": "LibraryReference: Compute array statistics without axis or dtype mistakes",
+    "match": [
+      "covariance matrix",
+      "vectorization",
+      "array operations",
+      "correlation matrix"
+    ]
+  },
+  "library_reference_howto_simulation": {
+    "line": "LibraryReference: Manage random streams and paired simulation draws",
+    "match": [
+      "Monte Carlo",
+      "random seed",
+      "random number",
+      "common random numbers",
+      "antithetic",
+      "simulation paths",
+      "simulate paths",
+      "stochastic simulation"
+    ]
+  },
+  "library_reference_howto_quantiles": {
+    "line": "LibraryReference: Select empirical quantiles and tail loss averages",
+    "match": [
+      "Value at Risk",
+      "VaR",
+      "Expected Shortfall",
+      "CVaR",
+      "empirical quantile",
+      "historical quantile",
+      "tail loss",
+      "percentile",
+      "quantile"
+    ]
+  },
+  "library_reference_howto_table_io": {
+    "line": "LibraryReference: Read typed local spreadsheet and columnar tables",
+    "match": [
+      "Excel",
+      "spreadsheet",
+      "Parquet",
+      "xlsx",
+      "workbook",
+      "columnar file",
+      "pyarrow",
+      "openpyxl"
+    ]
+  },
+  "library_reference_howto_plots": {
+    "line": "LibraryReference: Save static or interactive chart files",
+    "match": [
+      "plot",
+      "chart",
+      "visualization",
+      "visualisation",
+      "interactive HTML",
+      "heatmap",
+      "bar graph",
+      "figure"
+    ]
+  },
+  "library_reference_howto_xml_pairs": {
+    "line": "LibraryReference: Parse structured text and enumerate ordered pairs",
+    "match": [
+      "XML",
+      "namespace",
+      "footnote",
+      "structured filing",
+      "unordered pairs",
+      "pair enumeration",
+      "combinations",
+      "text extraction"
+    ]
+  },
+  "library_reference_howto_cash_clock": {
+    "line": "LibraryReference: Track portfolio execution, costs and cash timing",
+    "match": [
+      "long short backtest",
+      "rebalance",
+      "rebalancing",
+      "hedging PnL",
+      "cash account",
+      "self financing",
+      "transaction costs",
+      "turnover"
+    ]
+  },
+  "library_reference_howto_fft": {
+    "line": "LibraryReference: Transform discrete distributions with FFT conventions",
+    "match": [
+      "FFT",
+      "characteristic function inversion",
+      "discrete Fourier",
+      "compound Poisson",
+      "convolution",
+      "frequency grid"
+    ]
+  },
+  "library_reference_howto_dtype": {
+    "line": "LibraryReference: Allocate numerical arrays and preserve numerical precision",
+    "match": [
+      "integer array",
+      "dtype",
+      "full_like",
+      "type conversion"
+    ]
+  },
+  "library_reference_howto_elementwise": {
+    "line": "LibraryReference: Apply stable elementwise transforms and payoff bounds",
+    "match": [
+      "log returns",
+      "log return",
+      "square root",
+      "payoff",
+      "discount factor",
+      "discounting",
+      "exponential transform"
+    ]
+  }
+}

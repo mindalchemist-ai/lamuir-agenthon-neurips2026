@@ -1,0 +1,2376 @@
+{
+ "signal_backtest_state_algorithm": {
+  "line": "Daily signal backtest: position state, next-day execution, one row per trading day.",
+  "match": [
+   "Bollinger"
+  ],
+  "exclude": []
+ },
+ "tfidf_trailing_window_algorithm": {
+  "line": "Document frequency for TF-IDF, and pre-event trailing features on the daily series.",
+  "match": [
+   "TF-IDF"
+  ],
+  "exclude": []
+ },
+ "garch_fit_algorithm": {
+  "line": "Fitting a GARCH(1,1) with arch: units, convergence and conversion back.",
+  "match": [
+   "GARCH(1,1)",
+   "GARCH (1,1)"
+  ],
+  "exclude": []
+ },
+ "hs_var_es_backtest_algorithm": {
+  "line": "Historical-simulation VaR / ES with one order-statistic rule and an expanding-window backtest.",
+  "match": [
+   "age-weighted",
+   "variance-covariance"
+  ],
+  "exclude": []
+ },
+ "intraday_bars_volume_profile_algorithm": {
+  "line": "Intraday bars: complete trading days and lag-weighted volume profiles.",
+  "match": [
+   "intraday volume"
+  ],
+  "exclude": []
+ },
+ "regression_vif_algorithm": {
+  "line": "Variance inflation factor from auxiliary OLS regressions.",
+  "match": [
+   "variance inflation factor",
+   "VIF"
+  ],
+  "exclude": []
+ },
+ "monte_carlo_sensitivity_algorithm": {
+  "line": "Monte Carlo bump-and-revalue with common random numbers; AR(1)/OU fit on dated observations.",
+  "match": [
+   "bump-and-revalue",
+   "central-difference bump"
+  ],
+  "exclude": [],
+  "supersedes": [
+   "bump_and_revalue"
+  ]
+ },
+ "characteristic_function_pricing_checks": {
+  "line": "Choosing and checking numerical integration for characteristic-function option prices.",
+  "match": [
+   "gauss-legendre",
+   "scipy.integrate.quad"
+  ],
+  "exclude": []
+ },
+ "compound_poisson_fft_algorithm": {
+  "line": "Compound Poisson aggregate loss by FFT: grid range, discretization, VaR and ES.",
+  "match": [
+   "aggregate loss"
+  ],
+  "exclude": [],
+  "supersedes": [
+   "compound_poisson_aggregate"
+  ]
+ },
+ "provided_script_convention_audit": {
+  "line": "Debugging a provided script against a convention contract.",
+  "match": [
+   "computational bugs"
+  ],
+  "exclude": [],
+  "supersedes": [
+   "multicurve_rates",
+   "rates_conventions",
+   "bump_and_revalue"
+  ]
+ },
+ "option_numerics_conventions": {
+  "line": "Option-pricing numerics conventions: surface pivots and lookups, counters, Monte Carlo closeness criteria, slice repair; use with local-volatility and implied-volatility-surface tasks.",
+  "match": [
+   "Dupire",
+   "local volatility",
+   "local vol",
+   "local variance",
+   "implied volatility surface"
+  ],
+  "exclude": [],
+  "replaces": [
+   "option_numerics_conventions",
+   "option_numerics_conventions_v2..v12",
+   "option_numerics_conventions_kb249"
+  ]
+ },
+ "kirk": {
+  "line": "Spread options: Kirk (1995) approximation; exchange options: Margrabe (1978)",
+  "match": [
+   "Kirk",
+   "Margrabe",
+   "spread option",
+   "spread options",
+   "exchange option",
+   "exchange options",
+   "spread call",
+   "spread put",
+   "crack spread option",
+   "spark spread option",
+   "calendar spread option",
+   "option to exchange",
+   "outperformance option"
+  ]
+ },
+ "forward_start": {
+  "line": "Forward-start options (Rubinstein 1991) and cliquets built from them",
+  "match": [
+   "forward start option",
+   "forward start options",
+   "forward starting option",
+   "forward starting options",
+   "forward start call",
+   "forward start calls",
+   "forward starting call",
+   "forward starting calls",
+   "cliquet",
+   "cliquets",
+   "forward-start option",
+   "forward-start options",
+   "forward-start call",
+   "ratchet option",
+   "ratchet options",
+   "reset option",
+   "strike set at a future date"
+  ]
+ },
+ "lookback": {
+  "line": "Lookback options: floating strike (Goldman-Sosin-Gatto 1979) and fixed strike (Conze-Viswanathan 1991)",
+  "match": [
+   "lookback option",
+   "lookback options",
+   "lookback call",
+   "lookback calls",
+   "lookback put",
+   "lookback puts",
+   "Conze",
+   "Goldman Sosin Gatto",
+   "floating strike lookback",
+   "fixed strike lookback",
+   "floating-strike lookback",
+   "fixed-strike lookback",
+   "running maximum payoff",
+   "running minimum payoff"
+  ]
+ },
+ "ou_jump": {
+  "line": "Mean-reverting (Ornstein-Uhlenbeck) log prices with jumps: conditional moments, simulation, AR(1) estimation, half-life",
+  "match": [
+   "Ornstein-Uhlenbeck",
+   "Ornstein Uhlenbeck",
+   "OU process",
+   "mean-reverting jump",
+   "mean reverting jump",
+   "geometric mean reversion",
+   "geometric mean-reverting",
+   "Schwartz one-factor",
+   "mean-reversion half-life",
+   "half-life of mean reversion",
+   "Schwartz 1997",
+   "Schwartz (1997)",
+   "OU with jumps",
+   "mean-reverting log price",
+   "mean reverting log price"
+  ]
+ },
+ "digital_gap_barrier": {
+  "line": "Binary (cash- / asset-or-nothing), gap and single-barrier options under Black-Scholes",
+  "match": [
+   "cash-or-nothing",
+   "asset-or-nothing",
+   "gap option",
+   "gap options",
+   "gap call",
+   "gap put",
+   "binary option",
+   "binary options",
+   "digital option",
+   "digital options",
+   "barrier option",
+   "barrier options",
+   "knock-in",
+   "knock-out",
+   "down-and-out",
+   "down-and-in",
+   "up-and-out",
+   "up-and-in",
+   "binary call",
+   "binary put",
+   "digital call",
+   "digital put",
+   "cash or nothing",
+   "asset or nothing",
+   "knock in",
+   "knock out",
+   "in-out parity",
+   "single barrier",
+   "Reiner and Rubinstein",
+   "Broadie-Glasserman-Kou",
+   "continuity correction for discrete monitoring"
+  ]
+ },
+ "hull_white": {
+  "line": "Hull-White one-factor short-rate model: bond prices, bond options, Jamshidian swaptions, trinomial tree",
+  "match": [
+   "Hull-White",
+   "Hull White",
+   "extended Vasicek",
+   "Jamshidian",
+   "HW1F",
+   "G1++",
+   "Hull-White one-factor",
+   "one-factor Gaussian short rate",
+   "extended Vasicek model",
+   "trinomial short-rate tree",
+   "short-rate trinomial tree",
+   "Jamshidian decomposition",
+   "Jamshidian's trick"
+  ]
+ },
+ "realized_variance_noise": {
+  "line": "Realized variance with microstructure noise: Bandi-Russell noise variance and optimal sampling, bipower variation, two-scales RV",
+  "match": [
+   "Bandi-Russell",
+   "Bandi and Russell",
+   "Bandi & Russell",
+   "microstructure noise",
+   "bipower variation",
+   "bi-power variation",
+   "two-scales realized",
+   "two scales realized",
+   "TSRV",
+   "realized quarticity",
+   "realised quarticity",
+   "signature plot",
+   "realised variance",
+   "realised volatility",
+   "optimal sampling frequency",
+   "optimal sampling interval",
+   "jump-robust variance",
+   "noise-to-signal"
+  ]
+ },
+ "range_volatility": {
+  "line": "Range-based (OHLC) volatility estimators: Parkinson, Garman-Klass, Rogers-Satchell, Yang-Zhang",
+  "match": [
+   "Parkinson",
+   "Garman-Klass",
+   "Garman Klass",
+   "Garman and Klass",
+   "Rogers-Satchell",
+   "Rogers Satchell",
+   "Rogers and Satchell",
+   "Yang-Zhang",
+   "Yang and Zhang",
+   "range-based volatility",
+   "range-based estimator",
+   "high-low volatility",
+   "high low volatility",
+   "OHLC volatility",
+   "high-low range",
+   "range-based volatility estimators",
+   "extreme-value volatility estimator"
+  ]
+ },
+ "nelson_siegel_svensson": {
+  "line": "Nelson-Siegel, Svensson and Diebold-Li yield-curve parameterizations",
+  "match": [
+   "Nelson-Siegel",
+   "Nelson Siegel",
+   "Svensson",
+   "Nelson-Siegel-Svensson",
+   "Diebold-Li",
+   "Diebold Li",
+   "dynamic Nelson-Siegel",
+   "NSS model",
+   "NS model",
+   "level slope curvature factors",
+   "level, slope and curvature",
+   "Svensson model",
+   "dynamic Nelson Siegel"
+  ]
+ },
+ "bootstrap_immunization": {
+  "line": "Bootstrapping zero curves from bonds; duration, convexity, key-rate durations, DV01; immunization",
+  "match": [
+   "bootstrap zero",
+   "zero curve bootstrap",
+   "bootstrapped zero",
+   "Macaulay duration",
+   "modified duration",
+   "key rate duration",
+   "key-rate duration",
+   "dollar duration",
+   "immunization",
+   "immunize",
+   "Redington",
+   "Fisher-Weil",
+   "zero-coupon curve from coupon bonds",
+   "spot curve bootstrap",
+   "bootstrapping the spot curve",
+   "bootstrap the zero curve",
+   "bootstrapping zero rates",
+   "convexity matching",
+   "duration matching",
+   "curve bootstrapping",
+   "coupon dates"
+  ],
+  "requires": [
+   "rates_conventions"
+  ]
+ },
+ "copula_fitting": {
+  "line": "Bivariate copula fitting by pseudo-likelihood: Gaussian, Student-t, Clayton, Gumbel, Frank densities; AIC/BIC",
+  "match": [
+   "pseudo-observations",
+   "pseudo-likelihood",
+   "canonical maximum likelihood",
+   "copula fitting",
+   "Clayton copula",
+   "Gumbel copula",
+   "Frank copula",
+   "Archimedean copula",
+   "copula estimation",
+   "fit a copula",
+   "copula parameter estimation",
+   "inference functions for margins",
+   "IFM method",
+   "copula selection by AIC"
+  ]
+ },
+ "copula_sampling": {
+  "line": "Sampling from Gaussian, t, Clayton, Gumbel and Frank copulas; their Kendall's tau and Spearman's rho",
+  "match": [
+   "copula sampling",
+   "copula simulation",
+   "sample from the copula",
+   "simulate from the copula",
+   "Marshall-Olkin",
+   "Kanter",
+   "Chambers-Mallows-Stuck",
+   "Debye function",
+   "draw from a copula",
+   "copula draws",
+   "generate copula samples",
+   "Gaussian copula simulation",
+   "t copula simulation",
+   "Kendall's tau to copula parameter",
+   "Kendall tau inversion"
+  ]
+ },
+ "svi": {
+  "line": "Use when a task fits or smooths an implied volatility smile per expiry with SVI (Stochastic Volatility Inspired), needs its strike derivatives, parameter bounds or arbitrage checks.",
+  "match": [
+   "SVI",
+   "Stochastic Volatility Inspired",
+   "raw SVI",
+   "SSVI",
+   "Gatheral-Jacquier",
+   "SVI parameterization",
+   "SVI parametrization",
+   "SVI slice",
+   "SVI fit",
+   "surface SVI",
+   "Gatheral SVI"
+  ],
+  "exclude": [],
+  "replaces": [
+   "svi_v6",
+   "svi_v7",
+   "svi_slice_calibration_v1"
+  ],
+  "supersedes": [
+   "dupire_local_vol",
+   "option_numerics_conventions"
+  ]
+ },
+ "event_study_tests": {
+  "line": "Use when a task computes abnormal returns, CAR or CAAR with a market model, or the Patell, BMP (Boehmer-Musumeci-Poulsen) or Kolari-Pynnonen test statistics.",
+  "match": [
+   "abnormal return",
+   "abnormal returns",
+   "CAAR",
+   "cumulative abnormal return",
+   "Patell",
+   "BMP",
+   "Boehmer",
+   "Kolari",
+   "Pynnonen",
+   "Pynnönen",
+   "market model abnormal",
+   "cumulative average abnormal return",
+   "standardized abnormal return",
+   "standardised abnormal return",
+   "BMP test",
+   "cross-sectional t-test of abnormal"
+  ],
+  "exclude": [],
+  "replaces": [
+   "event_study_tests_v2",
+   "event_study_tests_v3",
+   "event_study_tests_v4",
+   "event_study_tests_v5",
+   "event_study_conventions"
+  ]
+ },
+ "corrado_rank_test": {
+  "line": "Use when an event study asks for the Corrado rank test or a generalised rank test: pooled ranks of estimation residuals and event-window abnormal returns, day and window statistics.",
+  "match": [
+   "Corrado (1989)",
+   "Corrado rank",
+   "generalised rank test",
+   "generalized rank test",
+   "rank test",
+   "cross-event rank statistic",
+   "Corrado test",
+   "nonparametric rank test",
+   "non-parametric rank test",
+   "Corrado-Zivney",
+   "sign test of abnormal"
+  ],
+  "exclude": [
+   "Corrado-Miller",
+   "Corrado and Miller"
+  ],
+  "replaces": [
+   "corrado_rank_test_v1",
+   "rank_test_scaling_v1"
+  ]
+ },
+ "parametric_var_es": {
+  "line": "Value at Risk and Expected Shortfall: historical, normal, Student-t, Cornish-Fisher; scaling; Kupiec and Christoffersen backtests",
+  "match": [
+   "Cornish-Fisher",
+   "modified VaR",
+   "parametric VaR",
+   "Student-t VaR",
+   "square-root-of-time",
+   "Kupiec",
+   "proportion of failures",
+   "conditional coverage",
+   "VaR backtest",
+   "Christoffersen test",
+   "Christoffersen independence",
+   "Christoffersen (1998)",
+   "delta-normal VaR",
+   "variance-covariance VaR",
+   "variance covariance VaR",
+   "t-distributed VaR",
+   "Kupiec POF",
+   "POF test",
+   "Basel traffic light"
+  ]
+ },
+ "black_litterman": {
+  "line": "Black-Litterman posterior returns, He-Litterman Omega, Idzorek confidence",
+  "match": [
+   "Black-Litterman",
+   "Black Litterman",
+   "He-Litterman",
+   "Idzorek",
+   "implied equilibrium returns",
+   "reverse optimization",
+   "investor views",
+   "views on expected returns",
+   "equilibrium excess returns",
+   "posterior expected returns",
+   "tau scaling of the prior",
+   "Omega uncertainty matrix"
+  ]
+ },
+ "absorption_risk_parity": {
+  "line": "Absorption ratio (Kritzman), equal-risk-contribution / risk parity, portfolio CVaR, volatility targeting",
+  "match": [
+   "absorption ratio",
+   "Kritzman",
+   "risk parity",
+   "equal risk contribution",
+   "ERC portfolio",
+   "risk budgeting",
+   "equal risk contribution portfolio",
+   "risk parity portfolio",
+   "risk-parity",
+   "systemic risk measure from eigenvalues",
+   "fraction of variance explained by the top eigenvectors"
+  ]
+ },
+ "fama_macbeth": {
+  "line": "Fama-MacBeth cross-sectional regressions (Newey-West, Shanken), z-scored characteristics, residual momentum",
+  "match": [
+   "Fama-MacBeth",
+   "Fama MacBeth",
+   "two-pass regression",
+   "Shanken correction",
+   "residual momentum",
+   "idiosyncratic momentum",
+   "Fama and MacBeth",
+   "Fama-MacBeth regressions",
+   "cross-sectional regressions each month",
+   "monthly cross-sectional regressions",
+   "time-series average of slopes",
+   "errors-in-variables correction"
+  ]
+ },
+ "newey_west": {
+  "line": "Newey-West HAC standard errors and the Gibbons-Ross-Shanken test",
+  "match": [
+   "Newey-West",
+   "Newey West",
+   "HAC standard error",
+   "HAC covariance",
+   "Gibbons-Ross-Shanken",
+   "GRS test",
+   "GRS statistic",
+   "IPCA",
+   "state-adjusted regression",
+   "Newey and West",
+   "Bartlett kernel",
+   "heteroskedasticity and autocorrelation consistent",
+   "heteroscedasticity and autocorrelation consistent",
+   "autocorrelation-robust standard errors",
+   "Gibbons Ross Shanken",
+   "joint test of alphas"
+  ]
+ },
+ "iv_approximations": {
+  "line": "Closed-form implied-volatility approximations (Brenner-Subrahmanyam, Corrado-Miller, Li) and exact inversion",
+  "match": [
+   "Brenner-Subrahmanyam",
+   "Brenner and Subrahmanyam",
+   "Corrado-Miller",
+   "Corrado and Miller",
+   "Manaster-Koehler",
+   "implied volatility approximation",
+   "implied volatility approximations",
+   "implied volatility inversion",
+   "invert Black-Scholes",
+   "inverting Black-Scholes",
+   "Newton-Raphson implied volatility",
+   "Brent implied volatility",
+   "closed-form implied volatility",
+   "Corrado Miller"
+  ]
+ },
+ "heston": {
+  "line": "Heston stochastic volatility: characteristic-function pricing, Gil-Pelaez probabilities, Carr-Madan FFT, choosing between integration settings.",
+  "match": [
+   "Heston model",
+   "Heston stochastic",
+   "Heston (1993)",
+   "little Heston trap",
+   "Gil-Pelaez",
+   "full truncation",
+   "CIR variance"
+  ],
+  "exclude": [],
+  "replaces": [
+   "heston",
+   "heston_v2",
+   "heston_v3",
+   "heston_v4"
+  ]
+ },
+ "baw": {
+  "line": "American options: Barone-Adesi & Whaley quadratic approximation",
+  "match": [
+   "Barone-Adesi",
+   "Barone Adesi",
+   "Whaley",
+   "BAW",
+   "quadratic approximation",
+   "MacMillan",
+   "Barone-Adesi-Whaley",
+   "Barone-Adesi and Whaley",
+   "quadratic approximation for American"
+  ]
+ },
+ "american_cn_psor": {
+  "line": "American options by Crank-Nicolson finite differences with projected SOR (PSOR)",
+  "match": [
+   "PSOR",
+   "projected SOR",
+   "projected successive over-relaxation",
+   "successive over-relaxation",
+   "Rannacher",
+   "linear complementarity",
+   "Brennan-Schwartz",
+   "Brennan and Schwartz"
+  ]
+ },
+ "first_passage": {
+  "line": "First-passage times of Brownian motion / GBM to a level; joint law of running extreme and terminal value",
+  "match": [
+   "first passage time",
+   "first-passage time",
+   "first hitting time",
+   "hitting probability",
+   "Brownian bridge correction",
+   "barrier crossing probability",
+   "first passage",
+   "first-passage",
+   "hitting time",
+   "time to hit a barrier",
+   "probability of touching",
+   "probability of hitting"
+  ]
+ },
+ "compound_poisson_aggregate": {
+  "line": "Aggregate loss of compound Poisson / negative binomial / binomial: discretization, Panjer recursion, FFT",
+  "match": [
+   "aggregate loss distribution",
+   "aggregate claims",
+   "Panjer",
+   "collective risk model",
+   "severity discretization",
+   "compound negative binomial",
+   "compound binomial",
+   "compound Poisson aggregate",
+   "frequency-severity",
+   "frequency and severity",
+   "loss distribution approach",
+   "Panjer recursion",
+   "operational risk capital"
+  ],
+  "supersedes": [
+   "var_es_return_series"
+  ]
+ },
+ "evt_pot_gpd": {
+  "line": "Peaks-over-threshold with the generalized Pareto distribution: fitting, tail VaR / ES, Hill estimator, VaR backtests",
+  "match": [
+   "peaks over threshold",
+   "peaks-over-threshold",
+   "POT method",
+   "generalized Pareto",
+   "generalised Pareto",
+   "GPD",
+   "Pickands-Balkema-de Haan",
+   "Balkema-de Haan",
+   "extreme value theory",
+   "EVT",
+   "Hill estimator",
+   "Weissman",
+   "GARCH-EVT",
+   "McNeil and Frey",
+   "mean excess function",
+   "mean residual life",
+   "tail index",
+   "threshold exceedances",
+   "exceedances over a threshold",
+   "excess distribution",
+   "Gnedenko"
+  ]
+ },
+ "credit_portfolio_vasicek": {
+  "line": "One-factor (Vasicek / ASRF) credit portfolio loss: conditional PD, large-pool quantile, Basel IRB, Monte Carlo, Euler contributions, granularity adjustment",
+  "match": [
+   "ASRF",
+   "asymptotic single risk factor",
+   "one-factor Gaussian copula",
+   "one factor Gaussian copula",
+   "large homogeneous pool",
+   "Vasicek distribution",
+   "Vasicek formula",
+   "IRB",
+   "internal ratings-based",
+   "granularity adjustment",
+   "Gordy",
+   "Euler allocation",
+   "Euler contribution",
+   "correlated defaults",
+   "conditional default probability",
+   "economic capital",
+   "Vasicek single-factor",
+   "single-factor credit model",
+   "Basel II IRB",
+   "Basel IRB formula",
+   "large pool approximation",
+   "asymptotic single-factor"
+  ],
+  "supersedes": [
+   "var_es_return_series"
+  ]
+ },
+ "geske_compound": {
+  "line": "Compound options (Geske 1979): call/put on call/put, critical price, compound parity; simple chooser (Rubinstein 1991)",
+  "match": [
+   "Geske",
+   "compound option",
+   "compound options",
+   "option on an option",
+   "options on options",
+   "call on call",
+   "call on a call",
+   "put on call",
+   "put on a call",
+   "call on put",
+   "call on a put",
+   "put on put",
+   "put on a put",
+   "chooser option",
+   "chooser options",
+   "simple chooser",
+   "as-you-like-it option",
+   "compound call",
+   "compound put",
+   "option on option",
+   "Rubinstein chooser"
+  ]
+ },
+ "asian_options": {
+  "line": "Asian options: fixing schedules, exact geometric pricing, arithmetic moment matching, geometric conditioning, seasoned contracts and Monte Carlo controls",
+  "match": [
+   "Asian option",
+   "Asian options",
+   "arithmetic Asian",
+   "geometric Asian",
+   "average price option",
+   "average-price option",
+   "average strike option",
+   "average-strike option",
+   "Curran",
+   "Asian call",
+   "Asian put",
+   "average rate option",
+   "average-rate option",
+   "arithmetic average option",
+   "geometric average option",
+   "Turnbull-Wakeman",
+   "Turnbull and Wakeman",
+   "Kemna-Vorst",
+   "Kemna and Vorst",
+   "Levy approximation"
+  ]
+ },
+ "black_scholes_greeks": {
+  "line": "Black-Scholes prices, Greeks and identities",
+  "match": [
+   "Black-Scholes Greeks",
+   "Black Scholes Greeks",
+   "analytical Greeks",
+   "analytic Greeks",
+   "discrete delta hedging",
+   "call-put pairing",
+   "Black-Scholes gamma",
+   "closed-form Greeks",
+   "BSM Greeks",
+   "Black-Scholes-Merton Greeks",
+   "Garman-Kohlhagen Greeks"
+  ]
+ },
+ "european_option_pde": {
+  "line": "European option finite-difference PDE",
+  "match": [
+   "finite-difference PDE",
+   "finite difference PDE",
+   "PDE discretisation",
+   "PDE discretization"
+  ]
+ },
+ "discrete_delta_hedging": {
+  "line": "Discrete delta hedging and cash-account accounting",
+  "match": [
+   "delta hedging",
+   "delta hedge",
+   "delta-hedge",
+   "hedging P&L",
+   "delta-hedging",
+   "replication error",
+   "rebalanced hedge",
+   "hedge rebalancing",
+   "dynamic hedging"
+  ]
+ },
+ "merton_jump_diffusion": {
+  "line": "Merton lognormal jump diffusion",
+  "match": [
+   "Merton series",
+   "lognormal jump diffusion",
+   "jump diffusion option pricing",
+   "Merton (1976)"
+  ]
+ },
+ "variance_swap_replication": {
+  "line": "Variance swaps and option-strip replication",
+  "match": [
+   "variance swap",
+   "variance swaps",
+   "variance-swap",
+   "variance strike",
+   "fair variance",
+   "static replication of variance",
+   "VIX-style",
+   "VIX methodology",
+   "model-free implied variance"
+  ]
+ },
+ "monte_carlo_greeks": {
+  "line": "Monte Carlo option sensitivities: finite differences, pathwise differentiation and likelihood-ratio estimators; units, sampling errors and European/Asian applications",
+  "match": [
+   "Monte Carlo Greeks",
+   "pathwise Greeks",
+   "pathwise sensitivities",
+   "likelihood ratio Greeks",
+   "score function Greeks",
+   "pathwise method",
+   "pathwise derivative",
+   "pathwise derivatives",
+   "infinitesimal perturbation analysis",
+   "likelihood ratio method",
+   "likelihood-ratio method",
+   "score function method",
+   "IPA estimator",
+   "Greeks by simulation",
+   "simulated Greeks",
+   "Monte Carlo sensitivities",
+   "Monte Carlo delta",
+   "Monte Carlo vega"
+  ]
+ },
+ "ewma_covariance_euler": {
+  "line": "EWMA covariance forecasts and finite-window estimators; Euler volatility and normal VaR attribution",
+  "match": [
+   "EWMA covariance",
+   "exponentially weighted covariance",
+   "Euler risk decomposition",
+   "Euler risk attribution",
+   "marginal risk contribution",
+   "RiskMetrics",
+   "EWMA correlation"
+  ]
+ },
+ "multicurve_rates": {
+  "line": "Discounting versus projection, swap cashflows, par calibration, interpolation and curve risk",
+  "match": [
+   "OIS",
+   "dual-curve",
+   "projection curve",
+   "par coupon rates",
+   "bond immunization",
+   "bond immunisation",
+   "curve bootstrapping",
+   "OIS discounting",
+   "multi-curve",
+   "multicurve",
+   "forward curve and discount curve",
+   "SOFR curve",
+   "basis swap"
+  ],
+  "requires": [
+   "rates_conventions"
+  ]
+ },
+ "factor_attribution": {
+  "line": "Factor regression components, covariance variance attribution, HAC inference scope",
+  "match": [
+   "covariance-based variance decomposition",
+   "variance attribution",
+   "Fama-French 3-factor",
+   "alpha hedge",
+   "sentiment momentum",
+   "ETF lead-lag",
+   "ETF lead lag",
+   "stable residual",
+   "cross-sectional residual",
+   "factor exposure analysis",
+   "committee fusion"
+  ]
+ },
+ "pca_risk_geometry": {
+  "line": "Principal components of returns or curve changes, portfolio exposures and constrained neutralizing hedges",
+  "match": [
+   "PCA factor portfolio",
+   "yield curve PCA",
+   "beta-neutral",
+   "beta neutral",
+   "neutrality projection",
+   "residualized characteristics",
+   "PCA",
+   "principal component analysis",
+   "eigen-decomposition of the covariance",
+   "level slope curvature",
+   "factor-neutral hedge"
+  ]
+ },
+ "filing_state_and_context": {
+  "line": "Holdings-filing amendments, availability dates, insider ownership inventories and XBRL fact context",
+  "match": [
+   "Form 13F",
+   "Form 4",
+   "10-K report",
+   "8-K",
+   "committee fusion"
+  ]
+ },
+ "holdings_concentration_and_flows": {
+  "line": "Holdings concentration, cross-fund overlap and proportional flow exposure",
+  "match": [
+   "13F",
+   "sale-pressure",
+   "redemption pressure",
+   "portfolio overlap",
+   "holdings overlap",
+   "active share",
+   "ETF outflow"
+  ],
+  "requires": [
+   "unit_conventions",
+   "filing_data_conventions"
+  ]
+ },
+ "execution_measurement": {
+  "line": "Execution benchmarks, signed spreads, participation limits and intraday volume profiles",
+  "match": [
+   "Participation TCA",
+   "volume-share models",
+   "execution scheduling",
+   "implementation shortfall",
+   "VWAP",
+   "TWAP",
+   "arrival price",
+   "transaction cost analysis",
+   "TCA",
+   "effective spread",
+   "realized spread"
+  ]
+ },
+ "forward_return_alignment": {
+  "line": "Forward returns in rolling (walk-forward) prediction: time labels, one shift, scoring predictions",
+  "match": [
+   "forward return",
+   "forward log return",
+   "forward returns",
+   "next-period return"
+  ]
+ },
+ "output_number_formats": {
+  "line": "Numbers in deliverable files: JSON numbers versus fixed-point text, rounding, NumPy scalars",
+  "match": [
+   "rounded to 6 decimals",
+   "rounded to 4 decimals",
+   "rounded to 2 decimals",
+   "fixed-point",
+   "decimal places",
+   "second precision"
+  ],
+  "exclude": [],
+  "replaces": [
+   "output_number_formats"
+  ]
+ },
+ "time_series_cleaning": {
+  "line": "Cleaning time series: stable sort before keep-last de-duplication, order of fill and drop",
+  "match": [
+   "duplicate dates",
+   "drop_duplicates",
+   "keep the last",
+   "forward-fill",
+   "forward fill",
+   "unix ms",
+   "unix milliseconds",
+   "timestamped"
+  ]
+ },
+ "bump_and_revalue": {
+  "line": "Bump-and-revalue sensitivities with Monte Carlo: common random numbers, paired differences, standard error",
+  "match": [
+   "bump-and-revalue",
+   "bump and revalue",
+   "central-difference bump",
+   "bumped",
+   "bump-and-reprice",
+   "common random numbers",
+   "central difference Greeks",
+   "Monte Carlo Greeks"
+  ]
+ },
+ "conditional_volatility": {
+  "line": "Conditional volatility: GARCH forecasts and dynamic correlations",
+  "match": [
+   "GARCH",
+   "DCC",
+   "conditional variance recursion",
+   "GARCH(1,1)",
+   "conditional volatility forecast",
+   "dynamic conditional correlation",
+   "volatility clustering"
+  ]
+ },
+ "garch_fitting": {
+  "line": "GARCH fitting: numerical scale, optimizer termination and reported units",
+  "match": [
+   "GARCH",
+   "GARCH(1,1)",
+   "GARCH estimation",
+   "maximum likelihood GARCH"
+  ]
+ },
+ "backtest_accounting": {
+  "line": "Backtest timing, cash accounting and return conventions",
+  "match": [
+   "backtest timing",
+   "backtesting",
+   "cross-sectional momentum",
+   "momentum strategy",
+   "SMA crossover",
+   "Bollinger",
+   "portfolio returns",
+   "daily equity",
+   "alpha hedge",
+   "alpha signal construction",
+   "Betting Against Beta",
+   "EMA crossover",
+   "8-K event alpha",
+   "turnover-capped execution",
+   "long-short backtest",
+   "rebalancing backtest",
+   "walk-forward backtest",
+   "trading strategy backtest"
+  ]
+ },
+ "dependent_resampling_and_coverage": {
+  "line": "Dependent resampling and conditional risk coverage",
+  "match": [
+   "stationary bootstrap",
+   "block bootstrap",
+   "Smith tail",
+   "Smith estimator",
+   "coverage test",
+   "moving block bootstrap",
+   "circular block bootstrap",
+   "Politis-Romano",
+   "Politis and Romano",
+   "bootstrap with dependence"
+  ]
+ },
+ "quadratic_portfolio_risk": {
+  "line": "Delta-gamma-vega risk: units, covariance and variance allocation",
+  "match": [
+   "delta-gamma VaR",
+   "delta gamma VaR",
+   "VaR decomposition",
+   "structured note",
+   "Taylor expansion VaR",
+   "Cornish-Fisher delta-gamma"
+  ]
+ },
+ "credit_migration_loss": {
+  "line": "Rating transitions, credit losses and portfolio aggregation",
+  "match": [
+   "CreditMetrics",
+   "credit migration",
+   "credit rating transitions",
+   "migration-based loss",
+   "mark-to-market credit loss",
+   "Credit Metrics"
+  ]
+ },
+ "alpha_signal_and_hedged_performance": {
+  "line": "Cross-sectional signals, financed returns and factor-adjusted performance",
+  "match": [
+   "alpha hedge",
+   "sentiment momentum",
+   "cross-sectional signals",
+   "alpha signal construction"
+  ]
+ },
+ "binomial_option_valuation": {
+  "line": "Binomial valuation and exercise opportunities",
+  "match": [
+   "binomial",
+   "Cox Ross Rubinstein",
+   "CRR",
+   "CRR tree",
+   "binomial tree",
+   "binomial lattice",
+   "Jarrow-Rudd",
+   "Leisen-Reimer"
+  ]
+ },
+ "bond_cashflows_risk": {
+  "line": "Bond cashflows, curve sensitivities and liability hedging",
+  "match": [
+   "bond immunization",
+   "bond immunisation",
+   "bond portfolio immunization",
+   "key-rate durations",
+   "key rate durations",
+   "Redington",
+   "cashflow matching",
+   "dirty price",
+   "accrued interest",
+   "yield to maturity",
+   "callable bond",
+   "floating rate note",
+   "floating-rate note",
+   "FRN",
+   "liability hedge"
+  ]
+ },
+ "cir_short_rate": {
+  "line": "CIR short-rate transitions and discount bonds",
+  "match": [
+   "Cox-Ingersoll-Ross",
+   "CIR model",
+   "CIR short",
+   "CIR bond",
+   "Cox Ingersoll Ross",
+   "square-root short rate",
+   "square root short rate"
+  ]
+ },
+ "collateralized_cross_currency_cashflows": {
+  "line": "Collateralized cross-currency cashflows and resetting notionals",
+  "match": [
+   "cross-currency",
+   "cross currency",
+   "MTM XCCY",
+   "cross-currency swap",
+   "cross currency swap",
+   "currency swap",
+   "XCCY",
+   "mark-to-market resetting",
+   "resettable notional",
+   "cross-currency basis"
+  ]
+ },
+ "day_count_and_settlement_calendars": {
+  "line": "Day-count fractions, accrual dates and settlement calendars",
+  "match": [
+   "day count convention",
+   "day-count fractions",
+   "settlement calendars",
+   "accrual fraction",
+   "bond immunization",
+   "cross-currency",
+   "ACT/365 between",
+   "Actual/360",
+   "Actual/365",
+   "ACT/ACT",
+   "business day convention",
+   "modified following",
+   "settlement lag"
+  ]
+ },
+ "fundamental_report_measurement": {
+  "line": "Financial reports: fact context, scale and comparable fundamentals",
+  "match": [
+   "10-K report",
+   "10-K filing",
+   "financial statements",
+   "financial statement",
+   "earnings surprise",
+   "XBRL",
+   "10-Q",
+   "income statement",
+   "cash flow statement"
+  ],
+  "requires": [
+   "unit_conventions"
+  ]
+ },
+ "fx_conventions": {
+  "line": "FX conventions: quote direction, crosses, covered forwards, signed positions: one usd_per() conversion for every P&L and exposure, trade-direction signs.",
+  "match": [
+   "quote currency",
+   "cross rate",
+   "cross rates",
+   "covered interest parity",
+   "interest rate parity",
+   "currency forward",
+   "triangulation",
+   "currency pair",
+   "base currency",
+   "terms currency",
+   "FX cross",
+   "FX conversion"
+  ],
+  "exclude": [],
+  "replaces": [
+   "fx_conventions"
+  ]
+ },
+ "fx_forward_quote_foundations": {
+  "line": "FX quote direction, funded forwards and forward value",
+  "match": [
+   "covered interest rate parity",
+   "FX forward",
+   "FX forwards",
+   "currency forward",
+   "cross-currency",
+   "FX carry trade",
+   "forward points",
+   "forward pips",
+   "swap points",
+   "outright forward",
+   "NDF",
+   "non-deliverable forward"
+  ]
+ },
+ "fx_option_delta_and_smile": {
+  "line": "FX options: discounting, delta conventions and smile wings",
+  "match": [
+   "FX options",
+   "FX option",
+   "currency option",
+   "currency options",
+   "premium-adjusted delta",
+   "delta convention",
+   "smile quotes",
+   "Garman-Kohlhagen",
+   "Garman Kohlhagen",
+   "25-delta",
+   "25 delta",
+   "10-delta",
+   "risk reversal",
+   "risk reversals",
+   "butterfly quote",
+   "strangle quote",
+   "delta-neutral straddle",
+   "ATM DNS",
+   "forward delta",
+   "Vanna-Volga"
+  ]
+ },
+ "gaussian_mixture_tail_risk": {
+  "line": "Gaussian mixtures and kernel-density tail risk",
+  "match": [
+   "Gaussian mixture",
+   "Gaussian mixtures",
+   "kernel density",
+   "KDE",
+   "normal mixture",
+   "kernel density estimate"
+  ]
+ },
+ "gaussian_regime_hmm": {
+  "line": "Gaussian hidden regimes: filtering, smoothing and estimation",
+  "match": [
+   "hidden Markov",
+   "Gaussian HMM",
+   "regime HMM",
+   "Markov switching",
+   "Markov-switching",
+   "Hamilton filter",
+   "Baum-Welch",
+   "Viterbi",
+   "Kim smoother"
+  ]
+ },
+ "hac_time_and_rank_scope": {
+  "line": "HAC observation time and identification: replacement scope",
+  "match": [
+   "HAC",
+   "Fama-MacBeth",
+   "Fama MacBeth",
+   "overlapping returns"
+  ]
+ },
+ "instrumented_pca": {
+  "line": "Instrumented PCA: conditional loadings, estimation and identification",
+  "match": [
+   "instrumented PCA",
+   "instrumented principal components",
+   "IPCA",
+   "Kelly Pruitt Su",
+   "Kelly, Pruitt and Su",
+   "characteristics-based factor model",
+   "conditional factor loadings"
+  ]
+ },
+ "kelly_growth_and_risk_scaling": {
+  "line": "Kelly growth, financing and risk scaling",
+  "match": [
+   "Kelly criterion",
+   "Kelly fractions",
+   "Kelly sizing",
+   "growth-optimal",
+   "growth optimal portfolio",
+   "log-optimal",
+   "fractional Kelly",
+   "half Kelly",
+   "Kelly bet"
+  ],
+  "requires": [
+   "var_es_conventions_kelly",
+   "api_core_numpy_cov_notes",
+   "api_core_numpy_linalg_solve_notes",
+   "api_core_numpy_random_default_rng_notes",
+   "api_core_numpy_random_generator_multivariate_normal_notes",
+   "api_core_numpy_std_notes",
+   "api_core_numpy_ufunc_reduce",
+   "api_core_numpy_median_notes",
+   "api_core_numpy_ufunc_accumulate",
+   "api_core_scipy_stats_norm",
+   "api_core_scipy_stats_rv_continuous_fit_notes",
+   "api_core_pandas_to_numeric",
+   "api_core_pandas_dataframe_dropna",
+   "api_core_pandas_dataframe_drop_duplicates_notes"
+  ],
+  "supersedes": [
+   "var_es_return_series"
+  ]
+ },
+ "perpetual_funding_carry": {
+  "line": "Perpetual funding carry: cash flows, rate units and mean reversion",
+  "match": [
+   "funding rate basis carry",
+   "funding rate and basis",
+   "perpetual funding",
+   "perpetual swap",
+   "perpetual futures",
+   "perp funding",
+   "cash-and-carry",
+   "basis trade"
+  ]
+ },
+ "portfolio_attribution": {
+  "line": "Holdings-based return attribution",
+  "match": [
+   "Brinson",
+   "sector attribution",
+   "holdings-based attribution",
+   "Brinson-Fachler",
+   "Brinson-Hood-Beebower",
+   "allocation effect",
+   "selection effect",
+   "interaction effect",
+   "performance attribution"
+  ]
+ },
+ "rate_caps_floors": {
+  "line": "Rate caplets and floorlets: fixing, payment and Black pricing",
+  "match": [
+   "caplet",
+   "caplets",
+   "floorlet",
+   "floorlets",
+   "interest rate cap",
+   "interest-rate cap",
+   "rate caps",
+   "interest rate floor",
+   "interest-rate floor",
+   "cap volatility",
+   "Black caplet",
+   "Bachelier caplet",
+   "normal volatility caplet"
+  ]
+ },
+ "security_events_and_claims": {
+  "line": "Security events, earnings comparisons and contingent claims",
+  "match": [
+   "corporate action",
+   "corporate actions",
+   "earnings surprise",
+   "prediction markets",
+   "8-K",
+   "prediction market",
+   "stock split",
+   "dividend adjustment",
+   "split-adjusted",
+   "binary contract",
+   "event contract",
+   "event contracts"
+  ]
+ },
+ "structured_note_payoff_and_risk": {
+  "line": "Structured notes: payoff units, participation and position risk",
+  "match": [
+   "structured note",
+   "structured notes",
+   "capital protected note",
+   "capital-protected note",
+   "reverse convertible",
+   "autocallable",
+   "equity-linked note",
+   "participation note"
+  ]
+ },
+ "weather_degree_day_valuation": {
+  "line": "Degree-day indices and temperature-option valuation",
+  "match": [
+   "heating degree",
+   "degree day",
+   "degree-day",
+   "temperature option",
+   "HDD",
+   "CDD",
+   "heating degree days",
+   "cooling degree days",
+   "weather derivative",
+   "weather option",
+   "temperature derivative",
+   "burn analysis"
+  ]
+ },
+ "weighted_empirical_risk": {
+  "line": "Age-weighted empirical loss distributions",
+  "match": [
+   "age-weighted",
+   "age weighted",
+   "weighted historical",
+   "weighted empirical",
+   "BRW",
+   "Boudoukh Richardson Whitelaw",
+   "exponentially weighted historical simulation",
+   "hybrid historical simulation",
+   "time-weighted historical"
+  ],
+  "requires": [
+   "var_es_return_series"
+  ]
+ },
+ "fx_carry_legs": {
+  "line": "Currency carry legs: rate differential, carry return and roll clocks",
+  "match": [
+   "FX carry",
+   "currency carry",
+   "carry strategy",
+   "carry portfolio",
+   "carry signals",
+   "forward premium",
+   "uncovered interest parity",
+   "UIP"
+  ]
+ },
+ "text_word_list_scoring": {
+  "line": "Scoring text against word lists",
+  "match": [
+   "word list",
+   "word lists",
+   "sentiment lexicon",
+   "Loughran-McDonald",
+   "Loughran McDonald",
+   "dictionary-based sentiment",
+   "lexicon-based"
+  ]
+ },
+ "library_reference_numpy": {
+  "line": "LibraryReference: NumPy: arrays, grouped accumulation and numerical linear algebra",
+  "match": []
+ },
+ "library_reference_pandas": {
+  "line": "LibraryReference: pandas: types, labels, joins and grouped sums",
+  "match": []
+ },
+ "library_reference_time_windows": {
+  "line": "LibraryReference: Time series: rolling windows, lag pairing and trading dates",
+  "match": []
+ },
+ "library_reference_scipy_optimize": {
+  "line": "LibraryReference: SciPy optimize: roots, least squares and constrained optimization",
+  "match": []
+ },
+ "library_reference_scipy_stats": {
+  "line": "LibraryReference: SciPy stats: distributions, tails and statistical tests",
+  "match": []
+ },
+ "library_reference_scipy_numerics": {
+  "line": "LibraryReference: SciPy: matrix functions, integration and interpolation",
+  "match": []
+ },
+ "library_reference_statsmodels": {
+  "line": "LibraryReference: statsmodels: regression, HAC and diagnostics",
+  "match": []
+ },
+ "library_reference_refits_randomization": {
+  "line": "LibraryReference: Fixed-design refits and randomization comparisons",
+  "match": []
+ },
+ "library_reference_arch": {
+  "line": "LibraryReference: arch: conditional volatility and units",
+  "match": []
+ },
+ "library_reference_sklearn": {
+  "line": "LibraryReference: scikit-learn: preprocessing, PCA, regression and time splits",
+  "match": []
+ },
+ "library_reference_polars": {
+  "line": "LibraryReference: Polars: expressions, grouping and lazy execution",
+  "match": []
+ },
+ "library_reference_talib": {
+  "line": "LibraryReference: TA-Lib: inputs, warm-up and outputs",
+  "match": []
+ },
+ "library_reference_backtrader": {
+  "line": "LibraryReference: Backtrader: feeds, orders and execution timing",
+  "match": []
+ },
+ "library_reference_file_io": {
+  "line": "LibraryReference: openpyxl and PyArrow: spreadsheet and columnar file I/O",
+  "match": []
+ },
+ "library_reference_plot_files": {
+  "line": "LibraryReference: Matplotlib, Seaborn and Plotly: files only when requested",
+  "match": []
+ },
+ "library_reference_session_io": {
+  "line": "LibraryReference: Session: save_json, autosave_json and qfref",
+  "match": []
+ },
+ "library_reference_backtest_tools": {
+  "line": "LibraryReference: backtest_tools: information clock and return types",
+  "match": []
+ },
+ "library_reference_standard_library": {
+  "line": "LibraryReference: Python standard library: local files, strict JSON and scalar mathematics",
+  "match": []
+ },
+ "library_reference_optional_runtime": {
+  "line": "LibraryReference: Optional libraries and local helper scripts: check the environment",
+  "match": []
+ },
+ "library_reference_howto_group_counts": {
+  "line": "LibraryReference: Group, map categories and accumulate counts",
+  "match": [
+   "grouped counts",
+   "aggregate counts",
+   "merge categories",
+   "rating counts",
+   "coarse categories",
+   "group by",
+   "groupby",
+   "category mapping",
+   "transition counts"
+  ]
+ },
+ "library_reference_howto_transition": {
+  "line": "LibraryReference: Propagate a transition matrix over multiple periods",
+  "match": [
+   "multi period transition",
+   "transition matrix",
+   "cumulative default probability",
+   "transition probabilities",
+   "Markov chain",
+   "generator matrix",
+   "matrix power"
+  ]
+ },
+ "library_reference_howto_time_pairs": {
+  "line": "LibraryReference: Pair lags before slicing rolling windows",
+  "match": [
+   "AR(1)",
+   "autoregressive",
+   "rolling window",
+   "lagged variable",
+   "lagged returns",
+   "lagged signal",
+   "lag alignment",
+   "lookback",
+   "exponential moving average"
+  ]
+ },
+ "library_reference_howto_regression_hac": {
+  "line": "LibraryReference: Regressions, coefficient indexing and robust errors",
+  "match": [
+   "ordinary least squares",
+   "linear regression",
+   "OLS",
+   "Newey West",
+   "HAC",
+   "robust standard errors",
+   "factor regression",
+   "t statistic",
+   "studentized residual"
+  ]
+ },
+ "library_reference_howto_randomization": {
+  "line": "LibraryReference: Resample, permute and compare refitted statistics",
+  "match": [
+   "permutation test",
+   "randomization test",
+   "randomisation test",
+   "sign flip",
+   "sign flips",
+   "wild bootstrap",
+   "resampling",
+   "bootstrap test"
+  ]
+ },
+ "library_reference_howto_optimize": {
+  "line": "LibraryReference: Solve roots and constrained calibration problems",
+  "match": [
+   "root finding",
+   "root solve",
+   "implied volatility",
+   "critical price",
+   "calibrate",
+   "calibration",
+   "constrained optimization",
+   "least squares",
+   "minimize",
+   "SLSQP",
+   "L-BFGS-B"
+  ]
+ },
+ "library_reference_howto_distribution": {
+  "line": "LibraryReference: Fit distributions and evaluate tail probabilities",
+  "match": [
+   "distribution fit",
+   "maximum likelihood",
+   "Student t",
+   "noncentral chi",
+   "density estimation",
+   "Gaussian KDE",
+   "generalized Pareto",
+   "tail probability",
+   "p value",
+   "p values"
+  ]
+ },
+ "library_reference_howto_dates_align": {
+  "line": "LibraryReference: Parse dates, align labels and locate sessions",
+  "match": [
+   "date alignment",
+   "trading calendar",
+   "trading day",
+   "timestamps",
+   "time zone",
+   "timezone",
+   "parse dates",
+   "align dates",
+   "calendar date"
+  ]
+ },
+ "library_reference_howto_output": {
+  "line": "LibraryReference: Write labeled and missing-safe deliverables",
+  "match": [
+   "write output",
+   "output files",
+   "save JSON",
+   "write JSON",
+   "write CSV",
+   "deliverables",
+   "missing values",
+   "empty cells",
+   "column names",
+   "CSV"
+  ]
+ },
+ "library_reference_howto_volatility": {
+  "line": "LibraryReference: Fit and forecast conditional variance",
+  "match": [
+   "GARCH",
+   "EGARCH",
+   "conditional volatility",
+   "volatility forecast",
+   "conditional variance",
+   "variance forecast",
+   "volatility clustering"
+  ]
+ },
+ "library_reference_howto_polars": {
+  "line": "LibraryReference: Evaluate expressions and lazy grouped transformations",
+  "match": [
+   "lazy frame",
+   "lazyframe",
+   "expression API",
+   "with_columns",
+   "group_by",
+   "pandas migration",
+   "Polars",
+   "lazy query",
+   "expression engine"
+  ]
+ },
+ "library_reference_howto_orders": {
+  "line": "LibraryReference: Schedule event-driven orders and fills",
+  "match": [
+   "event driven backtest",
+   "market order",
+   "order execution",
+   "next bar open",
+   "broker commission",
+   "Backtrader",
+   "pending order",
+   "order notification"
+  ]
+ },
+ "library_reference_howto_indicators": {
+  "line": "LibraryReference: Compute rolling technical indicators",
+  "match": [
+   "Bollinger",
+   "MACD",
+   "RSI",
+   "ATR",
+   "technical indicator",
+   "moving average crossover",
+   "exponential moving average",
+   "simple moving average"
+  ]
+ },
+ "library_reference_howto_pca": {
+  "line": "LibraryReference: Fit components, standardize and preserve training boundaries",
+  "match": [
+   "PCA",
+   "principal component",
+   "dimensionality reduction",
+   "factor loading",
+   "standardization",
+   "train test split",
+   "ridge regression"
+  ]
+ },
+ "library_reference_howto_integrate": {
+  "line": "LibraryReference: Integrate, interpolate and differentiate numerical surfaces",
+  "match": [
+   "numerical integration",
+   "quadrature",
+   "Gauss Legendre",
+   "interpolation",
+   "finite difference",
+   "local volatility",
+   "call surface",
+   "PCHIP",
+   "CubicSpline"
+  ]
+ },
+ "library_reference_howto_array_math": {
+  "line": "LibraryReference: Compute array statistics without axis or dtype mistakes",
+  "match": [
+   "covariance matrix",
+   "vectorization",
+   "array operations",
+   "correlation matrix"
+  ]
+ },
+ "library_reference_howto_simulation": {
+  "line": "LibraryReference: Manage random streams and paired simulation draws",
+  "match": [
+   "Monte Carlo",
+   "random seed",
+   "random number",
+   "common random numbers",
+   "antithetic",
+   "simulation paths",
+   "simulate paths",
+   "stochastic simulation"
+  ]
+ },
+ "library_reference_howto_quantiles": {
+  "line": "LibraryReference: Select empirical quantiles and tail loss averages",
+  "match": [
+   "Value at Risk",
+   "VaR",
+   "Expected Shortfall",
+   "CVaR",
+   "empirical quantile",
+   "historical quantile",
+   "tail loss",
+   "percentile",
+   "quantile"
+  ]
+ },
+ "library_reference_howto_table_io": {
+  "line": "LibraryReference: Read typed local spreadsheet and columnar tables",
+  "match": [
+   "Excel",
+   "spreadsheet",
+   "Parquet",
+   "xlsx",
+   "workbook",
+   "columnar file",
+   "pyarrow",
+   "openpyxl"
+  ]
+ },
+ "library_reference_howto_plots": {
+  "line": "LibraryReference: Save static or interactive chart files",
+  "match": [
+   "plot",
+   "chart",
+   "visualization",
+   "visualisation",
+   "interactive HTML",
+   "heatmap",
+   "bar graph",
+   "figure"
+  ]
+ },
+ "library_reference_howto_xml_pairs": {
+  "line": "LibraryReference: Parse structured text and enumerate ordered pairs",
+  "match": [
+   "XML",
+   "namespace",
+   "footnote",
+   "structured filing",
+   "unordered pairs",
+   "pair enumeration",
+   "combinations",
+   "text extraction"
+  ]
+ },
+ "library_reference_howto_cash_clock": {
+  "line": "LibraryReference: Track portfolio execution, costs and cash timing",
+  "match": [
+   "long short backtest",
+   "rebalance",
+   "rebalancing",
+   "hedging PnL",
+   "cash account",
+   "self financing",
+   "transaction costs",
+   "turnover"
+  ]
+ },
+ "library_reference_howto_fft": {
+  "line": "LibraryReference: Transform discrete distributions with FFT conventions",
+  "match": [
+   "FFT",
+   "characteristic function inversion",
+   "discrete Fourier",
+   "compound Poisson",
+   "convolution",
+   "frequency grid"
+  ]
+ },
+ "library_reference_howto_dtype": {
+  "line": "LibraryReference: Allocate numerical arrays and preserve numerical precision",
+  "match": [
+   "integer array",
+   "dtype",
+   "full_like",
+   "type conversion"
+  ]
+ },
+ "library_reference_howto_elementwise": {
+  "line": "LibraryReference: Apply stable elementwise transforms and payoff bounds",
+  "match": [
+   "log returns",
+   "log return",
+   "square root",
+   "payoff",
+   "discount factor",
+   "discounting",
+   "exponential transform"
+  ]
+ },
+ "event_study_conventions": {
+  "line": "Event-study conventions: event time on the trading-day index, pre-event feature rows, market model and CAR, cross-event tests, sign-flip and permutation p-values.",
+  "match": [
+   "sign-flip",
+   "sign flip p-value",
+   "permutation p-value",
+   "randomization test",
+   "permutation test",
+   "trading-day event index",
+   "event study",
+   "cumulative abnormal return",
+   "abnormal returns",
+   "CAAR",
+   "event study",
+   "cumulative abnormal return (CAR)",
+   "event window"
+  ],
+  "exclude": [],
+  "replaces": [
+   "event_study_conventions"
+  ]
+ },
+ "method_evt_pot_tail_risk": {
+  "line": "Tail VaR and ES by extreme value theory: peaks over threshold with a generalized Pareto fit, Hill tail index, GARCH-filtered EVT; choices of quantile method, ES form and volatility.",
+  "match": [
+   "peaks over threshold",
+   "peaks-over-threshold",
+   "generalized Pareto",
+   "GPD",
+   "Hill estimator",
+   "Hill tail index",
+   "extreme value theory"
+  ],
+  "exclude": [],
+  "replaces": [
+   "method_evt_pot_tail_risk"
+  ],
+  "requires": [
+   "api_core_arch_univariate_base_archmodelresult_resid",
+   "api_core_arch_univariate_base_archmodelresult_std_resid",
+   "api_core_numpy_quantile",
+   "api_core_scipy_stats_chi2",
+   "api_core_scipy_stats_genpareto",
+   "api_core_scipy_stats_norm",
+   "api_core_scipy_stats_rv_continuous_fit"
+  ],
+  "supersedes": [
+   "evt_pot_gpd"
+  ]
+ },
+ "product_barrier_option_and_structured_note": {
+  "line": "Down-and-out call with a lower barrier (closed form, Greeks) and a principal-protected note built on it: contract readings, fair value, markup, note risk.",
+  "match": [
+   "structured note",
+   "principal-protected",
+   "principal protected",
+   "participation rate",
+   "barrier call"
+  ],
+  "exclude": [],
+  "replaces": [
+   "product_barrier_option_and_structured_note"
+  ],
+  "supersedes": [
+   "structured_note_payoff_and_risk",
+   "quadratic_portfolio_risk"
+  ]
+ },
+ "arch_conventions": {
+  "line": "arch package GARCH conventions: fitting on percent returns, which volatility a figure uses (last in-sample vs one-step forecast), annualizing, parametric VaR and ES, indicator warm-up.",
+  "match": [
+   "GARCH",
+   "arch_model",
+   "conditional volatility",
+   "EGARCH",
+   "GJR-GARCH",
+   "arch package",
+   "GJR",
+   "TARCH"
+  ],
+  "exclude": [],
+  "replaces": [
+   "arch_conventions"
+  ],
+  "requires": [
+   "api_core_arch_arch_model",
+   "api_core_arch_univariate_base_archmodel_fit",
+   "api_core_arch_univariate_base_archmodelresult",
+   "api_core_arch_univariate_base_archmodelresult_params",
+   "api_core_arch_univariate_base_archmodelresult_conditional_volatility",
+   "api_core_arch_univariate_base_archmodelresult_convergence_flag",
+   "api_core_arch_univariate_base_archmodelresult_optimization_result",
+   "api_core_arch_univariate_base_archmodelresult_loglikelihood",
+   "api_core_arch_univariate_base_archmodelresult_scale",
+   "api_core_arch_univariate_base_archmodelresult_nobs",
+   "api_core_arch_univariate_base_archmodelresult_forecast",
+   "api_core_arch_univariate_base_archmodelforecast",
+   "api_core_arch_univariate_ewmavariance"
+  ],
+  "supersedes": [
+   "garch_fitting",
+   "conditional_volatility"
+  ]
+ },
+ "method_greek_var_decomposition": {
+  "line": "VaR of an option position split into delta, gamma and vega parts; forms of the gamma term, aggregation and volatility-of-volatility.",
+  "match": [
+   "VaR decomposition",
+   "Greek VaR",
+   "delta-gamma approximation",
+   "delta-gamma VaR",
+   "vega VaR",
+   "volatility of volatility",
+   "vol-of-vol",
+   "Greek-based VaR",
+   "delta VaR",
+   "gamma VaR"
+  ],
+  "exclude": [],
+  "replaces": [
+   "method_greek_var_decomposition"
+  ]
+ },
+ "method_trend_following_vol_target": {
+  "line": "Trend-following crossover signals with volatility-targeted sizing decided at each close: EMA initializations, EWMA or GARCH sizing volatility, execution lag.",
+  "match": [
+   "volatility target",
+   "volatility-targeted",
+   "trend-following",
+   "moving average crossover",
+   "EMA crossover",
+   "time-series momentum",
+   "trend following",
+   "vol targeting",
+   "volatility targeting",
+   "moving-average crossover"
+  ],
+  "exclude": [],
+  "replaces": [
+   "method_trend_following_vol_target"
+  ]
+ },
+ "stochastic_calibration_conventions": {
+  "line": "Calibrating mean-reverting (OU-type) processes: lag pairs as plain arrays, exact vs Euler maps from AR(1) coefficients, half-life units, exact simulation, analytical vs simulated moments.",
+  "match": [
+   "Ornstein-Uhlenbeck",
+   "OU process",
+   "mean reversion calibration",
+   "AR(1) regression"
+  ],
+  "exclude": [],
+  "replaces": [
+   "stochastic_calibration_conventions (87aa6c692181)"
+  ]
+ },
+ "method_var_backtest_coverage": {
+  "line": "Rolling VaR backtests: violations, unconditional and conditional coverage (Kupiec, Christoffersen) tests, and their p-values.",
+  "match": [
+   "coverage test",
+   "unconditional coverage",
+   "VaR backtest",
+   "VaR exceptions",
+   "VaR violations",
+   "exception count"
+  ],
+  "exclude": [],
+  "replaces": [],
+  "supersedes": [
+   "dependent_resampling_and_coverage",
+   "parametric_var_es"
+  ]
+ },
+ "method_credit_portfolio_simulation": {
+  "line": "Method: portfolio credit loss by Monte Carlo rating migration (CreditMetrics, one-factor Gaussian copula)",
+  "match": [
+   "CreditMetrics",
+   "single-factor Gaussian copula",
+   "one-factor Gaussian copula",
+   "rating migrations",
+   "credit portfolio simulation",
+   "Monte Carlo credit loss",
+   "CreditMetrics simulation"
+  ],
+  "exclude": [],
+  "replaces": [
+   "method_credit_portfolio_simulation"
+  ],
+  "supersedes": [
+   "credit_migration_loss",
+   "var_es_return_series"
+  ]
+ },
+ "method_filtered_historical_simulation": {
+  "line": "Method: filtered historical simulation (FHS) from standardised residuals, with stationary bootstrap rows and their draw-order variants",
+  "match": [
+   "filtered historical simulation",
+   "FHS",
+   "stationary bootstrap",
+   "filtered HS",
+   "GARCH-filtered",
+   "standardized residual bootstrap",
+   "standardised residual bootstrap",
+   "Barone-Adesi filtered"
+  ],
+  "exclude": [],
+  "replaces": [
+   "method_filtered_historical_simulation"
+  ]
+ },
+ "method_dcc_garch": {
+  "line": "Method: scalar DCC(1,1) correlations on GARCH residuals, with the choice of reported log-likelihood",
+  "match": [
+   "DCC",
+   "dynamic conditional correlation",
+   "DCC-GARCH",
+   "DCC GARCH",
+   "Engle 2002"
+  ],
+  "exclude": [],
+  "replaces": [
+   "method_dcc_garch"
+  ],
+  "requires": [
+   "api_core_arch_bootstrap_stationarybootstrap",
+   "api_core_arch_bootstrap_stationarybootstrap_bootstrap",
+   "api_core_arch_univariate_base_archmodelresult_resid",
+   "api_core_arch_univariate_base_archmodelresult_std_resid",
+   "api_core_numpy_percentile",
+   "api_core_scipy_optimize_minimize",
+   "api_core_scipy_stats_chi2",
+   "api_core_scipy_stats_norm"
+  ],
+  "supersedes": [
+   "backtest_accounting"
+  ]
+ },
+ "factor_regression_conventions": {
+  "line": "Factor regression conventions: one regression per model specification, calendar-period counting, sample windows.",
+  "match": [
+   "residual momentum",
+   "rolling PC1"
+  ],
+  "exclude": [],
+  "replaces": [
+   "factor_regression_conventions"
+  ]
+ },
+ "method_turnover_capped_rebalancing": {
+  "line": "Turnover-capped rebalancing: turnover, costs and leverage reported from the capped weights actually held.",
+  "match": [
+   "turnover cap",
+   "turnover-capped",
+   "turnover capped",
+   "turnover constraint",
+   "turnover limit",
+   "maximum turnover",
+   "trading cost penalty"
+  ],
+  "exclude": [],
+  "replaces": [
+   "method_turnover_capped_rebalancing"
+  ]
+ },
+ "order_fill_position_state": {
+  "line": "Signal, order and fill in a single-asset backtest: position, shares and cash change on the fill bar; pending orders; stop-loss exits.",
+  "match": [
+   "Bollinger",
+   "stop-loss",
+   "stop loss"
+  ],
+  "exclude": [],
+  "replaces": [
+   "order_fill_position_state"
+  ]
+ },
+ "unit_conventions": {
+  "line": "Unit conventions: decimal ratios, percent and basis points, thousand / million / billion multipliers, amounts written as text ($, separators, K/M/B), converting once and preserving signs",
+  "match": [
+   "decimal ratios",
+   "in percent",
+   "percentage points",
+   "basis points",
+   "in bps",
+   "decimal form",
+   "as a decimal",
+   "as decimals",
+   "not percentages",
+   "as a percentage",
+   "0 100 scale",
+   "in millions",
+   "in thousands"
+  ],
+  "exclude": [],
+  "replaces": [
+   "unit_conventions"
+  ]
+ },
+ "filing_data_conventions": {
+  "line": "Filing and ledger data conventions: per-unit vs position amounts, amendments, holdings aggregation, equity and cash checks.",
+  "match": [
+   "trade log"
+  ],
+  "exclude": [],
+  "replaces": [
+   "filing_data_conventions"
+  ]
+ },
+ "gaussian_likelihood_aic": {
+  "line": "Gaussian likelihood and AIC/BIC: the log sigma^2 term, zero-drift variance, parameter counts, same observations, nested-model check.",
+  "match": [
+   "negative log likelihood"
+  ],
+  "exclude": [],
+  "replaces": [
+   "gaussian_likelihood_aic"
+  ]
+ },
+ "rolling_estimate_rebalance_workflow": {
+  "line": "Backtest of a portfolio rebalanced from rolling estimates (regimes, inverse volatility, risk metrics): workflow",
+  "match": [
+   "absorption ratio"
+  ],
+  "requires": [
+   "var_es_conventions_riskparity",
+   "absorption_risk_parity_rebalance",
+   "backtest_accounting_rebalance",
+   "library_reference_howto_array_math",
+   "library_reference_howto_optimize",
+   "api_core_numpy_linalg_eigvalsh_notes",
+   "api_core_numpy_corrcoef_notes",
+   "api_core_numpy_cov_notes",
+   "api_core_pandas_dataframe_corr_notes",
+   "api_core_pandas_dataframe_rolling_notes",
+   "api_core_pandas_core_window_rolling_rolling_std_notes",
+   "api_core_pandas_dataframe_shift",
+   "api_core_pandas_dataframe_ffill",
+   "api_core_pandas_datetimeindex_to_period",
+   "api_core_numpy_quantile_notes",
+   "api_core_pandas_to_numeric",
+   "api_core_pandas_dataframe_dropna",
+   "api_core_pandas_dataframe_drop_duplicates_notes"
+  ],
+  "supersedes": [
+   "absorption_risk_parity",
+   "backtest_accounting"
+  ]
+ },
+ "var_es_return_series": {
+  "line": "VaR and ES of return series: loss sign, quantile rules, tail means, weights, horizons and windows",
+  "match": [
+   "value at risk",
+   "expected shortfall",
+   "cvar",
+   "var limit",
+   "var and es",
+   "var es",
+   "var and cvar",
+   "historical var",
+   "parametric var",
+   "portfolio var",
+   "var backtest",
+   "daily var",
+   "var 95",
+   "var 99",
+   "95 var",
+   "99 var",
+   "monte carlo var"
+  ]
+ },
+ "simulated_and_discrete_loss_distributions": {
+  "line": "Simulated and discrete loss distributions: random streams, quantiles and tail means on a grid",
+  "match": [
+   "creditmetrics",
+   "rating migrations",
+   "credit portfolio",
+   "vasicek",
+   "default simulation",
+   "simulated defaults",
+   "loss given default",
+   "simulated losses",
+   "aggregate loss"
+  ]
+ },
+ "performance_metrics_conventions": {
+  "line": "Performance metrics: drawdown, Sharpe ratio, Sortino and Calmar ratios, win rate",
+  "match": [
+   "drawdown",
+   "sharpe",
+   "sortino",
+   "calmar",
+   "win rate",
+   "hit rate"
+  ]
+ },
+ "windows_boundaries_and_calendars": {
+  "line": "Windows, boundaries and calendars: endpoints, trailing windows, trading versus calendar days, time zones, resampling",
+  "match": [
+   "inclusive",
+   "exclusive",
+   "trailing",
+   "lookback window",
+   "lookback period",
+   "lookback days",
+   "vol lookback",
+   "business days",
+   "calendar days",
+   "next trading day",
+   "resample",
+   "resampled",
+   "month end",
+   "utc"
+  ]
+ },
+ "annualization_and_return_conventions": {
+  "line": "Annualization and return conventions",
+  "match": [
+   "annualization factor",
+   "annualisation factor",
+   "periods per year",
+   "geometric annualization",
+   "arithmetic annualization",
+   "cagr",
+   "compound annual growth"
+  ]
+ },
+ "estimator_variants": {
+  "line": "Estimator variants: ddof, recursion seeds, rounding to whole units, Student-t scale",
+  "match": [
+   "sample standard deviation",
+   "population standard deviation",
+   "student t",
+   "standardized t",
+   "sma seeded",
+   "seeded ema",
+   "backcast",
+   "initial variance"
+  ]
+ },
+ "holdings_selection_membership": {
+  "line": "Holdings selection and fund membership",
+  "match": [
+   "redemption pressure",
+   "redemption scenario",
+   "redemption scenarios"
+  ],
+  "requires": [
+   "holdings_flow_exposure"
+  ]
+ },
+ "holdings_flow_exposure": {
+  "line": "Proportional fund flows on selected holdings",
+  "match": []
+ },
+ "structured_note_conventions": {
+  "line": "Principal-protected note on a down-and-out call: conventions and formulas",
+  "match": [
+   "structured note",
+   "principal-protected",
+   "principal protected"
+  ],
+  "supersedes": [
+   "product_barrier_option_and_structured_note"
+  ]
+ },
+ "rates_conventions": {
+  "line": "Rate curves and swaps: working conventions",
+  "match": []
+ },
+ "copula_credit_loss_methods": {
+  "line": "Credit portfolio loss by Monte Carlo under factor copulas",
+  "match": [
+   "credit portfolio",
+   "default correlation",
+   "CVaR contribution",
+   "factor copula",
+   "Monte Carlo credit loss",
+   "portfolio credit loss"
+  ],
+  "exclude": []
+ },
+ "local_volatility_methods": {
+  "line": "Local volatility from an implied-volatility surface or call prices",
+  "match": [
+   "Dupire",
+   "local volatility",
+   "local vol",
+   "local volatility surface",
+   "local variance",
+   "local volatility model",
+   "Dupire formula",
+   "Dupire's formula",
+   "Dupire equation",
+   "local volatility function",
+   "local vol surface"
+  ],
+  "exclude": [],
+  "supersedes": [
+   "dupire_local_vol"
+  ]
+ },
+ "grid_finite_difference_local_vol": {
+  "line": "Finite-difference derivatives on a price grid and Dupire local volatility from call prices",
+  "match": [
+   "Dupire",
+   "local volatility"
+  ],
+  "exclude": [],
+  "supersedes": []
+ },
+ "ordinal_ranking_and_entity_identifiers": {
+  "line": "Ordinal positions, tie-breaking, entity identifiers in list and pair fields, one row per entity, copied input fields",
+  "match": [
+   "crowding",
+   "list encoding",
+   "pair encoding",
+   "rankings"
+  ],
+  "exclude": [],
+  "supersedes": []
+ }
+}

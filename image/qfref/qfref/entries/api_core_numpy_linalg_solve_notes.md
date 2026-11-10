@@ -1,0 +1,45 @@
+# Official API description: numpy.linalg.solve (numpy 2.5.3)
+
+From the installed docstring, unchanged; sections other than the signature, summary, parameters and notes are omitted.
+
+```text
+numpy.linalg.solve(a, b)
+
+Solve a linear matrix equation, or system of linear scalar equations.
+
+Computes the "exact" solution, `x`, of the well-determined, i.e., full
+rank, linear matrix equation `ax = b`.
+
+Parameters
+----------
+a : (..., M, M) array_like
+    Coefficient matrix.
+b : {(M,), (..., M, K)}, array_like
+    Ordinate or "dependent variable" values.
+
+Returns
+-------
+x : {(..., M,), (..., M, K)} ndarray
+    Solution to the system a x = b.  Returned shape is (..., M) if b is
+    shape (M,) and (..., M, K) if b is (..., M, K), where the "..." part is
+    broadcasted between a and b.
+
+Notes
+-----
+Broadcasting rules apply, see the `numpy.linalg` documentation for
+details.
+
+The solutions are computed using LAPACK routine ``_gesv``.
+
+`a` must be square and of full-rank, i.e., all rows (or, equivalently,
+columns) must be linearly independent; if either is not true, use
+`lstsq` for the least-squares best "solution" of the
+system/equation.
+
+.. versionchanged:: 2.0
+
+   The b array is only treated as a shape (M,) column vector if it is
+   exactly 1-dimensional. In all other instances it is treated as a stack
+   of (M, K) matrices. Previously b would be treated as a stack of (M,)
+   vectors if b.ndim was equal to a.ndim - 1.
+```
